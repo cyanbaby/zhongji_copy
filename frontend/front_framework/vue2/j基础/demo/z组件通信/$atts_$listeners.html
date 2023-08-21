@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>$attrs 和 $listeners</title>
+  <style>
+    .box {
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="box">
+      <h2>父级</h2>
+      <div>
+        <button @click="goHome">呼叫</button>
+        <p v-if="reply">收到信息：{{reply}}</p >
+      </div>
+      <Child v-for="child in children" :name="child.name" :children="children" @send-parent="receive"
+        @ask-parent="receive">
+        <Child v-if="child.toys && child.toys.length" v-for="toy in child.toys" :name="toy.name" :children="child.toys"
+          @send-parent="receive" @ask-parent="receive"></Child>
+      </Child>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+  <script>
+    Vue.component('child', {
+      data() {
+        // 未定义 props 接收属性时，可在 $attrs 里获取传值属性
+        const {
+          name,
+          children
+        } = this.$attrs;
+
+        return {
+          children,
+          name,
+          msg: ''
+        }
+      },
+      computed: {
+        siblings() {
+          return this.children.filter(child => child.name !== this.name)
+        }
+      },
+      template: `
+        <div class="box">
+          <h3>{{name}}</h3>
+          <div v-if="msg">
+            收到信息：{{msg}}
+            <button v-on="$listeners" @click="reply">回复爸爸</button>
+            <button v-if="children.length > 1" v-on="$listeners" @click="ask">
+              询问爸爸
+            </button>
+          </div>
+          <slot></slot>
+        </div>
+      `,
+      methods: {
+        reply() {
+          this.$emit('send-parent', `${this.name}知道了，我马上回来`)
+          this.msg = '已回复爸爸';
+        },
+        ask() {
+          this.$emit('ask-parent', `我是${this.name}，要叫其他兄弟姐妹们回来吗？`)
+          this.msg = '已询问爸爸';
+        }
+      }
+    });
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        call: '',
+        reply: '',
+        children: [
+          {
+            name: '大宝'
+          }, 
+
+          {
+            name: '二宝',
+            toys: [
+              {
+                name: '擎天柱'
+              },
+              {
+                name: '钢铁侠'
+              }
+            ]
+          }, 
+
+          {
+            name: '三宝',
+            toys: [{
+              name: '芭比娃娃'
+            }]
+          }
+          
+        ]
+      },
+      methods: {
+        goHome() {
+          const msg = '孩儿们，爸爸喊你们回家吃饭了';
+
+          this.$children.forEach(child => {
+            child.msg = msg;
+
+            if (child.$children) {
+              child.$children.forEach(c => c.msg = msg)
+            }
+          })
+        },
+        receive(msg) {
+          this.reply = msg
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

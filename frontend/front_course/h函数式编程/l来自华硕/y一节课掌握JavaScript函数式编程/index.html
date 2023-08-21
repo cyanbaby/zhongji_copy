@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 柯里化: 1.让纯函数变得更纯
+      //    某些语言自带柯里化特性，某些语言及特定环境下只能接受一元参数
+      // 把多元函数转为一元函数
+
+      function test(x, y) {
+        return x + y
+      }
+
+      // 把二元函数转为一元函数
+      const curry = function (fn) {
+        return function (x) {
+          return function (y) {
+            return fn(x, y)
+          }
+        }
+      }
+
+      let myfn = curry(test)
+      let res = myfn(1)(2)
+      console.log(res)
+    </script>
+  </body>
+</html>

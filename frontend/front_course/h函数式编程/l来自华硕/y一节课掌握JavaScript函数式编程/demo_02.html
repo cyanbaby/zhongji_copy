@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // js 纯函数: 纯函数是对给定的输入返还相同输出的函数，没有外部依赖
+      // 结果可控制，结果可推测，方便测试
+      // 1. 可推测 2.可复用，模块化 3.无副作用 4.可读性强
+      let totalNum = (num, factor) => factor * num
+
+      // 测试伪代码
+      test('double(2) 等于 4', () => {
+        expect(double(2)).toBe(4)
+      })
+    </script>
+  </body>
+</html>

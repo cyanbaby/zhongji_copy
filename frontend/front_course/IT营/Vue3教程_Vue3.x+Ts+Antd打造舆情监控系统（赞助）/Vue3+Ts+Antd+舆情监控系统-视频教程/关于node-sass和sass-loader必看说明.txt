@@ -1,0 +1,14 @@
+如果集成最新的node-sass和sass-loader报错的话，请安装大地老师教程中使用的版本，如果不报错请忽略。
+
+
+方法1：把你package.json中的 node-sass 和sass-loader改为下面版本，改完以后重新cnpm i安装依赖
+
+  "node-sass": "^5.0.0",
+  "sass-loader": "^10.1.0"
+
+
+方法2：指定版本安装
+
+          cnpm i node-sass@5.0.0 --save-dev
+
+          cnpm i sass-loader@10.1.0 --save-dev

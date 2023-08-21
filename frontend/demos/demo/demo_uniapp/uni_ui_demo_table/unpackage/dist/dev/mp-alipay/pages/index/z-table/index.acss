@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* 水平间距 */
+/* 水平间距 */
+.z-table {
+  width: 100%;
+}
+.z-table__scroll {
+  margin: 5px;
+  border: 1px #ebeef5 solid;
+}
+.z-table__header, .z-table__tr {
+  display: flex;
+}
+.z-table__tr {
+  border-bottom: 1px #ebeef5 solid;
+}
+.z-table__tr:hover {
+  background-color: #f5f7fa;
+}
+.z-table__cell {
+  padding: 8px 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #606266;
+  box-sizing: border-box;
+  border-right: 1px #ebeef5 solid;
+}
+.z-table__cell.z-table__th {
+  border-bottom: 1px #ebeef5 solid;
+}
+.z-table__th {
+  font-size: 14px;
+  font-weight: bold;
+  color: #909399;
+}
+

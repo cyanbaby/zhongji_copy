@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function (){
+      let oTxt=document.getElementById('txt1');
+      let oBtn=document.getElementById('btn1');
+
+      oBtn.onclick=function (){
+        let re=/^[1-9]\d{4,11}$/;
+
+        if(re.test(oTxt.value)){
+          alert('通过');
+        }else{
+          alert('不对');
+        }
+      };
+    };
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txt1">
+    <input type="button" value="校验" id="btn1">
+  </body>
+</html>

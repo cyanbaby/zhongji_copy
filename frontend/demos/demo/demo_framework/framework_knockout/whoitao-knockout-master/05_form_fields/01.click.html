@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05.form_fields | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <div>
+    购买 <span data-bind="text: number"></span> 件
+    <button data-bind="click: increment">+</button>
+    <a href="https://www.baidu.com" data-bind="click: increment">百度</a>
+  </div>
+
+  <script type="text/javascript">
+    var vm = {
+      number: ko.observable(0),
+      increment: function() {
+        var previousCount = this.number();
+        this.number(previousCount + 1);
+        // return true // 返回 true 会执行跳转，不返回，只执行累加
+      }
+    };
+
+    ko.applyBindings(vm);
+  </script>
+    
+</body>
+</html>

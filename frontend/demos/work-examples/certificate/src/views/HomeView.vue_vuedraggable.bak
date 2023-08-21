@@ -1,0 +1,86 @@
+<template>
+  <div class="row">
+    <div class="col-3 z-ul">
+      <h3>Draggable 1</h3>
+      <draggable
+        class=""
+        :group="{ name: 'people', pull: 'clone', put: false }"
+        @change="log"
+      >
+        <div class="z-li">张三</div>
+        <div class="z-li">李四</div>
+        <div class="z-li">王五</div>
+        <div class="z-li">马六</div>
+      </draggable>
+    </div>
+
+    <div class="col-3 z-ul">
+      <h3>Draggable 2</h3>
+      <draggable class="" style="width: 375px; height: 255px;" group="people" @change="log">
+      </draggable>
+    </div>
+  </div>
+</template>
+
+<script>
+import draggable from "vuedraggable";
+
+export default {
+  name: "cloneView",
+  display: "Clone",
+  order: 2,
+  components: {
+    draggable,
+  },
+  data() {
+    return {
+      list1: [
+        { name: "John", id: 1 },
+        { name: "Joao", id: 2 },
+        { name: "Jean", id: 3 },
+        { name: "Gerard", id: 4 },
+      ],
+      list2: [
+        { name: "Juan", id: 5 },
+        { name: "Edgard", id: 6 },
+        { name: "Johnson", id: 7 },
+      ],
+    };
+  },
+  methods: {
+    log: function (evt) {
+      window.console.log(evt);
+    },
+  },
+};
+</script>
+<style lang="scss" scoped>
+.z-ul {
+  width: 350px;
+  padding: 15px;
+  min-height: 300px;
+  background-color: #fffff0;
+  margin: 20px;
+  display: block;
+  float: left;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+}
+.z-li {
+  display: block;
+  float: left;
+  width: 350px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #eed2ee;
+  margin-bottom: 10px;
+  -moz-user-select: none;
+  user-select: none;
+  text-indent: 10px;
+  color: #555;
+}
+</style>

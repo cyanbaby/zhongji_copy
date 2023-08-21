@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My App</title>
+    <script src="./node_modules/knockout/build/output/knockout-latest.js"></script>
+  </head>
+  <body>
+    <dl>
+      <dt>替换p标签里的text</dt>
+      <dd>
+        通过绑定的事件里的self调用change方法，直接给message赋值，视图自动更新
+      </dd>
+    </dl>
+
+    <hr />
+
+    <div>
+      <p>Name: <input data-bind="value: name" /></p>
+      <p>Age: <input data-bind="value: age" /></p>
+      <button data-bind="click: greet">Greet</button>
+      <p data-bind="text: message"></p>
+    </div>
+    <script>
+      function MyViewModel() {
+        var self = this;
+        self.name = ko.observable("张三");
+        self.age = ko.observable(30);
+        self.greet = function () {
+          self.message(
+            "你好, " + self.name() + "，你的年龄：" + self.age() + "岁!"
+          );
+        };
+        self.message = ko.observable("");
+      }
+
+      ko.applyBindings(new MyViewModel());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    window.onload=function (){
+      let oDiv=document.getElementById('div1');
+      let str='sdfsf##dfasderferfef##dfdfsgdsgf##dgdfbfdghg';
+
+      oDiv.innerHTML=str.split(/##/g).map(item=>{
+        return `<p>${item}</p>`;
+      }).join('');
+    };
+    </script>
+  </head>
+  <body>
+    <div id="div1">
+
+    </div>
+  </body>
+</html>

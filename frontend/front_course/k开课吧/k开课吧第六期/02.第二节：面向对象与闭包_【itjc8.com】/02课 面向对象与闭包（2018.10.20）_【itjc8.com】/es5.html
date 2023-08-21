@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    function Person(name, age){
+      this.name=name;
+      this.age=age;
+    }
+
+    Person.prototype.show=function (){
+      alert(this.name);
+      alert(this.age);
+    };
+
+    //-------------------------------------------
+
+    function Worker(name, age, job){
+      Person.call(this, name, age);
+      this.job=job;
+    }
+
+    Worker.prototype=new Person();
+    Worker.prototype.constructor=Worker;
+
+    Worker.prototype.showJob=function (){
+      alert(this.job);
+    };
+
+    let w=new Worker('blue', 18, '打杂的');
+
+    w.show();
+    w.showJob();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

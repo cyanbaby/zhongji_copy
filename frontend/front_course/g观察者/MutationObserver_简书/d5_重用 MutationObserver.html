@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let observer = new MutationObserver(() => console.log('<body> 属性发生了改变'));
+        observer.observe(document.body, { attributes: true });
+        // 这行代码会触发变化事件
+        document.body.setAttribute('foo', 'bar');
+
+        setTimeout(() => {
+            observer.disconnect();
+            // 这行代码不会触发变化事件
+            document.body.setAttribute('bar', 'baz');
+        }, 0);
+
+        setTimeout(() => {
+            // Reattach
+            observer.observe(document.body, { attributes: true });
+            // 这行代码会触发变化事件
+            document.body.setAttribute('baz', 'qux');
+        }, 0);
+
+        // <body> 属性发生了改变
+        // <body> 属性发生了改变
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06.template | KnockOut</title>
+  <script src="../assets/jquery-1.7.2/jquery.min.js"></script>
+  <script src="../assets/jquery-tmpl/jquery.tmpl.min.js"></script>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <h1>People</h1>
+  <div data-bind="template: 'peopleList'"></div>
+ 
+  <script type="text/html" id="peopleList">
+    {{each people}}
+      <p>
+        <b>${name}</b> is ${age} years old
+      </p>
+    {{/each}}
+  </script>
+ 
+  <script type="text/javascript">
+    var vm = {
+      people: ko.observableArray([
+        { name: 'Rod', age: 123 },
+        { name: 'Jane', age: 125 },
+      ])
+    }
+    
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

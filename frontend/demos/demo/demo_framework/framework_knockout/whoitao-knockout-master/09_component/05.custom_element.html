@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09_component | KnockOut.js</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <h4>不传参的写法</h4>
+  <message-editor></message-editor>
+  
+  <h4>传参的写法</h4>
+  <message-editor params='initialText: "Hello, world!"'></message-editor>
+
+      
+  <script type="text/javascript">
+    // 注册组件
+    ko.components.register('message-editor', {
+      viewModel: function(params) {
+        this.text = ko.observable(params.initialText || '');
+      },
+      template: 'Message: <input data-bind="value: text" /> '
+              + '(length: <span data-bind="text: text().length"></span>)'
+    });
+    
+    ko.applyBindings();
+  </script>
+    
+</body>
+</html>

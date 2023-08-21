@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            --max-size: 400px;
+            --transition-size: 200px;
+            max-width: var(--max-size);
+            display: flex;
+            border: 2px solid black;
+        }
+
+        .box {
+            width: 100%;
+            max-width: var(--max-size);
+            background: red;
+            position: relative;
+        }
+
+        .text {
+            border: 2px solid blue;
+            padding: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <span class="text" contenteditable>
+            足够长的文本将使框变为蓝色，
+            请尝试在此处键入：
+        </span>
+    </div>
+    <script>
+        const box = document.querySelector('.box')
+        // ResizeObserver 简书： https://www.jianshu.com/p/90af68a9cab6
+
+        // 掘金： https://juejin.cn/post/6862321554686214158
+        // 参考： https://zhuanlan.zhihu.com/p/41418813
+        const observer = new ResizeObserver((entries) => {
+            const boxElement = entries[0]
+            const isSmall = boxElement.contentRect.width < 150
+            boxElement.target.style.backgroundColor = isSmall ? "blue" : "red"
+        })
+
+        observer.observe(box)
+    </script>
+</body>
+
+</html>

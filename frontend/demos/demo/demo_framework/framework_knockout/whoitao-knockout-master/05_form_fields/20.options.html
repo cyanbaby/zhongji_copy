@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05.form_fields | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <p>
+    <select data-bind="options: availableCountries,
+                      optionsText: 'countryName',
+                      value: selectedCountry,
+                      optionsCaption: '选择国家...'"></select>
+  </p>
+
+  <div data-bind="visible: selectedCountry">
+    <!-- 选择国家后显示 -->
+    <span data-bind="text: selectedCountry() ? selectedCountry().countryName : 'unknown'"></span>的人口：
+    <span data-bind="text: selectedCountry() ? selectedCountry().countryPopulation : 'unknown'"></span>.
+  </div>
+
+  <select data-bind="options: availableCountries,
+                    optionsText: function(item) {
+                      return item.countryName + ' (人口: ' + item.countryPopulation + ')'
+                    },
+                    value: selectedCountry,
+                    optionsCaption: '选择国家...'"></select>
+
+  <script type="text/javascript">
+    // 对象构造器中包含两个属性
+    var Country = function (name, population) {
+      this.countryName = name;
+      this.countryPopulation = population;
+    };
+
+    var vm = {
+      availableCountries: ko.observableArray([
+        new Country("英国", 65000000),
+        new Country("美国", 320000000),
+        new Country("瑞典", 29000000)
+      ]),
+      selectedCountry: ko.observable() // 默认不选中
+    };
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

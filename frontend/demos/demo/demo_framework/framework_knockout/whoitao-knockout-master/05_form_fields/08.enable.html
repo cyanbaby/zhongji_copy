@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05.form_fields | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <p>
+    <input type="checkbox" data-bind="checked: hasCellphone" />
+    我有手机
+  </p>
+  
+  <p>
+    手机号:
+    <input type="text" data-bind="value: cellphoneNumber, enable: hasCellphone" />
+  </p>
+  
+  <script type="text/javascript">
+    function MyViewModel() {
+      var self = this;
+
+      self.cellphoneNumber = "";
+      self.hasCellphone = ko.observable(false);
+    }
+
+    ko.applyBindings(new MyViewModel());
+  </script>
+
+</body>
+</html>

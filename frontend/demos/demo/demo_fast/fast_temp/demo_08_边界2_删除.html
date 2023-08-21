@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container-box {
+        /* box-sizing: border-box; */
+        background-color: #bae0ff;
+        width: 800px;
+        height: 800px;
+        /* border: 1px solid red; */
+        margin: 50px auto;
+        position: relative;
+      }
+      .div-item {
+        width: 100px;
+        height: 100px;
+        background-color: #f4606c;
+        position: absolute;
+      }
+    </style>
+    <script>
+      function addItem2() {
+        alert(2)
+      }
+    </script>
+  </head>
+  <body>
+    <div style="text-align: center; margin-top: 20px">
+      <button onclick="addElement()">新增一个</button>
+      <button onclick="consoleHtml()">输出HTML</button>
+    </div>
+
+    <div class="container-box" id="containerBox">
+      <div id="div1" class="div-item">1</div>
+    </div>
+    <script>
+      let colorIndex = 0;
+      const colors = [
+        "#19CAAD",
+        "#8CC7B5",
+        "#A0EEE1",
+        "#BEE7E9",
+        "#BEEDC7",
+        "#D6D5B7",
+        "#D1BA74",
+        "#E6CEAC",
+        "#ECAD9E",
+        "#F4606C",
+      ];
+
+
+
+      let div1 = document.getElementById("div1");
+      //判断边界问题
+      function range(loc, min, max) {
+        if (loc > max) {
+          return max;
+        } else if (loc < min) {
+          return min;
+        } else {
+          return loc;
+        }
+      }
+
+      //拖拽功能
+      function drag(eg) {
+        eg.onmousedown = function (ev) {
+          let e = ev || window.event;
+          let eX = e.clientX;
+          let eY = e.clientY;
+          let disX = eX - eg.offsetLeft;
+          let disY = eY - eg.offsetTop;
+          document.onmousemove = function (ev) {
+            let e = ev || window.event;
+            let l = e.clientX - disX;
+            let h = e.clientY - disY;
+            // let windowWidth = document.documentElement.clientWidth;
+            // let windowHeight = document.documentElement.clientHeight;
+
+            let windowWidth =
+              document.getElementById("containerBox").clientWidth;
+            let windowHeight =
+              document.getElementById("containerBox").clientHeight;
+            l = range(l, 0, windowWidth - eg.offsetWidth);
+            h = range(h, 0, windowHeight - eg.offsetHeight);
+            eg.style.left = `${l}px`;
+            eg.style.top = `${h}px`;
+          };
+        };
+        document.onmouseup = function () {
+          document.onmousemove = null;
+        };
+      }
+
+     // 1. 数据初始化
+     function createNode() {
+        let tempNode = document.createElement("div");
+        tempNode.id = 'div2'
+        tempNode.className = 'div-item'
+        tempNode.innerHTML = '2';
+        return tempNode
+      }
+
+      // 新增拖拽Element
+      function addElement() {
+        // get current element color
+        const color = colors[colorIndex++]
+        
+        const div = createNode()
+        
+        document.getElementById('containerBox').appendChild(div)
+        drag(div)
+      }
+
+      // 输出 HTML
+      function consoleHtml() {
+        const containerBox = document.getElementById('containerBox')
+        console.group('containerBox')
+        console.log(containerBox)
+        console.groupEnd()
+      }
+
+      drag(div1);
+    </script>
+  </body>
+</html>

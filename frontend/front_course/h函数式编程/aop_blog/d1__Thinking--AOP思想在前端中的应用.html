@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Function.prototype.before = function (action) {
+        // console.log(action) // => beforeFn
+        // console.log(this) // => fn
+
+        var func = this
+
+        // =>  返回一个新函数，但还没执行
+        return function () {
+          // =>  执行 before 函数
+          action.apply(this, arguments)
+          // =>  执行 中间函数
+          return func.apply(this, arguments)
+        }
+      }
+
+      Function.prototype.after = function (action) {
+        // console.log(action) // => afterFn
+        // console.log(this) // => bofore 返回的新函数， 因为它是外部.after的调用者
+
+
+        // 保留当前函数，这里this指向运行函数
+        var func = this
+
+        // return 被包装过的函数，这里就可以执行其他功能了
+        // 并且该方法挂在 Function.prototype 上，
+        // 被返回的函数依然具有 after 属性，可以链式调用
+        // => 继续返回一个新函数，但还没执行
+        // => 如果外部执行此函数， bofore 返回的新函数将会被调用。(中间函数的返回值，会被接收并保存，after执行后，再返回)
+        // => after会被执行
+        return function () {
+          // 原函数执行，这里不考虑异步
+          var result = func.apply(this, arguments)
+          // 执行之后的操作
+          action.apply(this, arguments)
+          // 将执行结果返回
+          return result
+        }
+      }
+
+      let beforeFn = function () {
+        console.log('beforeFn')
+      }
+      let afterFn = function () {
+        console.log('afterFn')
+      }
+      let fn = function () {
+        console.log('fn')
+      }
+      // => fn.before(beforeFn).after(afterFn) 初始化AOP执行栈; 或者叫初始化 AOP函数(包含主函数的函数)
+      fn
+        .before(beforeFn)
+        .after(afterFn)
+      () 
+      // beforeFn fn afterFn
+    </script>
+  </body>
+</html>

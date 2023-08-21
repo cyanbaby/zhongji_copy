@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08.custom_binding | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <div data-bind="withProperties: { emotion: 'happy' }">
+    Today I feel <span data-bind="text: emotion"></span>. <!-- 显示: happy -->
+  </div>
+  <div data-bind="withProperties: { emotion: 'whimsical' }">
+    Today I feel <span data-bind="text: emotion"></span>. <!-- 显示: whimsical -->
+  </div>
+
+  <script type="text/javascript">
+    ko.bindingHandlers.withProperties = {
+      init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
+        // 创建一个具有额外属性的修改绑定上下文，并将其应用于后代元素
+        var innerBindingContext = bindingContext.extend(valueAccessor);
+        ko.applyBindingsToDescendants(innerBindingContext, element);
+
+        // 还要告诉 KO *不要* 绑定后代本身，否则它们将被绑定两次
+        return { controlsDescendantBindings: true };
+      }
+    };
+
+    var vm = {}
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

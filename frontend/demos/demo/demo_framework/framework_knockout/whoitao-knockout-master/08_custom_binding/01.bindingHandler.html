@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08.custom_binding | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <div data-bind="hello: msg"></div>
+
+  <script type="text/javascript">
+    ko.bindingHandlers.hello = {
+      init: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        /// 绑定时，设置任何初始状态，事件处理程序
+        // viewModel.msg = 'World'
+        console.log(element)
+        console.log(valueAccessor())
+        console.log(viewModel.msg())
+        console.log(bindingContext)
+        // element.textContent = viewModel.msg()
+        element.innerText = viewModel.msg()
+      },
+      update: function (element, valueAccessor, allBindingsAccessor, viewModel, bindingContext) {
+        /// 绑定之后应用于 DOM 元素上，然后观察 DOM 元素的变化，进行相应调用更新
+        // element.innerHtml = viewModel.msg()
+      }
+    };
+
+    var vm = {
+      msg: ko.observable('World')
+    }
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

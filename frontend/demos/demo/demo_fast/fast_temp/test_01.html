@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务清单</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100%;
+      }
+      .task {
+        display: flex;
+        width: 100%;
+      }
+      /* 
+      .task .task-todo {
+        flex: 1;
+        width: 300px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+       */
+
+      .dragbox {
+        flex: 1;
+        height: 100vh;
+        overflow: hidden;
+        background-color: #42b681;
+        position: relative;
+      }
+
+      .task-item {
+        height: 50px;
+        background-color: #34495d;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        text-align: center;
+        width: 200px;
+        line-height: 50px;
+        margin: 10px;
+      }
+      .test-drag {
+        position: absolute;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="task">
+      <div class="dragbox" id="dragBox"></div>
+
+      <div class="task-todo-list"></div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script>
+    //   let div1 = document.getElementById("div1");
+      //判断边界问题
+      function range(loc, min, max) {
+        if (loc > max) {
+          return max;
+        } else if (loc < min) {
+          return min;
+        } else {
+          return loc;
+        }
+      }
+
+      //拖拽功能
+      function drag(eg) {
+        console.log(eg)
+        eg.onmousedown = function (ev) {
+          let e = ev || window.event;
+          let eX = e.clientX;
+          let eY = e.clientY;
+          let disX = eX - eg.offsetLeft;
+          let disY = eY - eg.offsetTop;
+          document.onmousemove = function (ev) {
+            let e = ev || window.event;
+            let l = e.clientX - disX;
+            let h = e.clientY - disY;
+            // let windowWidth = document.documentElement.clientWidth;
+            // let windowHeight = document.documentElement.clientHeight;
+
+            let windowWidth =
+              document.getElementById("dragBox").clientWidth;
+            let windowHeight =
+              document.getElementById("dragBox").clientHeight;
+            l = range(l, 0, windowWidth - eg.offsetWidth);
+            h = range(h, 0, windowHeight - eg.offsetHeight);
+            eg.style.left = `${l}px`;
+            eg.style.top = `${h}px`;
+          };
+        };
+        document.onmouseup = function () {
+          document.onmousemove = null;
+        };
+      }
+
+    //   drag(div1);
+
+      // *************************************************************************
+
+      // 1. 数据初始化
+      function createNode(txt) {
+        // data-dragtarget='nav'
+        const template = `<div class='task-item' draggable='true' ondragstart='event.dataTransfer.setData("text/plain", null)'>${txt}</div>`;
+        let tempNode = document.createElement("div");
+        tempNode.innerHTML = template;
+        return tempNode.firstChild;
+      }
+
+      const todoList = ["运动10分钟", "找个女朋友", "年薪百万", "不装逼"];
+      const todo = document.querySelector(".task-todo-list");
+      todoList.forEach(function (ele) {
+        createNode(ele);
+        // console.log(createNode(ele))
+        todo.appendChild(createNode(ele));
+      });
+
+      function isTarget(evt) {
+        return (
+          evt.target.className === "task-todo-list" ||
+          evt.target.className === "dragbox"
+        );
+      }
+
+      // 2. 标记当前拖动的节点
+      let dragEle = null;
+
+      document.addEventListener("dragstart", function (eve) {
+        // => 当用户开始拖拽一个元素或选中的文本时触发
+        // console.log(eve.target.parentElement)
+        // cloneNode可以复制当前拖动的节点
+        dragEle = eve.target.cloneNode(true);
+        // dragEle = eve.target;
+      });
+
+      //  3. 进入可放置区域背景高亮
+      document.addEventListener("dragenter", function (evt) {
+        // => 当拖拽元素或选中的文本到一个可释放目标时触发
+        // 进入可放置区域背景高亮
+        if (isTarget(evt)) {
+          evt.target.style.background = "#FBB638";
+        }
+      });
+
+      // 3. 离开可放置区域，背景恢复
+      document.addEventListener(
+        // => 当拖拽元素或选中的文本离开一个可释放目标时触发。
+        "dragleave",
+        function (event) {
+          // 当拖动元素离开可放置目标节点，重置其背景
+          if (isTarget(event)) {
+            event.target.style.background = "";
+          }
+        },
+        false
+      );
+
+      // 5. 放置行为默认是被浏览器阻止的，我们需要取消这个默认行为
+      document.addEventListener(
+        "dragover",
+        function (event) {
+          // 阻止默认动作
+          event.preventDefault();
+        },
+        false
+      );
+
+      // 6. 拖动到指定容器，进行添加操作
+      document.addEventListener(
+        "drop",
+        function (event) {
+          // TODO 业务逻辑插入动态DOM
+
+          const _dragEle = dragEle.cloneNode(true);
+          // 阻止默认动作（如打开一些元素的链接）
+          event.preventDefault();
+          // 移动拖动的元素到所选择的放置目标节点
+          if (isTarget(event)) {
+            // 背景恢复
+            event.target.style.background = "";
+
+            // _dragEle.removeAttribute('ondragstart')
+            _dragEle.removeAttribute("draggable");
+            _dragEle.id = 'test'
+            _dragEle.className = 'task-item test-drag'
+            event.target.appendChild(_dragEle);
+
+            drag(document.getElementById('test'))
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

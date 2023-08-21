@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08.custom_binding | KnockOut</title>
+  <script src="../assets/jquery-1.7.2/jquery.min.js"></script>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <label><input type="checkbox" data-bind="checked: giftWrap" /> Gift wrap</label>
+  <div data-bind="slideVisible: giftWrap, slideDuration: 600">
+    <p>You have selected the option</p>
+    <p>You have selected the option</p>
+    <p>You have selected the option</p>
+    <p>You have selected the option</p>
+  </div>
+  
+  <script type="text/javascript">
+    // 自定义绑定 slideVisible
+    ko.bindingHandlers.slideVisible = {
+      init: function(element, valueAccessor) {
+        var value = ko.unwrap(valueAccessor()); // 获取当前绑定属性的值
+        $(element).toggle(value); // jQuery 会根据 value 的值来显示/隐藏元素
+      },
+      update: function (element, valueAccessor, allBindings) {
+        // 首先，获取最新的绑定数据，即 slideVisible: giftWrap 中的 giftWrap
+        var value = valueAccessor();
+        console.log(value)
+
+        // 然后,模型属性是否是可观察的，获取当前值
+        var valueUnwrapped = ko.unwrap(value);
+        console.log(valueUnwrapped)
+
+        // 获取另一个绑定属性的值，即 slideDuration: 600
+        var duration = allBindings.get('slideDuration') || 400; // 如果没有该属性，则默认 400 毫秒
+
+        // 操作 DOM 元素
+        if (valueUnwrapped == true)
+          $(element).slideDown(duration); // 显示元素
+        else
+          $(element).slideUp(duration);   // 隐藏元素
+      }
+    };
+
+    var vm = {
+      giftWrap: ko.observable(false)
+    };
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

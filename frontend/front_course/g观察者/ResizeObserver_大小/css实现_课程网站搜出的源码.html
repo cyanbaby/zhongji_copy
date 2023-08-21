@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            --max-size: 400px;
+            --transition-size: 200px;
+            max-width: var(--max-size);
+            display: flex;
+            border: 2px solid black;
+        }
+
+        .input {
+            border: 2px solid blue;
+            padding: 4px;
+        }
+
+        .square {
+            width: 100%;
+            max-width: var(--max-size);
+            background: red;
+            position: relative;
+            --isSmall: calc(var(--transition-size) - 100%);
+        }
+
+        .square:after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: min(9999 * var(--isSmall), 100%);
+            background: blue;
+        }
+
+        /* 
+            IsSmall的作用类似于布尔标志，如果正方形的宽度小于过渡大小，则为正值；否则为负值。
+            我们可以将其与min、max和Clip等方法一起使用来做一些有趣的事情。
+
+            例如，在正方形中：After，如果isSmall为负数，则min强制：After的宽度为负数，浏览器将宽度变为0px(您也可以在此处使用CLAMP)。
+            但是当我们达到过渡大小时，它会切换到100%，从而导致“蓝色”的颜色变化。我们乘以9999，因此该变量充当切换，而不是可用的像素值。
+
+            灵感来自于凯文·鲍威尔在YouTube上所做的事情+马蒂亚斯·胡尔斯布施关于《乌鸦技巧》的帖子
+            https://css-tricks.com/the-raven-technique-one-step-closer-to-container-queries/
+
+        */
+
+        /* 在现代浏览器中添加‘长宽比：1/1’应该可以在现代浏览器中使用，但我使用的是旧版本的FF */
+
+        .aspect-ratio-box::before {
+            float: left;
+            padding-top: 100%;
+            content: '';
+        }
+
+        .aspect-ratio-box::after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="square aspect-ratio-box"></div>
+        <span class="input" contenteditable="">
+            足够长的文本将使框变为蓝色，
+            请尝试在此处键入：
+        </span>
+    </div>
+</body>
+
+</html>

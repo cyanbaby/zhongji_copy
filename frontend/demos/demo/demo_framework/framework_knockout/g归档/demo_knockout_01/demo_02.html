@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01_start | Knockout.js</title>
+
+    <script src="/bower_components/knockout/dist/knockout.debug.js"></script>
+  </head>
+  <body>
+    <!-- 声明视图 -->
+    <input data-bind="value: msg" />
+    <span data-bind="text: msg"></span>
+    <span data-bind="text: num"></span>
+
+    <script>
+      window.onload = function () {
+        // 声明 ViewModel
+        var vm = {
+          // msg: "Hello World",
+
+          // msg: ko.observable('Hello World')
+
+          msg: ko.observable(),
+          num: ko.observable(),
+        };
+
+        // 操作
+        vm.msg(123).num(777);
+
+        // vm.num(666)
+
+        console.log(vm.num());
+
+        // 激活 Knockout - 绑定应用
+        ko.applyBindings(vm);
+      };
+    </script>
+  </body>
+</html>

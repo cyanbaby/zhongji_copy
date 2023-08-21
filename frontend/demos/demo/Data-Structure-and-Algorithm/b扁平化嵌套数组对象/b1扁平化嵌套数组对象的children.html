@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- https://blog.csdn.net/weixin_48315912/article/details/124823309 -->
+
+    <script>
+      let Data = [
+        {
+          id: 1,
+          content: "是否是双方都",
+          list: [
+            {
+              id: 2,
+              content: "sof决定受理咖啡机离开",
+              list: [
+                {
+                  id: 3,
+                  content: "水电费",
+                  list: [],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: 4,
+          content: "sof决定受理咖啡机离开",
+          list: [
+            {
+              id: 5,
+              content: "测试5",
+              list: [],
+            },
+          ],
+        },
+        {
+          id: 6,
+          content: "测试6",
+          list: [],
+        },
+      ];
+
+      const flatData = (data, parentId = undefined) => {
+        return data.reduce((prev, curr) => {
+          if (parentId != undefined) {
+            Object.assign(curr, {
+              parentId: parentId,
+            });
+          }
+          prev.push(curr);
+          if (curr.list.length > 0) {
+            prev.push(...flatData(curr.list, curr.id));
+          }
+          return prev;
+        }, []);
+      };
+
+      let flated = flatData(Data);
+      console.log(flated);
+    </script>
+  </body>
+</html>

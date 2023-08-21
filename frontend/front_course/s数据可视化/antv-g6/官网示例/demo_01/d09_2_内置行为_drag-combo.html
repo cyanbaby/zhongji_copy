@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Tutorial Demo</title>
+</head>
+
+<body>
+  <div id="mountNode"></div>
+  <!-- <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g6-3.7.1/dist/g6.min.js"></script> -->
+  <!-- 4.x and later versions -->
+  <script src="./node_modules/@antv/g6/dist/g6.min.js"></script>
+  <script>
+    // 图的交互 Behavior
+    // https://g6.antv.vision/zh/docs/manual/tutorial/behavior
+
+    // 当前示例： 不完整，
+    // todo 如何找源码的示例(example)
+    // todo 找文章和课程完成当前示例
+    // https://g6.antv.vision/zh/docs/manual/middle/states/defaultBehavior#shortcuts-call
+
+    const graph = new G6.Graph({
+      container: 'mountNode',
+      width: 800,
+      height: 600,
+      defaultNode: {
+        size: 30,
+        labelCfg: {
+          style: {
+            fill: '#fff',
+          },
+        },
+      },
+      defaultEdge: {
+        labelCfg: {
+          autoRotate: true,
+        },
+      },
+      layout: {
+        // Object，可选，布局的方法及其配置项，默认为 random 布局。
+        type: 'force', // 指定为力导向布局
+        preventOverlap: true, // 防止节点重叠
+        // nodeSize: 30        // 节点大小，用于算法中防止节点重叠时的碰撞检测。由于已经在上一节的元素配置中设置了每个节点的 size 属性，则不需要在此设置 nodeSize。
+        linkDistance: 100, // 指定边距离为100
+      },
+
+
+      // modes: {
+      //   default: ['drag-combo'],
+      // },
+      modes: {
+        default: [
+          {
+            type: 'drag-combo',
+            enableDelegate: true,
+            activeState: 'actived',
+            shouldUpdate: (e) => {
+              // 不允许 id 为 'combo1' 的 combo 被拖拽
+              if (e.item && e.item.getModel().id === 'combo1') return false;
+              return true;
+            },
+            // shouldEnd【v4.3.8 后支持】
+            shouldEnd: (e, newParent) => {
+              // 不可以将 combo 释放到 combo1 上
+              if (newParent && newParent.getModel().id === 'combo1') return false;
+              return true;
+            }
+          },
+        ],
+      },
+      comboStateStyles: {
+        actived: {
+          stroke: 'red',
+          lineWidth: 3,
+        },
+      },
+
+    });
+    const main = async () => {
+      const response = await fetch(
+        'https://gw.alipayobjects.com/os/basement_prod/6cae02ab-4c29-44b2-b1fd-4005688febcb.json',
+      );
+      const remoteData = await response.json();
+
+      const nodes = remoteData.nodes;
+      const edges = remoteData.edges;
+      nodes.forEach((node) => {
+        if (!node.style) {
+          node.style = {};
+        }
+        node.style.lineWidth = 1;
+        node.style.stroke = '#666';
+        node.style.fill = 'steelblue';
+        switch (node.class) {
+          case 'c0': {
+            node.type = 'circle';
+            break;
+          }
+          case 'c1': {
+            node.type = 'rect';
+            node.size = [35, 20];
+            break;
+          }
+          case 'c2': {
+            node.type = 'ellipse';
+            node.size = [35, 20];
+            break;
+          }
+        }
+      });
+      edges.forEach((edge) => {
+        if (!edge.style) {
+          edge.style = {};
+        }
+        edge.style.lineWidth = edge.weight;
+        edge.style.opacity = 0.6;
+        edge.style.stroke = 'grey';
+      });
+
+      graph.data(remoteData);
+      graph.render();
+    };
+    main();
+  </script>
+</body>
+
+</html>

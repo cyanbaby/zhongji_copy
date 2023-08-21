@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+</head>
+<style>
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+ 
+	ul {
+		width: 600px;
+		height: 200px;
+		background-color: pink;
+ 
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-around;
+	}
+ 
+	li {
+		list-style: none;
+		height: 60px;
+		line-height: 20px;
+		padding: 10px;
+		width: 180px;
+		box-sizing: border-box;
+		/* border: 2px blue solid; */
+		background-color: #dfdfdf;
+		border-radius: 30px;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+ 
+    /*注意white-space不能为nowrap*/
+	.wrap {
+		width: 140px;
+		letter-spacing: 0;
+		overflow: hidden;
+		display: -webkit-box;
+		text-overflow: ellipsis;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		font-size: 12px;
+	}
+</style>
+ 
+<body>
+	<ul>
+		<li>
+			<div class="wrap">我是文字随便几行我可以自动折行,水平居中多了不显示多了不显示多了不显示</div>
+		</li>
+		<li>
+			<div class="wrap">水平居中</div>
+		</li>
+		<li>
+			<div class="wrap">我是文字随便几行我可以自动折行,水平居中</div>
+		</li>
+        <li>
+			<div class="wrap">我是文字随便几行我可以自动折行,水平居中多了不显示多了不显示多了不显示</div>
+		</li>
+		<li>
+			<div class="wrap">水平居中</div>
+		</li>
+		<li>
+			<div class="wrap">我是文字随便几行我可以自动折行,水平居中</div>
+		</li>
+        <li>
+			<div class="wrap">我是文字随便几行我可以自动折行,水平居中多了不显示多了不显示多了不显示</div>
+		</li>
+		<li>
+			<div class="wrap">水平居中</div>
+		</li>
+		<li>
+			<div class="wrap">我是文字随便几行我可以自动折行,水平居中</div>
+		</li>
+	</ul>
+</body>
+ 
+</html>

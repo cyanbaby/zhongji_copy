@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="abc">CLICK ME</div>
+  <script>
+        var element = document.getElementById('abc');
+        for (let i = 0; i < 100000; i++) {
+            element.innerHTML = i;
+        }
+        // 这里不是因为加载的太快
+        // 注意，JS渲染DOM的过程永远在一个任务执行结束后
+        // todo 整个for循环是一个任务？
+  </script>
+  
+  <script>
+    // var element = document.getElementById('abc');
+    // // 如果这里是1000000000000000还是会卡死，解决：把大任务分成多个小任务
+    // for (let i = 0; i < 100000; i++) {
+    //   setTimeout(function () {
+    //     element.innerHTML = i;
+    //   }, 10);
+    // }
+    // todo 为什么定时器的10||1000没有太大效果？
+  </script>
+
+  <script>
+    // var element = document.getElementById('abc');
+    // // 如果这里是1000000000000000还是会卡死，解决：把大任务分成多个小任务
+
+    // function exec(startPos) {
+    //   for (let i = startPos; i < 1000000000000000; i++) {
+    //     if (i - startPos > 1000) {
+    //       setTimeout(function () {
+    //         exec(i)
+    //       }, 10)
+    //       return
+    //     }
+    //     setTimeout(function () {
+    //       element.innerHTML = i;
+    //     }, 10);
+    //   }
+    // }
+
+    // exec(0)
+    
+  </script>
+
+  <script>
+    // for为什么只有最后一个元素被打印 => var和let
+    // 解决for循环中只能点击到最后一个元素的问题   https://www.codeleading.com/article/34262425857/
+
+    // for循环里更新DOM 为什么只有最后一次
+  </script>
+</body>
+
+</html>

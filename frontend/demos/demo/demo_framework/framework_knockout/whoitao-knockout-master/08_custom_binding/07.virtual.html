@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08.custom_binding | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <div data-bind="randomOrder: true">
+    <div>First</div>
+    <div>Second</div>
+    <div>Third</div>
+  </div>
+
+  <script type="text/javascript">
+    ko.bindingHandlers.randomOrder = {
+      init: function(elem, valueAccessor) {
+        // 将子元素添加到数组中
+        var childElems = [];
+        while (elem.firstChild) {
+          childElems.push(elem.removeChild(elem.firstChild));
+        }
+
+        // 随机排序
+        while (childElems.length) {
+          var randomIndex = Math.floor(Math.random() * childElems.length),
+              chosenChild = childElems.splice(randomIndex, 1);
+          elem.appendChild(chosenChild[0]);
+        }
+      }
+    };
+
+    ko.bindingHandlers.randomOrder = {
+      init: function(elem, valueAccessor) {
+        // 构建子元素数组
+        var child = ko.virtualElements.firstChild(elem),
+            childElems = [];
+        while (child) {
+          childElems.push(child);
+          child = ko.virtualElements.nextSibling(child);
+        }
+ 
+        // 先清空节点，然后再以随机的顺序添加到数组中
+        ko.virtualElements.emptyNode(elem);
+        while (childElems.length) {
+          var randomIndex = Math.floor(Math.random() * childElems.length),
+              chosenChild = childElems.splice(randomIndex, 1);
+          ko.virtualElements.prepend(elem, chosenChild[0]);
+        }
+      }
+    };
+
+    var vm = {}
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

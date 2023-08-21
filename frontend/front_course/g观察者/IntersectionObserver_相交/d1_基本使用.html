@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid black;
+            border-radius: .25rem;
+            opacity: 0;
+            transition: 150ms;
+            padding: 10px;
+        }
+
+        .card.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="card show">这是第一个辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">这是最后一辆车</div>
+        <div class="card">新车</div>
+        <div class="card">新车</div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.card')
+
+        const observer = new IntersectionObserver(entries => {
+            console.log(entries)
+        })
+
+        observer.observe(cards[0])
+      
+    </script>
+</body>
+
+</html>

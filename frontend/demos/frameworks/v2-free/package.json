@@ -1,0 +1,22 @@
+{
+  "name": "v2-free",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^3.26.0",
+    "vue": "^2.7.14",
+    "vue-router": "^3.6.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.19",
+    "@vue/cli-plugin-router": "^4.5.19",
+    "@vue/cli-service": "^4.5.19",
+    "sass": "^1.56.1",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.7.14"
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="./x6.js"></script>
+    <script>
+    const { Graph } = X6
+    const graph = new Graph({
+        container: document.getElementById('container'),
+        width: 800,
+        height: 600,
+        grid: {
+            size: 10, // 网格大小 10px
+            visible: true // 渲染网格背景
+        }
+    });
+
+    const data = {
+        // 节点
+        nodes: [{
+                id: 'node1',
+                x: 40,
+                y: 40,
+                width: 80,
+                height: 40,
+                label: 'Hello',
+                shape: 'rect', // 使用 rect 渲染
+            },
+            {
+                id: 'node2',
+                x: 160,
+                y: 180,
+                width: 80,
+                height: 40,
+                label: 'World',
+                shape: 'ellipse',
+            },
+        ],
+        // 边
+        edges: [{
+            source: 'node1',
+            target: 'node2',
+        }, ],
+    }
+    graph.fromJSON(data);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .test {
+      width: 100px;
+      height: 100px;
+      border: 5px solid #ccc;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <div class="test" id="test">Content</div>
+
+  <script>
+    console.log(document.compatMode)  // BackCompat: 怪异盒模型
+    console.log(document.querySelector('.test').offsetWidth) // 110
+    // box-sizing
+    //    content-box 默认值
+    //    border-box
+
+    // console.log(
+    //   getComputedStyle(document.querySelector('.test'))
+    //   .getPropertyValue('box-sizing')
+    //   )
+  </script>
+</body>
+</html>

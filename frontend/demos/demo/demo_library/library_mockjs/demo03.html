@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      type="text/javascript"
+      src="./node_modules/mockjs/dist/mock-min.js"
+    ></script>
+  </head>
+  <body>
+    <script>
+      //   var data = Mock.mock({
+      //     // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+      //     "list|1-10": [
+      //       {
+      //         // 属性 id 是一个自增数，起始值为 1，每次增 1
+      //         "id|+1": 1,
+      //         'name|5-10': '' // 本name值随机5-10重复的string
+      //       },
+      //     ],
+      //   });
+
+      // 参考: https://blog.csdn.net/qq_37568942/article/details/111193826
+      var data = Mock.mock({
+          // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+          "list|1-1000": [
+            {
+              // 属性 id 是一个自增数，起始值为 1，每次增 1
+              "id|+1": 1,
+              'cn_name': '@cname', // 本name值随机5-10重复的string
+              'en_name':'@name',//随机英文名称
+              'age|1-100': 100,  
+              'birthday': '@date("yyyy-MM-dd")',      //日期 
+              'city': '@city(true)',                   //中国城市
+              'create_time': "@datetime",//随机生成日期时间
+              "num":  "@natural(1, 100)",//随机生成1-100的数字
+              'is_mange|1': true,//随机生成一个布尔值，值为 true 的概率是 1/2，值为 false 的概率同样是 1/2。
+              // 'person_obj|2': {name:'@cname','age':1,id: '@guid'},
+              'job|1': ['产品经理', 'UI设计师', '前端工程师', '后端工程师', '运维工程师', '架构师', '测试工程师', '售后工程师'],
+            },
+          ],
+        });
+        
+
+      console.log(JSON.stringify(data, null, 4));
+
+    </script>
+
+    <!-- js 利用Unicode码随机生成中文昵称： https://blog.csdn.net/L630642270/article/details/103289387 -->
+    <!-- 
+    <script>
+      // 获取指定范围内的随机数
+      function randomAccess(min, max) {
+        return Math.floor(Math.random() * (min - max) + max);
+      }
+
+      // 解码
+      function decodeUnicode(str) {
+        //Unicode显示方式是\u4e00
+        str = "\\u" + str;
+        str = str.replace(/\\/g, "%");
+        //转换中文
+        str = unescape(str);
+        //将其他受影响的转换回原来
+        str = str.replace(/%/g, "\\");
+        return str;
+      }
+
+      /*
+       *@param Number NameLength 要获取的名字长度
+       */
+      function getRandomName(NameLength) {
+        let name = "";
+        for (let i = 0; i < NameLength; i++) {
+          let unicodeNum = "";
+          unicodeNum = randomAccess(0x4e00, 0x9fa5).toString(16);
+          name += decodeUnicode(unicodeNum);
+        }
+        return name;
+      }
+      let name = getRandomName(2);
+      console.log(name); // 输出内容：柎芨
+    </script> 
+-->
+
+    <!-- JS生成随机汉字: https://blog.csdn.net/zhiyual/article/details/106481249 -->
+    <!-- 
+    <script>
+      function getRandomChineseWord() {
+        var _rsl = "";
+        var _randomUniCode = Math.floor(
+          Math.random() * (40870 - 19968) + 19968
+        ).toString(16);
+        eval("_rsl=" + '"\\u' + _randomUniCode + '"');
+        return _rsl;
+      }
+      console.log(getRandomChineseWord());
+    </script> 
+-->
+  </body>
+</html>

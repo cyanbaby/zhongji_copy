@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07.binding_syntax | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <h1 data-bind="text: name"></h1>
+ 
+  <div data-bind="with: manager">
+    <!-- 现在处于嵌套绑定中 -->
+    <span data-bind="text: name"></span> is the
+    manager of <span data-bind="text: $parent.name"></span>
+  </div>
+
+  <div id="item1" data-bind="text: $element.id"></div>
+ 
+  <script type="text/javascript">
+    function MyViewModel() {
+      this.name = '张三'
+      this.manager = { name: '李四', age: 36 }
+    }
+    console.log(ko)
+
+    ko.applyBindings(new MyViewModel());
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01_start | Knockout.js</title>
+
+    <script src="/bower_components/knockout/dist/knockout.debug.js"></script>
+  </head>
+  <body>
+    <!-- 声明视图 -->
+    <input data-bind="value: age" />
+    <span data-bind="text: msg"></span>
+
+    <script>
+      window.onload = function () {
+        // 声明 ViewModel
+        var vm = {
+          msg: ko.observable(),
+          age: ko.observable(20),
+        };
+        
+        // 显式订阅 - 实现更为复杂的逻辑
+        let ageSub = vm.age.subscribe(function(newValue) {
+          if (newValue > 100) {
+            vm.msg('年龄不能大于 100')
+          } else {
+            vm.msg('')
+          }
+        })
+
+        // 取消显式订阅
+        ageSub.dispose()
+
+        // 激活 Knockout - 绑定应用
+        ko.applyBindings(vm);
+      };
+    </script>
+  </body>
+</html>

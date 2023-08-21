@@ -1,0 +1,32 @@
+{
+  "name": "vue-drag-resize-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@tinymce/tinymce-vue": "3.0.1",
+    "core-js": "^3.8.3",
+    "element-ui": "^2.15.12",
+    "froala-editor": "^4.0.17",
+    "lodash": "^4.17.21",
+    "nanoid": "^4.0.1",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "reset-css": "^5.0.1",
+    "tinymce": "5.1.0",
+    "vue": "^2.6.14",
+    "vue-drag-resize": "^1.5.4",
+    "vue-froala-wysiwyg": "^4.0.17",
+    "vue-svgicon": "^2.1.3",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0",
+    "vue-template-compiler": "^2.6.14"
+  }
+}

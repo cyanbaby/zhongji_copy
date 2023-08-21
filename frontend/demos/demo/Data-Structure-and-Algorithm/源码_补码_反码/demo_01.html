@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="node_modules/@leizl/binary/dist/binary.js"></script> -->
+    <script src="js/binary_copy.js"></script>
+  </head>
+  <body>
+    <script>
+      // binary.js 中的导出是 “exports.default = new Binary();”  commonjs 规范
+      // browserify => 让binary.js 可以在浏览器中运行
+      //      npm install browserify -g
+      //      browserify node_modules/@leizl/binary/dist/binary.js -o js/binary.js
+      //      console.log(Binary) 失败了!
+
+      // 手动改造 js/binary.js => js/binary_copy.js => ok
+
+      //   console.log(BinaryCopy);
+
+      //   // 原码
+      //   console.log( BinaryCopy.trueForm(123) ); // 00000000000000000000000001111011​​​
+      //   console.log( BinaryCopy.trueForm(-123) ); // ​​​10000000000000000000000001111011​​​
+
+      //   // 反码
+      //   console.log( BinaryCopy.inverse(123) ); // ​​​00000000000000000000000001111011​​​
+      //   console.log( BinaryCopy.inverse(-123) ); // ​​​10000000000000000000000001111011​​​
+
+      //   // 补码
+      //   console.log( BinaryCopy.complement(123) ); // ​​​​​​00000000000000000000000001111011​​​​
+      //   console.log( BinaryCopy.complement(-123) ); // ​​​11111111111111111111111110000101​​​
+
+      console.log(BinaryCopy.trueForm(0)); // 00000000000000000000000001111011​​​
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent {
+      background-color: #AED8E6;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      border: 1px dashed #333;
+    }
+
+    .child {
+      background-color: #EF8080;
+      display: inline-block;
+      text-align: center;
+      line-height: 100px;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent" id="parent">
+    <div class="child" contenteditable>Child 1</div>
+    <div class="child" contenteditable>Child 2</div>
+    <div class="child" contenteditable>Child 3</div>
+  </div>
+
+  <script>
+    const mutationObserver = new MutationObserver(enters => {
+      console.log(enters)
+    })
+
+    const parent = document.querySelector('.parent')
+    
+    mutationObserver.observe(parent, {
+      childList: true
+    })
+
+    // todo children 和 childNodes区别
+
+    parent.children[0].remove()
+    // enters[0]removedNodes 就是删除的子元素
+
+    parent.appendChild(document.createElement('div'))
+    // enters => [MutationRecord, MutationRecord]  
+    // 分别有删除的新增的记录，索引1标识新增的记录，addedNodes
+  </script>
+</body>
+</html>

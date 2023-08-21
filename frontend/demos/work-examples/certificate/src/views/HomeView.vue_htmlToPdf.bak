@@ -1,0 +1,65 @@
+<template>
+  <div class="pdf-screen">
+    <div class="test" ref="test">
+      <h1>
+        <span class="left-title">我是左边标题</span>
+        <span class="right-title">我是右边标题</span>
+      </h1>
+    </div>
+  </div>
+</template>
+
+<script>
+import { htmlToPdf } from '@/plugins/htmlToPdf'
+export default {
+  name: "pdfView",
+  created() {
+    console.log(this.$pdf);
+  },
+  mounted() {
+    // this.downLoadPdf();
+    // this.onExport()
+  },
+  methods: {
+    downLoadPdf() {
+      this.$pdf(this.$refs.test, {
+        name: "filename", // 导出文件名
+        scale: 2, // 导出文件清晰度，值越大清晰度越高，文件体积越大（默认值为设备dpr*2）
+        ignoreElements: (element) => {
+          // 忽略渲染元素（通过查询dom元素，不局限于类名查询）
+          if (element.className.indexOf("className") !== -1) {
+            return true;
+          }
+        },
+      });
+    },
+    async onExport() {
+      await htmlToPdf("pdf-screen", "报告");
+    },
+  },
+};
+</script>
+<style lang="scss" scoped>
+// A4 = 1487 * 2105
+.test {
+  position: relative;
+  height: 500px;
+  background-color: #ccc;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  .left-title {
+    display: inline-block;
+
+    transform: translate3d(100px, 100px, 0px);
+  }
+  .right-title {
+    display: inline-block;
+
+    // transform: translate3d(2000px, 100px, 0px);
+    // transform: translate3d(400px, 100px, 0px);
+    transform: translate3d(1100px, 100px, 0px);
+    
+  }
+}
+</style>

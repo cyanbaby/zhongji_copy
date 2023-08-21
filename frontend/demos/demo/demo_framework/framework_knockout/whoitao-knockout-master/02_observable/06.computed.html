@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_observable | KnockOut.js</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <div>First name: <span data-bind="text: firstName"></span></div>
+  <div>Last name: <span data-bind="text: lastName"></span></div>
+  <div>Hello, <input data-bind="textInput: fullName"/></div>
+
+  <script type="text/javascript">
+    function MyViewModel() {
+      this.firstName = ko.observable('Planet');
+      this.lastName = ko.observable('Earth');
+
+      this.fullName = ko.computed({
+        read: function () {
+          return this.firstName() + " " + this.lastName();
+        },
+        write: function (value) {
+          var lastSpacePos = value.lastIndexOf(" ");
+          if (lastSpacePos > 0) { // 忽略没有空格分隔的字符
+            // 更新 "firstName"
+            this.firstName(value.substring(0, lastSpacePos));
+            // 更新 "lastName"
+            this.lastName(value.substring(lastSpacePos + 1));
+          }
+        },
+        owner: this
+      });
+    }
+
+    ko.applyBindings(new MyViewModel());
+  </script>
+    
+</body>
+</html>

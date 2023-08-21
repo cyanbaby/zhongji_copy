@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver
+        // https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver/MutationObserver
+
+        // MutationObserver接口 - 简书 静夜听雨  https://www.jianshu.com/p/b3243b1364b6
+
+        let observer = new MutationObserver(() => console.log('<body> 属性发生了改变'));
+        observer.observe(document.body, { attributes: true });
+        document.body.className = 'foo';
+        console.log('改变 body class 属性');
+        // Changed body class
+        // <body> attributes changed
+    </script>
+</body>
+
+</html>

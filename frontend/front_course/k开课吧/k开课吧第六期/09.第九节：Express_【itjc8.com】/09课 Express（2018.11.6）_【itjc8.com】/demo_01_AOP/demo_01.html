@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>简谈前端开发中的AOP(一) -- 前端AOP的实现思路</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * @param {Function} oldFn 原函数
+       * @param {Function} before 前置函数
+       * @param {Function} after 后置函数
+       * @return {Function} 新函数
+       */
+      var adviceAction = function (oldFn, before, after) {
+        return function () {
+          var args = [].slice.call(arguments);
+          //   console.group("arguments");
+          //   console.log(arguments);
+          //   console.groupEnd();
+
+          //   console.group('args')
+          //   console.log(args)
+          //   console.groupEnd()
+          try {
+            // 增强
+            before.apply(null, args);
+          } catch (e) {}
+
+          // 原函数
+          var rst = oldFn.apply(this, args);
+
+          try {
+            // 增强
+            after.apply(null, args);
+          } catch (e) {}
+
+          return rst;
+        };
+      };
+
+      function run() {
+        console.log("run");
+      }
+
+      function before(jp) {
+        console.log("before action");
+      }
+
+      function after(jp) {
+        console.log("after action");
+      }
+
+      var newFn = adviceAction(run, before, after);
+
+      newFn();
+    </script>
+  </body>
+</html>

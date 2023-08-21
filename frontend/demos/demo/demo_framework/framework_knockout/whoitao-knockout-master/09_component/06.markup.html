@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09_component | KnockOut.js</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <!-- 模板也可以单独独立成文件 -->
+  <template id="my-special-list-template">
+    <h3>用户列表</h3>
+
+    <ul data-bind="foreach: { data: myItems, as: 'myItem' }">
+      <li>
+        <h4>当前用户</h4>
+        <!-- $componentTemplateNodes 表示年龄和姓名节点 -->
+        <!-- ko template: { nodes: $componentTemplateNodes, data: myItem } --><!-- /ko -->
+      </li>
+    </ul>
+  </template>
+
+  <my-special-list params="items: someArrayOfPeople">
+    <!-- 自定义元素中，使用标记 -->
+    姓名 <em data-bind="text: name"></em> 
+    年龄 <em data-bind="text: age"></em>
+  </my-special-list>
+
+      
+  <script type="text/javascript">
+    ko.components.register('my-special-list', {
+      template: { element: 'my-special-list-template' },
+      viewModel: function(params) {
+        // 组件参数 myitems
+        this.myItems = params.items;
+      }
+    });
+
+    var vm = {
+      someArrayOfPeople: ko.observableArray([
+        { name: '张三', age: 56 },
+        { name: '李四', age: 34 }
+      ])
+    }
+    
+    ko.applyBindings(vm);
+  </script>
+    
+</body>
+</html>

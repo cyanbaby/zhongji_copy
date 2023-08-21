@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+        产品名称	客户名称	报销量	审核量
+        70号	        1	     1	    100
+        合计	        1	     1	    100
+    -->
+
+    <script>
+      const data = [
+        { productName: "70号", customerName: 1, baoXiao: 1, shenHe: 1 },
+        { productName: "70号", customerName: 1, baoXiao: 1, shenHe: 1 },
+        { productName: "80号", customerName: 1, baoXiao: 1, shenHe: 1 },
+        { productName: "80号", customerName: 1, baoXiao: 1, shenHe: 1 },
+        { productName: "80号", customerName: 1, baoXiao: 1, shenHe: 1 },
+        { productName: "90号", customerName: 1, baoXiao: 1, shenHe: 1 },
+        { productName: "90号", customerName: 1, baoXiao: 1, shenHe: 1 },
+        { productName: "90号", customerName: 1, baoXiao: 1, shenHe: 1 },
+        { productName: "90号", customerName: 1, baoXiao: 1, shenHe: 1 },
+      ];
+
+      // 表格合计
+      const result = data.reduce(function (countObj, currentValue) {
+        // 判断当前数组元素是否出现过
+        if (currentValue.productName in countObj) {
+          countObj[currentValue.productName].customerName +=
+            currentValue.customerName;
+          countObj[currentValue.productName].baoXiao += currentValue.baoXiao;
+          countObj[currentValue.productName].shenHe += currentValue.shenHe;
+        } else {
+          countObj[currentValue.productName] = {
+            customerName: currentValue.customerName,
+            baoXiao: currentValue.baoXiao,
+            shenHe: currentValue.shenHe,
+          };
+        }
+        return countObj;
+      }, {});
+
+      console.log(result);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../public/frameworks/bootstrap/css/bootstrap.min.css?v3.4.1">
+</head>
+<body>
+  <div id="app">
+    <dcn-topbar :navs="navs" :w3-id="w3Id">
+  </div>
+
+  <script src="../public/frameworks/seajs/sea-3.0.0.js"></script>
+  <script src="../public/page-init-vue.js"></script>
+  <script>
+    pageInit(function() {
+      new Vue({
+        el: '#app',
+        data: {
+          navs: [
+            { name: 'DCN', url: 'http://www.baidu.com' },
+            { name: '服务', hasSunmenu: true },
+            { name: '收藏', hasSunmenu: true },
+          ],
+          w3Id: 'zwx876495'
+        },
+        components: {
+          'dcn-topbar': topbarCmp
+        }
+      })
+    })
+  </script>
+</body>
+</html>

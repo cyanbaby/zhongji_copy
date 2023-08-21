@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08.custom_binding | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <p>Name: <input data-bind="hasFocus: editingName" /></p>
+  <div data-bind="visible: editingName">You're editing the name</div>
+  <button data-bind="enable: !editingName(), click: function() { editingName(true) }">编辑</button>
+ 
+  <script type="text/javascript">
+    // 声明自定义绑定
+    ko.bindingHandlers.hasfocus = {
+      init: function (element, valueAccessor) {
+        $(element).focus(function () {
+          var value = valueAccessor();
+        });
+        $(element).blur(function () {
+          var value = valueAccessor();
+          value(false);
+        });
+      },
+      update: function (element, valueAccessor) {
+        var value = valueAccessor();
+        if (ko.utils.unwrapObservable(value)) {
+          element.focus();
+        }
+        else {
+          element.blur();
+        }
+      }
+    };
+
+    var vm = {
+      editingName: ko.observable(true)
+    };
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

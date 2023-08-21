@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务清单</title>
+    <style>
+      body {
+        width: 100%;
+      }
+      .task {
+        display: flex;
+        width: 100%;
+      }
+      .task .task-todo {
+        flex: 1;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+      .task-todo-list {
+        min-width: 200px;
+        min-height: 300px;
+      }
+      .task .task-done {
+        flex: 1;
+        background-color: #42b681;
+        display: flex;
+        flex-direction: column;
+      }
+      .task-done .done-container {
+        flex: 1;
+        padding: 10px;
+      }
+      .task-item {
+        height: 50px;
+        background-color: #34495d;
+        color: white;
+        font-weight: bold;
+        border-radius: 10px;
+        margin-top: 10px;
+        text-align: center;
+        margin-right: 30px;
+        width: 200px;
+        line-height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="task">
+      <div class="task-todo">
+        <div
+          style="color: #42b681; margin: 10px; text-align: center; width: 200px"
+        >
+          Todo List
+        </div>
+        <div class="task-todo-list"></div>
+      </div>
+      <div class="task-done">
+        <div style="color: white; margin: 10px">Done List</div>
+        <div class="done-container"></div>
+      </div>
+    </div>
+
+    <script>
+      // 1. 数据初始化
+      function createNode(txt) {
+        const template = `<div class='task-item' draggable = 'true' ondragstart=' event.dataTransfer.setData("text/plain", null)'>${txt}</div>`;
+        let tempNode = document.createElement("div");
+        tempNode.innerHTML = template;
+        return tempNode.firstChild;
+      }
+
+      const todoList = ["运动10分钟", "找个女朋友", "年薪百万", "不装逼"];
+      const todo = document.querySelector(".task-todo-list");
+      todoList.forEach(function (ele) {
+        todo.appendChild(createNode(ele));
+      });
+
+      function isTarget(evt) {
+        return (
+          evt.target.className === "task-todo-list" ||
+          evt.target.className === "done-container"
+        );
+      }
+
+      // 2. 标记当前拖动的节点
+      let dragEle = null;
+      document.addEventListener("dragstart", function (eve) {
+        // cloneNode可以复制当前拖动的节点
+        dragEle = eve.target.cloneNode(true);
+        // dragEle = eve.target;
+      });
+      //  3. 进入可放置区域背景高亮
+      document.addEventListener("dragenter", function (evt) {
+        // 进入可放置区域背景高亮
+        if (isTarget(evt)) {
+          evt.target.style.background = "#FBB638";
+        }
+      });
+      // 3. 离开可放置区域，背景恢复
+      document.addEventListener(
+        "dragleave",
+        function (event) {
+          // 当拖动元素离开可放置目标节点，重置其背景
+          if (isTarget(event)) {
+            event.target.style.background = "";
+          }
+        },
+        false
+      );
+
+      // 5. 放置行为默认是被浏览器阻止的，我们需要取消这个默认行为
+      document.addEventListener(
+        "dragover",
+        function (event) {
+          // 阻止默认动作
+          event.preventDefault();
+        },
+        false
+      );
+
+      // 6. 拖动到指定容器，进行添加操作
+      document.addEventListener(
+        "drop",
+        function (event) {
+          // 阻止默认动作（如打开一些元素的链接）
+          event.preventDefault();
+          // 移动拖动的元素到所选择的放置目标节点
+          if (isTarget(event)) {
+            // 背景恢复
+            event.target.style.background = "";
+            event.target.appendChild(dragEle);
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
+
+

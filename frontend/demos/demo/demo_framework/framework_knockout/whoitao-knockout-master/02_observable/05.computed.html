@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_observable | KnockOut.js</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <!-- 声明视图 -->
+  The name is <span data-bind="text: fullName"></span>
+
+  <script>
+    // 声明 ViewModel
+    // function AppViewModel() {
+    //   this.firstName = ko.observable('Bob');
+    //   this.lastName = ko.observable('Smith');
+  
+    //   this.fullName = ko.computed(function() {
+    //     return this.firstName() + " " + this.lastName();
+    //   }, this);
+    // }
+
+    function AppViewModel() {
+      let self = this
+      self.firstName = ko.observable('Bob');
+      self.lastName = ko.observable('Smith');
+  
+      self.fullName = ko.computed(function() {
+        return self.firstName() + " " + self.lastName();
+      });
+    }
+
+    // 激活 KnockOut
+    ko.applyBindings(new AppViewModel());
+  </script>
+    
+</body>
+</html>

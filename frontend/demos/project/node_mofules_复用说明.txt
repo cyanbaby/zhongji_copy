@@ -1,0 +1,6 @@
+cli-v2js-default-eslint
+cli-v2js-default-eslint-copy__element-ui
+cli-v2js-default-eslint-copy__svg
+
+
+cli-v2js-manually-all

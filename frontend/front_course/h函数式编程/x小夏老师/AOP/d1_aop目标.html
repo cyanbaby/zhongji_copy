@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 什么是 AOP 编程
+      // 将核心代码和非核心编码进行分离的一种方式
+      // 核心代码: 业务逻辑代码
+      // 非核心代码: 性能监控, 日志统计 ..
+
+      function test() {
+        console.log(2)
+      }
+
+      test = test
+        .before(function () {
+          console.log(1)
+        })
+        .after(function () {
+          console.log(3)
+        })
+
+      // 1. before和after在谁上面
+      // 2. 函数的执行顺序，如何保障
+      // 3. this指向如何保障
+      // 4. 参数如何保障(test调用处传参，before和after也能获取参数)
+    </script>
+  </body>
+</html>

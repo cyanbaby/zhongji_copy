@@ -1,0 +1,1 @@
+<view class="demo-container">z-table: 自定义表格合并<z-table vue-id="8deb4120-1" data="{{tableData}}" columns="{{columns}}" merge="{{tableMergeMap}}" merge-changed="{{mergeChanged}}" onVueInit="__l"></z-table></view>

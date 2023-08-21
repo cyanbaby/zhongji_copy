@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>示例</title>
+
+    <script src="/bower_components/knockout/dist/knockout.debug.js"></script>
+  </head>
+  <body>
+    <!-- 声明视图 -->
+    <form data-bind="submit: addItem">
+      新项目: <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
+      <button type="submit" data-bind="enable: itemToAdd().length > 0"> 新增 </button>
+    </form>
+    <p>你的项目列表:</p>
+    <select multiple="multiple" height="5" data-bind="options:allItems, selectedOptions:selectedItems"> </select>
+    
+    <div>
+        <button data-bind="click: removeSelected, enable: selectedItems().length > 0">Remove</button>
+        <button data-bind="click: sortItems, enable: allItems().length > 1">Sort</button>
+    </div>
+
+    <script>
+     // observableArray => https://www.cnblogs.com/rainbow-tan/p/14771516.html
+     // selectedOptions  => https://www.cnblogs.com/smallprogram/p/5951992.html
+
+     window.onload = function () {
+        var BetterListModel = function () {
+          this.itemToAdd = ko.observable("");
+          this.allItems = ko.observableArray([
+            "Fries",
+            "Eggs Benedict",
+            "Ham",
+            "Cheese",
+          ]); // Initial items
+          this.selectedItems = ko.observableArray(["Ham"]); // Initial selection
+
+          this.addItem = function () {
+            if (
+              this.itemToAdd() != "" &&
+              this.allItems.indexOf(this.itemToAdd()) < 0
+            )
+              // 避免空白和重复
+              this.allItems.push(this.itemToAdd());
+            this.itemToAdd(""); // 清除文本框
+          };
+
+          this.removeSelected = function () {
+            this.allItems.removeAll(this.selectedItems());
+            this.selectedItems([]); // 删除已选项
+          };
+
+          this.sortItems = function () {
+            this.allItems.sort();
+          };
+        };
+
+        ko.applyBindings(new BetterListModel());
+      };
+    </script>
+  </body>
+</html>

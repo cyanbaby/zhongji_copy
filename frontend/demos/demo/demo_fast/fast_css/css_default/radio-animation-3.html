@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Transition动画</title>
+    <style>
+        div {
+        width:200px;
+        height:160px;
+        background-color:red;
+        border-radius:30px;
+       /*指定背景色、宽度、高度会以平滑渐变的方式来改变指定动画持续时间为2秒，动画会延迟2秒才启动*/
+        /* -moz-transition:background-color 2s linear 2s,width 2s linear 2s,height 2s linear 2s;
+        -webkit-transition:background-color 2s linear 2s,width 2s linear 2s,height 2s linear 2s;
+        -o-transition:background-color 2s linear 2s,width 2s linear 2s,height 2s linear 2s; */
+        
+        /* transition:background-color 2s linear 2s,width 2s linear 2s,height 2s linear 2s; */
+
+        transition:width 0.2s,height 2s linear 0.2s;
+
+        }
+        button {
+        width:70px;
+        height:35px;
+        margin:10px;
+        }
+    </style>
+    <script>
+        var orignWidth = 200;
+        var orignHeight = 160;
+        var zoom = function (scale,bgColor) {
+            var target=document.getElementById("target")
+            target.style.width = orignWidth * scale + "px";
+            target.style.height = orignHeight * scale + "px";
+            target.style.background = bgColor;
+
+        }
+    </script>
+</head>
+<body>
+    <button onclick="zoom(2,'blue')">放大</button>
+    <button onclick="zoom(0.5,'yellow')" >缩小</button>
+    <button onclick="zoom(1,'pink')">恢复</button>
+    <div id="target" style="color:#000; font-size:24px; line-height:160px; font-weight:bold; text-align:center; ">小蕾</div>
+</body>
+</html>

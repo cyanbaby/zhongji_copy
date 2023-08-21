@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>3_react生命周期(新)</title>
+</head>
+
+<body>
+	<!-- 准备好一个“容器” -->
+	<div id="test"></div>
+
+	<!-- 引入react核心库 -->
+	<script type="text/javascript" src="../js/17.0.1/react.development.js"></script>
+	<!-- 引入react-dom，用于支持react操作DOM -->
+	<script type="text/javascript" src="../js/17.0.1/react-dom.development.js"></script>
+	<!-- 引入babel，用于将jsx转为js -->
+	<script type="text/javascript" src="../js/17.0.1/babel.min.js"></script>
+
+	<script type="text/babel">
+
+		//父组件A
+		class A extends React.Component {
+			//初始化状态
+			state = { carName: '奔驰', isShowB: true }
+
+			changeCar = () => {
+				this.setState({ carName: '奥拓' })
+			}
+
+			// 组件将要挂载的钩子    
+			UNSAFE_componentWillMount() {
+				console.group('A组件')
+				console.log('componentWillMount 将要挂载');
+				console.groupEnd()
+
+			}
+
+			// 组件挂载完毕的钩子    
+			UNSAFE_componentDidMount() {
+				console.group('A组件')
+				console.log('componentDidMount 挂载完成');
+				console.groupEnd()
+			}
+
+			// 组件将要卸载的钩子    
+			componentWillUnmount() {
+				console.group('A组件')
+				console.log('componentWillUnmount 将要卸载');
+				console.groupEnd()
+			}
+
+			// 控制组件更新的“阀门”    
+			shouldComponentUpdate() {
+				console.group('A组件')
+				console.log('shouldComponentUpdate 组件更新阀门(返回bool，默认true,决定后续是否更新)  组件是否要更新');
+				console.groupEnd()
+				return true
+			}
+
+			// 组件将要更新的钩子    
+			UNSAFE_componentWillUpdate() {
+				console.group('A组件')
+				console.log('componentWillUpdate 将要更新');
+				console.groupEnd()
+			}
+
+			// 组件更新完毕的钩子    
+			UNSAFE_componentDidUpdate() {
+				console.group('A组件')
+				console.log('componentDidUpdate 更新完成');
+				console.groupEnd()
+			}
+
+			death = () => {
+				//卸载组件
+				ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+			}
+
+			unmountB = () => { // 这个方法用于改变isShowB的状态
+				this.setState({ isShowB: false })
+			}
+
+			render() {
+				// 课程里注释了
+				console.group('A组件')
+				console.log('render 渲染函数');
+				console.groupEnd()
+				return (
+					<div>
+						<div>我是A组件</div>
+
+						<button onClick={this.changeCar}>A 换车</button> &nbsp;&nbsp;
+
+						<button onClick={this.death}>A 卸载</button>
+
+						<hr />
+
+						{/* <B carName={this.state.carName} /> */}
+						{this.state.isShowB ? <B carName={this.state.carName} unmountSelf={this.unmountB} /> : null}
+					</div>
+				)
+			}
+		}
+
+		//子组件B
+		class B extends React.Component {
+
+			state = { carName: '马自达' }
+
+			changeCar = () => {
+				this.setState({ carName: '宝马' })
+			}
+			/*
+			GPT:
+				从你的代码看来，你想要在点击“B 卸载”按钮时，卸载B组件。但是，React组件不能直接自我卸载，组件的卸载通常是由父组件来执行的。通常的做法是，通过父组件的状态改变来触发子组件的卸载。
+
+				你可以为父组件A添加一个状态，比如叫做isShowB，然后根据这个状态来决定是否渲染B组件。当点击B组件中的"B 卸载"按钮时，可以通过调用父组件的方法来改变这个状态，从而实现B组件的卸载。
+
+				下面是具体的代码实现，你可以在B组件的death方法中调用父组件传递过来的方法来改变父组件的状态：
+			*/
+			death = () => {
+				//卸载组件
+				this.props.unmountSelf()
+			}
+
+			// 组件将要挂载的钩子    
+			UNSAFE_componentWillMount() {
+				console.group('%cB组件', 'font-weight:bold;color:red;');
+				console.log('componentWillMount 将要挂载');
+				console.groupEnd()
+
+			}
+
+			// 组件挂载完毕的钩子    
+			UNSAFE_componentDidMount() {
+				console.group('%cB组件', 'font-weight:bold;color:red;');
+				console.log('componentDidMount 挂载完成');
+				console.groupEnd()
+			}
+
+
+			// 组件将要卸载的钩子    
+			componentWillUnmount() {
+				console.group('%cB组件', 'font-weight:bold;color:red;');
+				console.log('componentWillUnmount 将要卸载');
+				console.groupEnd()
+			}
+
+			// 组件将要接收新的props的钩子
+			UNSAFE_componentWillReceiveProps(props) {
+				console.group('%cB组件', 'font-weight:bold;color:red;');
+				console.log('componentWillReceiveProps 组件将要接收新的props', props);
+				console.groupEnd()
+			}
+
+
+			// 控制组件更新的“阀门”
+			shouldComponentUpdate() {
+				console.group('%cB组件', 'font-weight:bold;color:red;');
+				console.log('shouldComponentUpdate 组件更新阀门(返回bool，默认true,决定后续是否更新)  组件是否要更新');
+				console.groupEnd()
+				return true
+			}
+
+			// 组件将要更新的钩子
+			UNSAFE_componentWillUpdate() {
+				console.group('%cB组件', 'font-weight:bold;color:red;');
+				console.log('componentWillUpdate 将要更新');
+				console.groupEnd()
+			}
+
+			// 组件更新完毕的钩子
+			UNSAFE_componentDidUpdate() {
+				console.group('%cB组件', 'font-weight:bold;color:red;');
+				console.log('componentDidUpdate 更新完成');
+				console.groupEnd()
+			}
+
+			render() {
+				console.group('%cB组件', 'font-weight:bold;color:red;');
+				console.log('render 渲染函数');
+				console.groupEnd()
+				return (
+					<div>
+						<div>我是B组件，接收到的车是:{this.props.carName}</div>
+
+						<div>我是B组件，自己的的车是:{this.state.carName}</div>
+
+						<button onClick={this.changeCar}>B 换车</button> &nbsp;&nbsp;
+
+						<button onClick={this.death}>B 卸载</button>
+
+					</div>
+				)
+			}
+		}
+
+		// 父子组件
+		ReactDOM.render(<A />, document.getElementById('test'))
+
+
+		/*
+			新版本需要添加 UNSAFE_的钩子
+
+				// 组件将要挂载的钩子
+				UNSAFE_componentWillMount
+
+				// 组件挂载完毕的钩子
+				UNSAFE_componentDidMount
+
+				// 组件将要更新的钩子
+				UNSAFE_componentWillUpdate
+
+				// 组件更新完毕的钩子
+				UNSAFE_componentDidUpdate
+
+				// 组件将要接收新的props的钩子
+				UNSAFE_componentWillReceiveProps
+		
+		*/
+	</script>
+</body>
+
+</html>

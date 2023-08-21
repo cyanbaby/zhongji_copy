@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 加了obj, 只输出2
+      Function.prototype.before = function (beforeFn) {
+        // 原函数 test
+        var _this = this
+        return function () {
+          // 中间函数
+          beforeFn()
+          _this()
+        }
+      }
+      Function.prototype.after = function (afterFn) {
+        // 保存中间函数
+        var _this = this
+        return function () {
+          _this()
+          afterFn()
+        }
+      }
+
+      var obj = {
+        test: test
+      }
+
+      function test() {
+        console.log(2)
+      }
+
+      test = obj.test
+        .before(function () {
+          console.log(1)
+        })
+        .after(function () {
+          console.log(3)
+        })
+
+      obj.test()
+    </script>
+  </body>
+</html>

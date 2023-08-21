@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <style>
+      .fixed-right-buttons {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table table-bordered table-hover">
+      <thead class="bg-primary text-white">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">名称</th>
+          <th scope="col">价格</th>
+          <th scope="col">库存</th>
+          <th scope="col">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>商品 A</td>
+          <td>$100</td>
+          <td>500</td>
+          <td class="fixed-right-buttons">
+            <button type="button" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> 查看</button>
+            <button type="button" class="btn btn-sm btn-secondary"><i class="bi bi-pencil"></i> 编辑</button>
+            <button type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> 删除</button>
+          </td>
+        </tr>
+        <tr class="table-light">
+          <td>2</td>
+          <td>商品 B</td>
+          <td>$200</td>
+          <td>200</td>
+          <td class="fixed-right-buttons">
+            <button type="button" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> 查看</button>
+            <button type="button" class="btn btn-sm btn-secondary"><i class="bi bi-pencil"></i> 编辑</button>
+            <button type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> 删除</button>
+          </td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>商品 C</td>
+          <td>$300</td>
+          <td>300</td>
+          <td class="fixed-right-buttons table-actions">
+            <button type="button" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> 查看</button>
+            <button type="button" class="btn btn-sm btn-secondary"><i class="bi bi-pencil"></i> 编辑</button>
+            <button type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> 删除</button>
+          </td>
+        </tr>
+        <tr class="table-light">
+          <td>4</td>
+          <td>商品 D</td>
+          <td>$400</td>
+          <td>400</td>
+          <td class="fixed-right-buttons">
+            <button type="button" class="btn btn-sm btn-primary"><i class="bi bi-eye"></i> 查看</button>
+            <button type="button" class="btn btn-sm btn-secondary"><i class="bi bi-pencil"></i> 编辑</button>
+            <button type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> 删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+    
+    
+
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

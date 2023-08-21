@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    /* Strict Type-Checking Options */
+    "strict": true,                         // 启用所有严格的类型检查选项
+    "noImplicitAny": true,                  // 对隐含的“any”类型的表达式和声明引发错误
+    "strictNullChecks": true,               // 启用严格的空检查
+    "strictFunctionTypes": true,            // 启用严格的函数类型检查
+    "strictBindCallApply": true,            // 在函数上启用严格的'bind'， 'call'和'apply'方法
+    "strictPropertyInitialization": true,   // 在类中启用严格的属性初始化检查。
+    "noImplicitThis": true,                 // 当'this'表达式包含隐含的'any'类型时引发错误
+    "alwaysStrict": false,                  // 以严格模式解析，并对每个源文件发出“use strict”
+    "target": "es2020"
+  },
+  
+}

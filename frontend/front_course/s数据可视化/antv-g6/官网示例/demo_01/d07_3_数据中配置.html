@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Step 1 创建容器 -->
+  <div id="mountNode"></div>
+
+  <script src="./node_modules/@antv/g6/dist/g6.min.js"></script>
+  <script>
+    // https://g6.antv.vision/zh/docs/manual/tutorial/elements
+    // 图的元素特指图上的节点 Node 和边 Edge 。
+    // G6 内置了一系列 内置的节点 和 内置的边，供用户自由选择。
+    // G6 不同的内置节点或不同的内置边主要区别在于元素的 图形 Shape，
+    // 例如，节点可以是圆形、矩形、图片等
+
+
+    // 其他：
+    // 内置节点： https://g6.antv.vision/zh/docs/manual/middle/elements/nodes/defaultNode
+    // 内置边：https://g6.antv.vision/zh/docs/manual/middle/elements/edges/defaultEdge
+    // 图形 Shape:  https://g6.antv.vision/zh/docs/manual/middle/elements/shape/shape-keyshape
+
+
+    // 状态: https://g6.antv.vision/zh/docs/manual/middle/states/state
+    // 不论是节点还是边，它们的属性分为两种：
+    //    样式属性 style：对应 Canvas 中的各种样式，在元素状态 State 发生变化时，可以被改变；
+    //    其他属性：例如图形类型（ type）、id（id ）一类在元素状态 State 发生变化时不能被改变的属性。    
+
+
+    // G6 设定 hover 或 click 节点，造成节点状态的改变，只能自动改变节点的样式属性（如 fill、stroke 等），
+    // 其他属性（如 type  等）不能被改变。如果需要改变其他属性，要通过  graph.updateItem 手动配置。
+    // https://g6.antv.vision/zh/docs/api/graphFunc/item#graphupdateitemitem-model-stack
+
+
+    // 数据结构:
+    // {
+    //   id: 'node0',          // 元素的 id
+    //   type: 'circle',       // 元素的图形
+    //   size: 40,             // 元素的大小
+    //   label: 'node0'        // 标签文字
+    //   visible: true,        // 控制初次渲染显示与隐藏，若为 false，代表隐藏。默认不隐藏
+    //   labelCfg: {           // 标签配置属性
+    //     positions: 'center',// 标签的属性，标签在元素中的位置
+    //     style: {            // 包裹标签样式属性的字段 style 与标签其他属性在数据结构上并行
+    //       fontSize: 12      // 标签的样式属性，文字字体大小
+    //       // ...            // 标签的其他样式属性
+    //     }
+    //   }
+    //   // ...,               // 其他属性
+    //   style: {              // 包裹样式属性的字段 style 与其他属性在数据结构上并行
+    //     fill: '#000',       // 样式属性，元素的填充色
+    //     stroke: '#888',     // 样式属性，元素的描边色
+    //     // ...              // 其他样式属性
+    //   }
+    // }
+
+
+
+
+    // Step 3 创建关系图
+    const graph = new G6.Graph({
+      container: 'mountNode', // String | HTMLElement，必须，在 Step 1 中创建的容器 id 或容器本身
+      width: 1920, // Number，必须，图的宽度
+      height: 1080, // Number，必须，图的高度
+
+      fitView: true,
+      fitViewPadding: [20, 40, 50, 20],
+
+
+      defaultNode: {
+        size: 30, // 节点大小
+        // ...                 // 节点的其他配置
+        // 节点样式配置
+        style: {
+          fill: 'steelblue', // 节点填充色
+          stroke: '#666', // 节点描边色
+          lineWidth: 1, // 节点描边粗细
+        },
+        // 节点上的标签文本配置
+        labelCfg: {
+          // 节点上的标签文本样式配置
+          style: {
+            fill: '#fff', // 节点标签文字颜色
+          },
+        },
+      },
+      // 边在默认状态下的样式配置（style）和其他配置
+      defaultEdge: {
+        // ...                 // 边的其他配置
+        // 边样式配置
+        style: {
+          opacity: 0.6, // 边透明度
+          stroke: 'grey', // 边描边颜色
+        },
+        // 边上的标签文本配置
+        labelCfg: {
+          autoRotate: true, // 边上的标签文本根据边的方向旋转
+        },
+      },
+    });
+
+
+    const main = async () => {
+      const response = await fetch(
+        'https://gw.alipayobjects.com/os/basement_prod/6cae02ab-4c29-44b2-b1fd-4005688febcb.json',
+      );
+      const remoteData = await response.json();
+
+      const nodes = remoteData.nodes;
+      nodes.forEach((node) => {
+        if (!node.style) {
+          node.style = {};
+        }
+        console.log(node.class)
+        switch (
+        node.class // 根据节点数据中的 class 属性配置图形
+        ) {
+          case 'c0': {
+            node.type = 'circle'; // class = 'c0' 时节点图形为 circle
+            break;
+          }
+          case 'c1': {
+            node.type = 'rect'; // class = 'c1' 时节点图形为 rect
+            node.size = [35, 20]; // class = 'c1' 时节点大小
+            break;
+          }
+          case 'c2': {
+            node.type = 'ellipse'; // class = 'c2' 时节点图形为 ellipse
+            node.size = [35, 20]; // class = 'c2' 时节点大小
+            break;
+          }
+        }
+      });
+
+      const edges = remoteData.edges;
+      edges.forEach((edge) => {
+        if (!edge.style) {
+          edge.style = {};
+        }
+        edge.style.lineWidth = edge.weight; // 边的粗细映射边数据中的 weight 属性数值
+      });
+
+
+
+
+      // ...
+      graph.data(remoteData); // 加载远程数据
+      graph.render(); // 渲染
+    };
+    main();
+
+  </script>
+</body>
+
+</html>

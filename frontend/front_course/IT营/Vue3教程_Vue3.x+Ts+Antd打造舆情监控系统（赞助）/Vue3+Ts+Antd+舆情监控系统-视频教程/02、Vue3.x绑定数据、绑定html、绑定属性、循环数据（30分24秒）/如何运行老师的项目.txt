@@ -1,0 +1,12 @@
+1、cd 到demo里面
+
+	如：cd vuedemo
+
+2、安装依赖：
+
+	cnpm install    或者 yarn
+
+
+3、运行项目
+	
+	 npm run serve

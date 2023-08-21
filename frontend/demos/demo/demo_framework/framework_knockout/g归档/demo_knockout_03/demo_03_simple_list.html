@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>示例</title>
+
+    <script src="/bower_components/knockout/dist/knockout.debug.js"></script>
+  </head>
+  <body>
+    <!-- 声明视图 -->
+    <form data-bind="submit: addItem">
+      新项目: <input data-bind='value: itemToAdd, valueUpdate: "afterkeydown"' />
+      <button type="submit" data-bind="enable: itemToAdd().length > 0"> 新增 </button>
+      <p>你的项目列表:</p>
+      <select
+        multiple="multiple"
+        width="50"
+        data-bind="options: items"
+      ></select>
+    </form>
+
+    <script>
+      // valueUpdate: "afterkeydown  => https://www.cnblogs.com/aehyok/p/3372298.html
+      window.onload = function () {
+        var SimpleListModel = function (items) {
+          this.items = ko.observableArray(items);
+          this.itemToAdd = ko.observable("");
+          this.addItem = function () {
+            if (this.itemToAdd() != "") {
+              this.items.push(this.itemToAdd()); // 添加项目。写入“items”observableArray会导致任何相关的UI更新。
+              this.itemToAdd(""); // 清除文本框，因为它被绑定到“itemToAdd”可观察对象
+            }
+          }.bind(this); // 确保“this”总是这个视图模型
+        };
+
+        ko.applyBindings(new SimpleListModel(["Alpha", "Beta", "Gamma"]));
+      };
+    </script>
+  </body>
+</html>

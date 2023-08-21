@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05.form_fields | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <div data-bind="event: { mouseover: myFunction }">
+    Mouse over me
+  </div>
+ 
+ <script type="text/javascript">
+    var vm = {
+      myFunction: function(data, event) {
+        if (event.shiftKey) {
+          // 按下 shift 键，然后鼠标滑过
+          alert('ShiftKey');
+        } else {
+          // 普通的鼠标滑过
+          alert('mouseover');
+        }
+      }
+    };
+
+    ko.applyBindings(vm);
+  </script>
+    
+</body>
+</html>

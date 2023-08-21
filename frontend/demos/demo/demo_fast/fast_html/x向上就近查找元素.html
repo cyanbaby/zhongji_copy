@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="box">
+        <div class="child">我是子元素</div>
+      </div>
+    </div>
+
+    <!-- <script>
+      Element.prototype.closestReplenish = function (tar) {
+        var ele = this;
+
+        var elArr = (function () {
+          if (tar instanceof HTMLElement) return [tar];
+
+          try {
+            tar = document.querySelectorAll(tar);
+          } catch (e) {
+          } finally {
+            var type = Object.prototype.toString.call(tar).slice(8, -1);
+            if (["NodeList", "HTMLCollection", "Array"].indexOf(type) > -1)
+              return [].slice.call(tar);
+          }
+        })();
+
+        do {
+          if (elArr.indexOf(ele) > -1) return ele;
+
+          ele = ele.parentElement;
+        } while (ele !== null);
+
+        return null;
+      };
+
+      console.log(document.querySelector('.child').closestReplenish('.parent'))
+    </script> -->
+
+
+    <script>
+        const closestReplenish = function (ele, tar) {
+  
+          var elArr = (function () {
+            if (tar instanceof HTMLElement) return [tar];
+  
+            try {
+              tar = document.querySelectorAll(tar);
+            } catch (e) {
+            } finally {
+              var type = Object.prototype.toString.call(tar).slice(8, -1);
+              if (["NodeList", "HTMLCollection", "Array"].indexOf(type) > -1)
+                return [].slice.call(tar);
+            }
+          })();
+  
+          do {
+            if (elArr.indexOf(ele) > -1) return ele;
+  
+            ele = ele.parentElement;
+          } while (ele !== null);
+  
+          return null;
+        };
+  
+        console.log(closestReplenish(document.querySelector('.child'), '.parent'))
+        
+      </script>
+      
+
+  </body>
+</html>

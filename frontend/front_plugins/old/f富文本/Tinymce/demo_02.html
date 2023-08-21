@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="/js/zh_CN.js"></script>
+    <script>
+      tinymce.init({
+        selector: "#test",
+        // draggable_modal: false
+        language:'zh_CN',// 注意大小写  http://tinymce.ax-z.cn/general/localize-your-language.php
+      });
+    </script>
+  </head>
+  <body>
+    <h1>TinyMCE快速开始示例</h1>
+    <div id="test">Hello, World!</div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<div class="like-or-dislike" data-bind="visible: !chosenValue()">
+  <button data-bind="click: like">喜欢</button>
+  <button data-bind="click: dislike">不喜欢</button>
+</div>
+<div class="result" data-bind="visible: chosenValue">
+  You <strong data-bind="text: chosenValue"></strong> it
+</div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+</head>
+<body>
+
+
+  <script>
+    // let x = 2703750
+    // var d = moment.duration(x, 'seconds')
+    // console.log(
+    //   Math.floor(d.asDays()) + '天'+
+    //   d.hours() + '时' +
+    //   d.minutes() + '分' +
+    //   d.seconds() + '秒'
+    // )
+    // 31天7时2分30秒
+
+    let x = 2703750000
+    var d = moment.duration(x, 'milliseconds')
+
+    function timeFormat(second){
+      return moment.utc(second * 1000).format('YYYY-MM-DD HH:mm:ss')
+    }
+
+    console.log(
+      timeFormat(x)
+    )    
+
+
+
+
+
+  </script>
+
+  <script>
+    // // https://zhuanlan.zhihu.com/p/346813448
+    // // https://blog.csdn.net/weixin_45626517/article/details/108987286
+
+
+    
+  </script>
+</body>
+</html>

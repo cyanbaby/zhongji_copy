@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="jquery.min.js" charset="utf-8"></script>
+    <script>
+    let res=$.ajax({
+      url: 'data/1.json',
+      dataType: 'json',
+      success(data){
+        resolve(data);
+      },
+      error(res){
+        reject(res);
+      }
+    });
+
+    console.log(res);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

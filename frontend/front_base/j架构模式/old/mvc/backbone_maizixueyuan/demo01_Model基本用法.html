@@ -1,0 +1,34 @@
+<html>
+
+<head>
+  <script src="./libs/underscore.v1.8.3.js"></script>
+  <script src="./libs/jquery.v1.8.3.js"></script>
+  <script src="./libs/backbone.v1.4.1.js"></script>
+</head>
+
+<body>
+  <script>
+    var _obj = {
+      title: 'task 1',
+      description: 'description 1'
+    }
+
+    var ToDoItem = Backbone.Model.extend({
+
+    })
+
+    var toDoItem = new ToDoItem(_obj)  // 或者直接字面量
+    // 浏览器控制台
+    // 输出: toDoItem 查看 toDoItem.attributes
+    // 输出: toDoItem.attributes.title
+    // 赋值: toDoItem.attributes.title = '新标题'  => 修改了 toDoItem, 不影响 _obj
+
+    // 方法
+    // toDoItem.get('title')
+    // toDoItem.set('title', '新标题2')
+    // toDoItem.toJSON()
+
+  </script>
+</body>
+
+</html>

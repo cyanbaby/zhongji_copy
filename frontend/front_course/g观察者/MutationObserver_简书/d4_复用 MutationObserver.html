@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let observer = new MutationObserver((mutationRecords) => console.log(mutationRecords.map((x) => x.target)));
+        // // 向页面主体添加两个子节点
+        // let childA = document.createElement('div'),
+        //     childB = document.createElement('span');
+        // document.body.appendChild(childA);
+        // document.body.appendChild(childB);
+        // // 观察两个子节点
+        // observer.observe(childA, { attributes: true });
+        // observer.observe(childB, { attributes: true });
+        // // 修改两个子节点的属性 
+        // childA.setAttribute('foo', 'bar'); 
+        // childB.setAttribute('foo', 'bar');
+        // // [<div>, <span>]
+
+
+
+        // disconnect()方法是一个“一刀切”的方案，调用它会停止观察所有目标:
+        // let observer = new MutationObserver((mutationRecords) => console.log(mutationRecords.map((x) => x.target)));
+        // // 向页面主体添加两个子节点
+        // let childA = document.createElement('div'),
+        //     childB = document.createElement('span');
+        // document.body.appendChild(childA);
+        // document.body.appendChild(childB);
+        // // 观察两个子节点
+        // observer.observe(childA, { attributes: true });
+        // observer.observe(childB, { attributes: true });
+        // observer.disconnect();
+        // // 修改两个子节点的属性 
+        // childA.setAttribute('foo', 'bar'); 
+        // childB.setAttribute('foo', 'bar');
+        // // (没有日志输出)
+    </script>
+</body>
+
+</html>

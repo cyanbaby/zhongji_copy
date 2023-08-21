@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04.control_flow | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>First name</th>
+        <th>Last name</th>
+      </tr>
+    </thead>
+    <tbody data-bind="foreach: people">
+
+      <!-- 默认的循环变量是 $index -->
+      <tr>
+        <td data-bind="text: $index"></td>
+        <td data-bind="text: firstName"></td>
+        <td data-bind="text: lastName"></td>
+      </tr>
+      
+      <!-- 默认的循环变量是 $data -->
+      <tr>
+        <td data-bind="text: '--'"></td>
+        <td data-bind="text: $data.firstName"></td>
+        <td data-bind="text: $data.lastName"></td>
+      </tr>
+    </tbody>
+  </table>
+      
+  <script type="text/javascript">
+    var vm = {
+      people: [
+        { firstName: 'Bert', lastName: 'Bertington' },
+        { firstName: 'Charles', lastName: 'Charlesforth' },
+        { firstName: 'Denise', lastName: 'Dentiste' }
+      ]
+    };
+
+    vm.people.pop();
+
+    ko.applyBindings(vm);
+  </script>
+    
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>11.more_information | KnockOut</title>
+  <script type="text/javascript" data-main="./module/init.js" src="../assets/require.js"></script>
+</head>
+<body>
+
+  <p>First name: <input data-bind="value: firstName" /></p>
+  <p>First name capitalized: <strong data-bind="text: firstNameCaps"></strong></p>
+
+  <p>
+    First name: <input data-bind="value: firstName, hasFocus: editingName" />
+    <span data-bind="visible: editingName"> You're editing the name!</span>
+  </p>
+
+</body>
+</html>

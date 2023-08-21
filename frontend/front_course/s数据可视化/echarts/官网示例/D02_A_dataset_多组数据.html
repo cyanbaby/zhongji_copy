@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/echarts/dist/echarts.min.js"></script>
+</head>
+
+<body>
+  <div id="main" style="width: 600px;height:400px;"></div>
+  <script>
+    // dataset_多组数据
+    (() => {
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      const option = {
+
+        legend: {},
+        tooltip: {},
+        dataset: {
+          source: [
+            ["趋势", "数据一", "数据二", "数据三"],
+            ["2014", 38, 14, 60],
+            ["2015", 39, 22, 55],
+            ["2016", 33, 17, 56],
+            ["2017", 36, 18, 49],
+            ["2018", 39, 25, 53],
+            ["2019", 37, 23, 53],
+            ["2020", 42, 22, 57],
+            ["2021", 44, 21, 61],
+            ["2022", 38, 29, 59]
+          ]
+        },
+        xAxis: {
+          "type": "category"
+        },
+        yAxis: {},
+        series: [{ "type": "bar" }, { "type": "bar" }, { "type": "bar" }]
+      }
+
+      // 绘制图表
+      myChart.setOption(option);
+    });
+
+    // 全局设置颜色
+    (() => {
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      const option = {
+        // 默认颜色
+        // color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'],
+        
+        legend: {},
+        tooltip: {},
+        dataset: {
+          source: [
+            ["趋势", "数据一", "数据二", "数据三"],
+            ["2014", 38, 14, 60],
+            ["2015", 39, 22, 55],
+            ["2016", 33, 17, 56],
+            ["2017", 36, 18, 49],
+            ["2018", 39, 25, 53],
+            ["2019", 37, 23, 53],
+            ["2020", 42, 22, 57],
+            ["2021", 44, 21, 61],
+            ["2022", 38, 29, 59]
+          ]
+        },
+        xAxis: {
+          "type": "category"
+        },
+        yAxis: {},
+        series: [{ "type": "bar" }, { "type": "bar" }, { "type": "bar" }]
+      }
+
+      // 绘制图表
+      myChart.setOption(option);
+    })();
+    
+  </script>
+</body>
+
+</html>

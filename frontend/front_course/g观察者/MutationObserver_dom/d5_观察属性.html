@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent {
+      background-color: #AED8E6;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      border: 1px dashed #333;
+    }
+
+    .child {
+      background-color: #EF8080;
+      display: inline-block;
+      text-align: center;
+      line-height: 100px;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent" id="parent">
+    <div class="child" contenteditable>Child 1</div>
+    <div class="child" contenteditable>Child 2</div>
+    <div class="child" contenteditable>Child 3</div>
+  </div>
+
+  <script>
+    const mutationObserver = new MutationObserver(enters => {
+      console.log(enters)
+    })
+
+    const parent = document.querySelector('.parent')
+
+    mutationObserver.observe(parent, {
+      attributes: true,
+      attributeOldValue: true,    // => 观察 oldValue
+      attributeFilter: ["title"]  // => 观察指定属性
+    })
+
+    // parent.id = "newID"
+    // => type: "attributes"
+    // => attributeName: "id"
+    // => oldValue: null       需要单独开启配置观察
+
+    parent.title = "你好title"
+
+
+    // todo attribute和prop区别  属性和特性区别？ input的value演示
+
+    
+  </script>
+</body>
+
+</html>

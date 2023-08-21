@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bezier Curve with Gradient Color</title>
+    <style>
+      #main {
+        width: 400px;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main"></div>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <script>
+      window.onload = function () {
+        // 初始化图表
+        var myChart = echarts.init(document.getElementById("main"));
+
+        var option = {
+          series: [
+            {
+              type: "graph",
+              data: [
+                { name: "节点1", x: 100, y: 100 },
+                { name: "节点2", x: 100, y: 300 },
+              ],
+              links: [
+                {
+                  source: "节点1",
+                  target: "节点2",
+                  lineStyle: {
+                    type: "curve",
+                    curveness: 0.5,
+                    width: 2,
+                    color: "#333",
+                  },
+                },
+              ],
+            },
+          ],
+        };
+
+        // 使用刚指定的配置项和数据显示图表
+        myChart.setOption(option);
+      };
+    </script>
+  </body>
+</html>

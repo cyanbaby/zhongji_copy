@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04.control_flow | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <!-- 可以放在单独的文件中 -->
+  <template id="my-special-list-template">
+    <h3>模板头部</h3>
+
+    <ul data-bind="foreach: { data: myItems, as: 'myItem' }">
+      <li>
+        <h4>模板中的列表头部</h4>
+        <!-- $componentTemplateNodes 表示自定义元素的模板节点 -->
+        <!-- ko template: { nodes: $componentTemplateNodes, data: myItem } -->
+        <!-- /ko -->
+      </li>
+    </ul>
+  </template>
+
+  <my-special-list params="items: peopleArray">
+    <!-- 在自定义元素中，添加标记信息 -->
+    <em data-bind="text: name"></em> is
+    <em data-bind="text: age"></em> years old.
+  </my-special-list>
+
+  <script type="text/javascript">
+    ko.components.register("my-special-list", {
+      template: { 
+        // 指定模板
+        element: "my-special-list-template" 
+      },
+      viewModel: function(params) {
+        this.myItems = params.items;
+      }
+    });
+
+    ko.applyBindings({
+      peopleArray: ko.observableArray([
+        { name: "Lewis", age: 56 },
+        { name: "Hathaway", age: 34 }
+      ])
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/echarts/dist/echarts.min.js"></script>
+</head>
+
+<body>
+  <div id="main" style="width: 600px;height:400px;"></div>
+  <script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    const option = {
+      "legend": {},
+      "tooltip": {},
+      "dataset": {
+        "source": [
+          ["趋势", "数据一", "数据二", "数据三"],
+          ["2014", 38, 14, 60],
+          ["2015", 39, 22, 55],
+          ["2016", 33, 17, 56],
+          ["2017", 36, 18, 49],
+          ["2018", 39, 25, 53],
+          ["2019", 37, 23, 53],
+          ["2020", 42, 22, 57],
+          ["2021", 44, 21, 61],
+          ["2022", 38, 29, 59]
+        ]
+      },
+      "xAxis": {
+        "type": "category"
+      },
+      "yAxis": {},
+      "series": [{ "type": "bar" }, { "type": "bar" }, { "type": "bar" }].map(item => {
+        item.itemStyle = {
+          normal: {
+            //这里是重点
+            color: function (params) {
+              //注意，如果颜色太少的话，后面颜色不会自动循环，最好多定义几个颜色
+              var colorList = ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622'];
+              return colorList[params.dataIndex]
+            }
+          }
+        }
+        return item
+      })
+    }
+
+    // 绘制图表
+    myChart.setOption(option);
+
+
+    setTimeout(() => {
+      option.dataset.source[0][1] = '数据111111111'
+      console.log(option)
+      myChart.setOption(option);
+
+    }, 3000)
+
+    // TODO 渐变色   https://blog.csdn.net/MFWSCQ/article/details/123143640
+  </script>
+</body>
+
+</html>

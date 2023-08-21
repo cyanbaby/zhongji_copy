@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05.form_fields | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <p>
+    Name: 
+    <b data-bind="visible: !editing(), text: name, click: edit">&nbsp;</b>
+    <input data-bind="visible: editing, value: name, hasFocus: editing" />
+  </p>
+  <p><em>单击姓名编辑，单击空白区域恢复</em></p>
+
+  <script type="text/javascript">
+    function ViewModel(name) {
+      // Data
+      this.name = ko.observable(name);
+      this.editing = ko.observable(false);
+          
+      // Behaviors
+      this.edit = function() { this.editing(true) }
+    }
+
+    ko.applyBindings(new ViewModel("Bert Bertington"));
+
+  </script>
+
+</body>
+</html>

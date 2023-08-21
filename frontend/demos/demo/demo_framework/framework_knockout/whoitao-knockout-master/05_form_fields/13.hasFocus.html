@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05.form_fields | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <input data-bind="hasFocus: isSelected" />
+  <button data-bind="click: setIsSelected">获取焦点</button>
+  <span data-bind="visible: isSelected">文本框获取焦点</span>
+
+  <script type="text/javascript">
+    var vm = {
+      isSelected: ko.observable(false),
+      setIsSelected: function() {
+        this.isSelected(true);
+      }
+    };
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

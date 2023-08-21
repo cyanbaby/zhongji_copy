@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;  /* todo gap */
+            align-items: flex-start;
+        }
+
+        .card {
+            background-color: white;
+            border: 1px solid black;
+            border-radius: .25rem;
+            opacity: 0;
+            transition: 1000ms;  /*150ms*/
+            padding: 10px;
+        }
+
+        .card.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="card show">这是第一个辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">一辆车</div>
+        <div class="card">这是最后一辆车</div>
+        <div class="card">新车</div>
+        <div class="card">新车</div>
+    </div>
+
+    <script>
+        const cards = document.querySelectorAll('.card')
+        // toggle
+        // 第一个参数为要在元素中移除的类名，并返回 false。
+        // 如果该类名不存在则会在元素中添加类名，并返回 true。
+        // 第二个是可选参数，是个布尔值用于设置元素是否强制添加或移除类，不管该类名是否存在
+
+        const observer = new IntersectionObserver(entries => {
+            
+            entries.forEach(entry => {
+                console.log( entry.isIntersecting )
+
+                entry.target.classList.toggle("show", entry.isIntersecting)
+                // entry.isIntersecting => 相交状态
+                // https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry/isIntersecting
+            })
+
+
+            console.log(entries)
+        }, {
+            threshold: 1  // => 0.5
+            // => threshold属性决定了什么时候触发回调函数。它是一个数组，每个成员都是一个门槛值，默认为[0]，即交叉比例（intersectionRatio）达到0时触发回调函数。
+            // => 用户可以自定义这个数组。比如，[0, 0.25, 0.5, 0.75, 1]就表示当目标元素 0%、25%、50%、75%、100% 可见时，会触发回调函数
+        })
+
+        // 同一时间oberve()观察的元素，会一起被回调收集到数组里去
+        // observer.observe(cards[0])
+        // observer.observe(cards[1])
+
+        cards.forEach(card => {
+            observer.observe(card)
+        })
+
+        // opacity:0 隐藏的元素 也是可以获取的
+        // console.log(cards)
+
+
+
+    </script>
+</body>
+
+</html>

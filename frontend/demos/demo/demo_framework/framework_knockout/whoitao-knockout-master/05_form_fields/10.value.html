@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05.form_fields | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <p>
+    国家:
+    <select data-bind="options: countries,
+                       optionsCaption: '选国家',
+                       value: selectedCountry,
+                       valueAllowUnset: true"></select>
+  </p>
+ 
+  <script type="text/javascript">
+    var vm = {
+      countries: ['China', 'Japan', 'New Zealand'],
+      selectedCountry: ko.observable('China')
+    };
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

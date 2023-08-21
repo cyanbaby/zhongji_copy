@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09_component | KnockOut.js</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <ul data-bind="foreach: products">
+    <li class="product">
+      <strong data-bind="text: name"></strong>
+      <like-widget params="value: userRating"></like-widget>
+    </li>
+  </ul>
+  <button data-bind="click: addProduct">Add a product</button>
+      
+  <script type="text/javascript">
+    ko.components.register('like-widget', {
+      viewModel: { require: 'like-widget/index.js' },
+      template: { require: 'text!like-widget/index.html' }
+    });
+
+    function Product(name, rating) {
+      this.name = name;
+      this.userRating = ko.observable(rating || null);
+    }
+
+    function MyViewModel() {
+      this.products = ko.observableArray(); // Start empty
+    }
+
+    MyViewModel.prototype.addProduct = function() {
+      var name = 'Product ' + (this.products().length + 1);
+      this.products.push(new Product(name));
+    };
+        
+    ko.applyBindings(new MyViewModel());
+  </script>
+    
+</body>
+</html>

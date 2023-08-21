@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My App</title>
+
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="docs.css" />
+  </head>
+  <body>
+    <table class="table table-bordered table-hover">
+      <thead class="bg-primary text-white">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">姓名</th>
+          <th scope="col">年龄</th>
+          <th scope="col">操作</th>
+        </tr>
+      </thead>
+      <tbody data-bind="foreach: people">
+        <tr>
+          <td data-bind="text: id"></td>
+          <td data-bind="text: name"></td>
+          <td data-bind="text: age"></td>
+          <td class="fixed-right-buttons">
+            <button type="button" class="btn btn-sm btn-bd-primary2" data-bind="click: $root.editPerson">
+              <i class="bi bi-pencil"></i> 编辑
+            </button>
+            <button type="button" class="btn btn-sm btn-danger" data-bind="click: $root.removePerson">
+              <i class="bi bi-trash"></i> 删除
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button type="button" class="btn btn-primary" data-bind="click: addPerson">
+      添加人员
+    </button>
+
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- 模态框头部 -->
+          <div class="modal-header">
+            <h4 class="modal-title" data-bind="text: modalTitle"></h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+
+          <!-- 模态框主体 -->
+          <div class="modal-body">
+            <div data-bind="visible: showModal">
+              <form>
+                <div class="form-group row">
+                  <label for="name" class="col-sm-2 col-form-label">ID：</label>
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      class="form-control mb-3"
+                      placeholder="请输入您的姓名"
+                      data-bind="value: modalId"
+                      disabled="disabled"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="email" class="col-sm-2 col-form-label">姓名：</label>
+                  <div class="col-sm-10">
+                    <input
+                      type="text"
+                      data-bind="value: modalName"
+                      class="form-control mb-3"
+                    />
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="message" class="col-sm-2 col-form-label">年龄：</label>
+                  <div class="col-sm-10">
+                    <input
+                    type="text" data-bind="value: modalAge" 
+                      class="form-control mb-3"
+                    ></input>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="offset-sm-2 col-sm-10">
+                    <!-- <button  class="btn btn-primary" data-bind="click: savePerson">提交</button>
+                    <button  class="btn" data-bind="click: cancelModal">取消</button> -->
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- 模态框底部 -->
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              关闭
+            </button>
+            <button type="button" class="btn btn-primary" data-bind="click: savePerson">保存</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/knockout/build/output/knockout-latest.js"></script>
+    <script>
+      function Person(data) {
+        this.id = ko.observable(data.id || 0);
+        this.name = ko.observable(data.name || "");
+        this.age = ko.observable(data.age || "");
+      }
+
+      function MyViewModel() {
+        var self = this;
+
+        self.people = ko.observableArray([]);
+
+        self.modalTitle = ko.observable("");
+        self.modalId = ko.observable(0);
+        self.modalName = ko.observable("");
+        self.modalAge = ko.observable("");
+        self.showModal = ko.observable(false);
+        self.model = new bootstrap.Modal(document.getElementById('myModal'));
+
+        self.addPerson = function () {
+          self.modalTitle("添加人员");
+          self.modalId(0);
+          self.modalName("");
+          self.modalAge("");
+          self.showModal(true);
+          self.model.show()
+
+        };
+
+        self.editPerson = function (person) {
+          self.modalTitle("编辑人员");
+          self.modalId(person.id());
+          self.modalName(person.name());
+          self.modalAge(person.age());
+          self.showModal(true);
+          self.model.show()
+        };
+
+        self.removePerson = function (person) {
+          self.people.remove(person);
+        };
+
+        self.savePerson = function () {
+          var person = new Person({
+            id: self.modalId(),
+            name: self.modalName(),
+            age: self.modalAge(),
+          });
+
+          if (person.id() === 0) {
+            // Add new person
+            var lastId = 0;
+            ko.utils.arrayForEach(self.people(), function (p) {
+              if (p.id() > lastId) {
+                lastId = p.id();
+              }
+            });
+            person.id(lastId + 1);
+            self.people.push(person);
+          } else {
+            // Update existing person
+            var existingPerson = ko.utils.arrayFirst(
+              self.people(),
+              function (p) {
+                return p.id() === person.id();
+              }
+            );
+            existingPerson.name(person.name());
+            existingPerson.age(person.age());
+          }
+
+          self.showModal(false);
+          self.model.hide()
+        };
+
+        self.cancelModal = function () {
+          self.showModal(false);
+          self.model.hide()
+        };
+      }
+
+      ko.applyBindings(new MyViewModel());
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="mountNode"></div>
+
+  <script src="g6.min.js"></script>
+  <script>
+    var data = {
+      nodes: [{
+        id: 'node1',
+        label: 'node1',
+        x: 50,
+        y: 50
+      }, {
+        id: 'node2',
+        label: 'node2',
+        x: 150,
+        y: 150
+      }, {
+        id: 'node3',
+        label: 'node3',
+        x: 200,
+        y: 50
+      }, {
+        id: 'node4',
+        label: 'node4',
+        x: 300,
+        y: 150
+      }],
+      edges: [
+        // 带有箭头的边，内置箭头
+        {
+          source: 'node1',
+          target: 'node2',
+          label: '内置箭头',
+
+          style: {
+            stroke: '#F6BD16',  // 边的颜色
+            startArrow: true,
+            endArrow: true
+          },
+          labelCfg: {
+            autoRotate: true,
+            refY: 10
+          }
+        },
+        // 带有箭头的边，自定义箭头的路径
+        {
+          source: 'node3',
+          target: 'node4',
+          label: '自定义箭头路径',
+          style: {
+            // endArrow: 'vee'  // 箭头使用： https://g6.antv.vision/zh/docs/manual/middle/elements/edges/arrow
+
+            // 另一种写法
+            endArrow: {
+              path: G6.Arrow.triangle(),
+              fill: '#F6BD16', // 填充箭头
+              stroke: '#F6BD16',
+            }
+          },
+          labelCfg: {
+            autoRotate: true,
+            refY: 10
+          }
+        }]
+    };
+
+    var graph = new G6.Graph({
+      container: 'mountNode',
+      width: window.innerWidth,
+      height: window.innerHeight,
+      defaultNode: {
+        size: [40, 40]
+      }
+    });
+    graph.data(data);
+    graph.render();
+  </script>
+  </script>
+</body>
+
+</html>

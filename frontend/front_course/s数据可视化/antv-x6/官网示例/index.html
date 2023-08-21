@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="./x6.js"></script>
+    <script>
+    const { Graph, Line, Path, Curve } = X6
+
+    Graph.registerConnector(
+        'multi-smooth',
+        (
+            sourcePoint,
+            targetPoint,
+            routePoints,
+            options
+        ) => {
+            const { index = 0, total = 1, gap = 12 } = options
+            const line = new Line(sourcePoint, targetPoint)
+            const centerIndex = (total - 1) / 2
+            const dist = index - centerIndex
+            const diff = Math.abs(dist)
+            const factor = diff === 0 ? 1 : diff / dist
+            const vertice = line
+                .pointAtLength(line.length() / 2 + gap * factor * Math.ceil(diff))
+                .rotate(90, line.getCenter())
+
+            const points = [sourcePoint, vertice, targetPoint]
+            const curves = Curve.throughPoints(points)
+            const path = new Path(curves)
+            return options.raw ? path : path.serialize()
+        },
+        true,
+    )
+
+    const graph = new Graph({
+        container: document.getElementById('container'),
+        width: 800,
+        height: 600,
+        grid: true,
+    });
+
+    const source = graph.addNode({
+        x: 120,
+        y: 40,
+        width: 100,
+        height: 40,
+        attrs: {
+            body: {
+                fill: '#f5f5f5',
+                stroke: '#d9d9d9',
+            },
+        },
+    })
+
+    const target = graph.addNode({
+        x: 400,
+        y: 260,
+        width: 100,
+        height: 40,
+        attrs: {
+            body: {
+                fill: '#f5f5f5',
+                stroke: '#d9d9d9',
+            },
+        },
+    })
+
+    const total = 2
+    for (let i = 0; i < total; i += 1) {
+        graph.addEdge({
+            source,
+            target,
+            connector: {
+                name: 'multi-smooth',
+                args: {
+                    total,
+                    index: i,
+                },
+            },
+            attrs: {
+                line: {
+                    stroke: '#722ed1',
+                    strokeWidth: 1,
+                    // sourceMarker: {
+                    //   name: 'block',
+                    //   offset: 
+                    // },
+                    // targetMarker:{
+                    //   name: 'block'
+                    // },
+
+                    // sourceMarker: {
+                    //   tagName: 'path',
+                    //   d: 'M 20 -10 0 0 20 10 Z',
+                    // },
+
+                    
+                    // sourceMarker: {
+                    //     tagName: 'path',
+                    //     d: 'M 20 -10 0 0 20 10 Z',
+                    // },
+                    // targetMarker: {
+                    //     tagName: 'path',
+                    //     d: 'M 20 -10 0 0 20 10 Z',
+                    //     strokeWidth: 2,
+                    //     fill: '#73d13d',
+                    //     stroke: '#237804',
+                    // },
+
+
+                },
+            },
+        })
+    }
+    // atConnectionRatio: 0.5,
+    </script>
+</body>
+
+</html>

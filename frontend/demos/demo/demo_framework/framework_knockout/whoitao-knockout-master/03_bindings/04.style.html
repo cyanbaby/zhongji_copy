@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03_bindings | KnockOut.js</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <!-- 基本用法 -->
+  <div data-bind="style: { color: currentProfit() < 0 ? 'red' : 'black' }">
+    基本用法
+  </div>
+
+  <!-- 设置多个样式 -->
+  <div data-bind="style: { 
+    color: currentProfit() < 0 ? 'red' : 'black', 
+    fontWeight: isSevere() ? 'bold' : '',
+    'font-size': '32px'
+  }">
+    设置多个样式
+  </div>
+    
+  <script type="text/javascript">
+    var vm = {
+      currentProfit: ko.observable(150000), // 初始值为正数，字体是黑色
+      isSevere: ko.observable(true)  
+    };
+    vm.currentProfit(-50); // 内容变成红色
+        
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .container-box {
+        /* box-sizing: border-box; */
+        background-color: #bae0ff;
+        width: 800px;
+        height: 800px;
+        /* border: 1px solid red; */
+        margin: 50px auto;
+        position: relative;
+      }
+      #div1 {
+        width: 100px;
+        height: 100px;
+        background-color: #F4606C;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-box" id="containerBox">
+        <div id="div1"></div>
+    </div>
+    <script>
+      let div1 = document.getElementById("div1");
+      //判断边界问题
+      function range(loc, min, max) {
+        if (loc > max) {
+          return max;
+        } else if (loc < min) {
+          return min;
+        } else {
+          return loc;
+        }
+      }
+
+      //拖拽功能
+      function drag(eg) {
+        eg.onmousedown = function (ev) {
+          let e = ev || window.event;
+          let eX = e.clientX;
+          let eY = e.clientY;
+          let disX = eX - eg.offsetLeft;
+          let disY = eY - eg.offsetTop;
+          document.onmousemove = function (ev) {
+            let e = ev || window.event;
+            let l = e.clientX - disX;
+            let h = e.clientY - disY;
+            // let windowWidth = document.documentElement.clientWidth;
+            // let windowHeight = document.documentElement.clientHeight;
+            
+            let windowWidth = document.getElementById('containerBox').clientWidth;
+            let windowHeight = document.getElementById('containerBox').clientHeight;
+            l = range(l, 0, windowWidth - eg.offsetWidth);
+            h = range(h, 0, windowHeight - eg.offsetHeight);
+            eg.style.left = `${l}px`;
+            eg.style.top = `${h}px`;
+          };
+        };
+        document.onmouseup = function () {
+          document.onmousemove = null;
+        };
+      }
+
+      drag(div1);
+
+    </script>
+  </body>
+</html>

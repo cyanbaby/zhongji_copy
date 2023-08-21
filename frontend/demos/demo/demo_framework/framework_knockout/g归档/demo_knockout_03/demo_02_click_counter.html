@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>示例</title>
+
+    <script src="/bower_components/knockout/dist/knockout.debug.js"></script>
+  </head>
+  <body>
+    <!-- 声明视图 -->
+    <div>你点击了<span data-bind="text: numberOfClicks">&nbsp;</span> 次</div>
+
+    <button data-bind="click: registerClick, disable: hasClickedTooManyTimes">
+      点我
+    </button>
+
+    <div data-bind="visible: hasClickedTooManyTimes">
+      点击次数太多了!请在手指磨坏之前停下来。
+      <button data-bind="click: resetClicks">Reset clicks</button>
+    </div>
+
+    <script>
+      window.onload = function () {
+
+        var ClickCounterViewModel = function () {
+          this.numberOfClicks = ko.observable(0);
+
+          this.registerClick = function () {
+            this.numberOfClicks(this.numberOfClicks() + 1);
+          };
+
+          this.resetClicks = function () {
+            this.numberOfClicks(0);
+          };
+
+          this.hasClickedTooManyTimes = ko.pureComputed(function () {
+            return this.numberOfClicks() >= 3;
+          }, this);
+        };
+
+        ko.applyBindings(new ClickCounterViewModel());
+      };
+    </script>
+  </body>
+</html>

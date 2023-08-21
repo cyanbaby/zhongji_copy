@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04.control_flow | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <form data-bind="submit: getTweets">
+    Twitter account:
+    <input data-bind="value: twitterName" />
+    <button type="submit">Get tweets</button>
+  </form>
+  
+  <!-- 通过 with 修改 resultData 上下文绑定 -->
+  <div data-bind="with: resultData">
+    <h3>Recent tweets fetched at <span data-bind="text: retrievalDate"> </span></h3>
+    <ol data-bind="foreach: topTweets">
+      <li data-bind="text: text"></li>
+    </ol>
+  
+    <button data-bind="click: $parent.clearResults">Clear tweets</button>
+  </div>
+
+  <script type="text/javascript">
+    function AppViewModel() {
+      var self = this;
+      self.twitterName = ko.observable('@example');
+      self.resultData = ko.observable(); // 没有初始值
+  
+      // 获取数据
+      self.getTweets = function() {
+        var name = self.twitterName(),
+          simulatedResults = [
+            { text: name + ' What a nice day.' },
+            { text: name + ' Building some cool apps.' },
+            { text: name + ' Just saw a famous celebrity eating lard. Yum.' }
+          ];
+  
+        self.resultData({ 
+          retrievalDate: new Date(), 
+          topTweets: simulatedResults 
+        });
+      }
+  
+      self.clearResults = function() {
+        self.resultData(undefined);
+      }
+    }
+    
+    ko.applyBindings(new AppViewModel());
+  </script>
+    
+</body>
+</html>

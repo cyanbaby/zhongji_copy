@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 清空主体
+        document.body.innerHTML = '';
+        let observer = new MutationObserver((mutationRecords) => console.log(mutationRecords));
+        // 创建一个后代 
+        document.body.appendChild(document.createElement('div'));
+        // 观察<body>元素及其子树
+        observer.observe(document.body, { attributes: true, subtree: true });
+        // 修改<body>元素的子树
+        // document.body.firstChild.setAttribute('foo', 'bar');
+        // 记录了子树变化的事件
+        // [
+            // {
+            //     addedNodes: NodeList[],
+            //     attributeName: "foo",
+            //     attributeNamespace: null,
+            //     oldValue: null,
+            //     nextSibling: null,
+            //     previousSibling: null,
+            //     removedNodes: NodeList[],
+            //     target: div,
+            //     type: "attributes",
+            //   }
+        // ]
+    </script>
+</body>
+
+</html>

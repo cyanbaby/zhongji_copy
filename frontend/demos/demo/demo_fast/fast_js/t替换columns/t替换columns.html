@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const COMMON_ORDER_COLUMNS_HEADER = [
+        {
+          title: "课程订单号",
+          key: "orderNo",
+          width: 120,
+          search: {
+            disabled: true,
+          },
+        },
+        {
+          title: "财务订单号",
+          key: "thirdFlowNo",
+          width: 165,
+          search: {
+            disabled: true,
+          },
+        },
+        {
+          title: "课程",
+          key: "subOrderListSize",
+          width: 50,
+          rowSlot: true,
+          search: {
+            disabled: true,
+          },
+        },
+        {
+          title: "姓名",
+          key: "buyer.name",
+          width: 105,
+          search: {
+            disabled: true,
+          },
+        },
+        {
+          title: "手机号",
+          key: "buyer.mobile",
+          width: 105,
+          search: {
+            disabled: true,
+          },
+        },
+        {
+          title: "身份证号",
+          key: "buyerCertNo",
+          width: 145,
+          search: {
+            disabled: true,
+          },
+        },
+        {
+          title: "实付金额",
+          width: 120,
+          key: "actualAmount",
+          rowSlot: true,
+        },
+        {
+          title: "订单状态",
+          key: "status",
+          width: 100,
+          rowSlot: true,
+          search: {
+            disabled: true,
+          },
+        },
+        {
+          title: "开票状态",
+          key: "orderInvoiceStatus",
+          width: 100,
+          rowSlot: true,
+          search: {
+            disabled: true,
+          },
+        },
+        {
+          title: "支付方式",
+          key: "paymentToolType",
+          rowSlot: true,
+        },
+        {
+          title: "支付时间",
+          key: "gmtCreate",
+          rowSlot: true,
+          width: 140,
+        },
+        {
+          title: "创建时间",
+          key: "createTime",
+          width: 140,
+        },
+        {
+          title: "下单渠道",
+          key: "operaChannel",
+          width: 140,
+        },
+        {
+          title: "工作单位",
+          key: "buyer.companyName",
+          width: 160,
+          search: {
+            disabled: true,
+          },
+        },
+        {
+          title: "所在地区",
+          width: 160,
+          key: "buyerAddressPath",
+        },
+        {
+          title: "卖家",
+          key: "seller",
+          rowSlot: true,
+          width: 120,
+        },
+      ];
+
+      function replaceColumn(columns, key, item, position,) {
+        const index = columns.findIndex(element => element.key === key)
+        if(position !== undefined) {
+            columns.splice(index, 1)
+            columns.splice(position, 0, item)
+        } else {
+            columns.splice(index, 1, item)
+        }
+        return columns
+      }
+
+    </script>
+  </body>
+</html>

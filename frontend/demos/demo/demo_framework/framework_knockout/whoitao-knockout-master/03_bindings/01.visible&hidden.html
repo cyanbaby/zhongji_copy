@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03_bindings | KnockOut.js</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <!-- 基本用法 -->
+  <div data-bind="visible: shouldShowMessage">
+    shouldShowMessage 为 true 时显示
+  </div>
+
+  <!-- 通过表达式来控制显示和隐藏 -->
+  <div data-bind="visible: myArr().length > 0">
+    myArr 不为空时显示
+  </div>
+    
+  <script type="text/javascript">
+    var vm = {
+      shouldShowMessage: ko.observable(true), // 初始值
+      myArr: ko.observableArray([]), // 监控数组
+    };
+
+    vm.shouldShowMessage(false)
+
+    vm.myArr.push(1)
+
+    ko.applyBindings(vm);
+  </script>
+    
+</body>
+</html>

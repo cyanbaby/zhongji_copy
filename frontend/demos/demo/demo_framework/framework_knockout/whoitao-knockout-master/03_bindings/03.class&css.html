@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>03_bindings | KnockOut.js</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+  <style>
+    .profitWarning {
+      color: rgb(204, 170, 20);
+    }
+    .profitPositive {
+      color: rgb(6, 172, 81);
+    }
+    .majorHighlight {
+      font-weight: bold;
+    }
+    .large {
+      font-size: 36px;
+    }
+    .medium {
+      font-size: 24px;
+    }
+    .small {
+      font-size: 12px;
+    }
+    .btn-success {
+      padding: 10px;
+      border: 1px solid #ddd;
+      background:rgb(6, 172, 81);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- class -->
+  <div data-bind="class: profitStatus">
+    class 用来设置类名称，后面跟字符串
+  </div>
+
+  <!-- css -->
+  <div data-bind="css: { 
+    profitWarning: currentProfit() < 0, 
+    majorHighlight: isSevere 
+  }">
+    css 用来控制是否使用类名称，后面用对象
+  </div>
+
+  <!-- 混合使用 class 和 css -->
+  <div data-bind="class: profitStatus, css: { 
+    majorHighlight: isSevere 
+  }">
+    混合使用 class 和 css
+  </div>
+
+  <!-- 通过一个变量来控制多个类 -->
+  <div data-bind="css: { 'large majorHighlight profitWarning': isSevere }">
+    通过一个变量来控制多个类
+  </div>
+
+  <!-- 蛇形命名的类名称非法，会导致后续程序不执行 -->
+  <!-- <div data-bind="css: { btn-success: isSevere }">
+    btn-success
+  </div> -->
+
+  <!-- 蛇形命名的类名称需要引号包裹 -->
+  <div data-bind="css: { 'btn-success': isSevere }">
+    btn-success
+  </div>
+      
+  <script type="text/javascript">
+    var vm = {
+      currentProfit: ko.observable(150000),
+      isSevere: ko.observable(),
+    };
+    
+    // 动态控制样式类
+    vm.profitStatus = ko.pureComputed(function() {
+      return this.currentProfit() < 0 ? "profitWarning" : "profitPositive";
+    }, vm);
+    
+    // 修改值，导致类名变更
+    // vm.currentProfit(-50);
+    vm.isSevere(true)
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

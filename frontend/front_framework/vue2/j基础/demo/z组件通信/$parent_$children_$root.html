@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>组件层级关系：$parent、$children、$root</title>
+  <style>
+    .box {padding: 10px; margin: 10px; border: 1px solid #ddd;}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="box">
+      <h2>父级</h2>
+      <div>
+        <button @click="goHome">呼叫</button>
+        <p v-if="reply">收到回复：{{reply}}</p >
+      </div>
+      <Child v-for="(child, i) in children" :index="i" :children="children">
+        <Child v-if="child.toys && child.toys.length"
+          v-for="(toy, j) in child.toys"
+          :index="j"
+          :children="child.toys"
+        ></Child>
+      </Child>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+  <script>
+    Vue.component('child', {
+      props: {
+        index: Number,
+        children: Array
+      },
+      data() {
+        return {
+          name: this.children[this.index].name,
+          msg: ''
+        }
+      },
+      computed: {
+        siblings() {
+          return this.children.filter(child => child.name !== this.name)
+        }
+      },
+      template: `
+        <div class="box">
+          <h3>{{name}}</h3>
+          <div v-if="msg">
+            收到信息：{{msg}}
+            <button @click="reply">回复爸爸</button>
+            <button v-if="children.length > 1" @click="call">呼叫兄弟</button>
+          </div>
+          <slot></slot>
+        </div>
+      `,
+      methods: {
+        reply() {
+          this.$root.reply = `${this.name}知道了，我马上回来`;
+          this.msg = '已回复爸爸';
+        },
+        call() {
+          // 通过父级作为桥梁来派发事件
+          this.siblings.forEach(item =>
+            this.$parent.$emit(item.name,  `我是${this.name}，爸爸叫我们回家吃饭了`)
+          );
+          this.msg = '已通知兄弟姐妹们';
+        }
+      },
+      mounted() {
+        // 父级监听事件
+        this.$parent.$on(this.name, msg => this.msg = msg)
+      },
+    });
+
+    new Vue({
+      el: '#app',
+      data: {
+        call: '',
+        reply: '',
+        children: [
+          {
+            name: '大宝'
+          }, 
+
+          {
+            name: '二宝',
+            toys: [
+              {
+                name: '擎天柱'
+              },
+              {
+                name: '钢铁侠'
+              }
+            ]
+          }, 
+
+          {
+            name: '三宝',
+            toys: [{
+              name: '芭比娃娃'
+            }]
+          }
+          
+        ]
+      },
+      methods: {
+        goHome() {
+          const msg = '孩儿们，爸爸喊你们回家吃饭了';
+
+          this.$children.forEach(child => {
+            child.msg = msg;
+
+            if (child.$children) {
+              child.$children.forEach(c => c.msg = msg)
+            }
+          })
+        }
+      }
+    });
+  </script>
+</body>
+</html>

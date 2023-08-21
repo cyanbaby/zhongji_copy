@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04.control_flow | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <!-- 例子1 -->
+  <label><input type="checkbox" data-bind="checked: showMessage" /> Show message</label>
+  <div data-bind="if: showMessage">Here is a message. Astonishing.</div>
+
+  <!-- 例子2 -->
+  <ul data-bind="foreach: people">
+    <li>
+      姓名: <b data-bind="text: name"> </b>
+      <div data-bind="if: age">
+        年龄: <b data-bind="text: age"> </b>
+      </div>
+      <!-- <div data-bind="ifnot: age">
+        年龄: <b>--</b>
+      </div> -->
+
+      <!-- ko ifnot: age -->
+      年龄: <b>--</b>
+      <!-- /ko -->
+    </li>
+  </ul>
+
+  <script type="text/javascript">
+    var vm = {
+      showMessage: ko.observable(false),
+      people: [
+        { name: '张三', age: null }, 
+        { name: '李四', age: 20 }        
+      ]
+    };
+
+    ko.applyBindings(vm);
+  </script>
+    
+</body>
+</html>

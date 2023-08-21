@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05.form_fields | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <p>用户名: <input data-bind="value: userName" /></p>
+  <p>密  码: <input type="password" data-bind="value: password" /></p>
+  
+  ViewModel:
+  <pre data-bind="text: ko.toJSON($root, null, 2)"></pre>
+    
+  <script type="text/javascript">
+    var vm = {
+      userName: ko.observable('1111111'),
+      password: ko.observable("abc"),
+    };
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

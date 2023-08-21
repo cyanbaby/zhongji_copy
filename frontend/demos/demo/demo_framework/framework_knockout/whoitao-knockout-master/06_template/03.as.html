@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06.template | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <ul data-bind="template: { name: 'seasonTemplate', foreach: seasons, as: 'season' }"></ul>
+ 
+  <script type="text/html" id="seasonTemplate">
+    <li>
+      <strong data-bind="text: name"></strong>
+      <ul data-bind="template: { name: 'monthTemplate', foreach: months, as: 'month' }"></ul>
+    </li>
+  </script>
+ 
+  <script type="text/html" id="monthTemplate">
+    <li>
+      <span data-bind="text: month"></span>
+      属于
+      <span data-bind="text: season.name"></span>季
+    </li>
+  </script>
+ 
+  <script type="text/javascript">
+    var viewModel = {
+      seasons: ko.observableArray([
+        { name: '春', months: [ '一月', '二月', '三月' ] },
+        { name: '夏', months: [ '四月', '五月', '六月' ] },
+        { name: '秋', months: [ '七月', '八月', '九月' ] },
+        { name: '东', months: [ '十月', '十一月', '十二月' ] }
+      ])
+    };
+
+    ko.applyBindings(viewModel);
+  </script>
+
+</body>
+</html>

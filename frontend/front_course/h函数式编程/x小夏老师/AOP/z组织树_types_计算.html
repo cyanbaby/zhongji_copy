@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- https://mathjs.org/docs/reference/functions/setCartesian.html -->
+    <!-- https://blog.csdn.net/it_xiangqiang/article/details/119847753 -->
+    <!-- https://juejin.cn/post/7143579596217122853 -->
+    <!-- https://zditect.com/article/59993280.html -->
+    <!-- https://www.npmjs.com/package/cartesian-product -->
+
+    <script>
+      {
+        let arr1 = ['a', 'b', 'c']
+        let arr2 = ['d', 'e', 'f']
+        let arr3 = ['g', 'h', 'i']
+
+        let result = arr1.reduce((acc1, val1) => {
+          arr2.forEach((val2) => {
+            arr3.forEach((val3) => {
+              acc1.push(val1 + val2 + val3)
+            })
+          })
+          return acc1
+        }, [])
+        //   console.log(result);
+      }
+    </script>
+
+    <script>
+      {
+        let arr1 = ['a', 'b', 'c']
+        let arr2 = ['d', 'e', 'f']
+        let arr3 = ['g', 'h', 'i']
+
+        let result = _.flatMap(arr1, (val1) => {
+          return _.flatMap(arr2, (val2) => {
+            return _.map(arr3, (val3) => {
+              return val1 + val2 + val3
+            })
+          })
+        })
+
+        // console.log(result);
+      }
+    </script>
+
+    <script>
+      {
+        let arr1 = ['a', 'b', 'c']
+        let arr2 = ['d', 'e', 'f']
+        let arr3 = ['g', 'h', 'i']
+
+        let result = _.map(_.cartesianProduct(arr1, arr2, arr3), (val) => {
+          return val.join('')
+        })
+
+        console.log(result)
+      }
+    </script>
+
+    <script>
+      const domain = ['DOMAIN_P', 'DOMAIN_O', 'DOMAIN_M', 'DOMAIN_S']
+      const plat_switch = ['PLAT_SWITCH_ON', 'PLAT_SWITCH_OFF']
+      const resource = ['RESOURCE_TREE_ON', 'RESOURCE_TREE_OFF']
+      const resource_rank = ['RESOURCE_RANK_ON', 'RESOURCE_RANK_OFF']
+      const student = ['STUDENT_TREE_ON', 'STUDENT_TREE_OFF']
+      const student_rank = ['STUDENT_RANK_ON', 'STUDENT_RANK_OFF']
+
+      function product(elements) {
+        if (!Array.isArray(elements)) {
+          throw new TypeError()
+        }
+
+        var end = elements.length - 1,
+          result = []
+
+        function addTo(curr, start) {
+          var first = elements[start],
+            last = start === end
+
+          for (var i = 0; i < first.length; ++i) {
+            var copy = curr.slice()
+            copy.push(first[i])
+
+            if (last) {
+              result.push(copy)
+            } else {
+              addTo(copy, start + 1)
+            }
+          }
+        }
+
+        if (elements.length) {
+          addTo([], 0)
+        } else {
+          result.push([])
+        }
+        return result
+      }
+
+      //   console.log(
+      //     product([domain, plat_switch, resource, resource, resource_rank, student, student_rank]).map(i => i.join('__'))
+      //   )
+      console.log(
+        product([
+          domain,
+          plat_switch,
+          resource,
+          resource,
+          resource_rank,
+          student,
+          student_rank
+        ]).map((i) => i.join('__'))
+      )
+    </script>
+  </body>
+</html>

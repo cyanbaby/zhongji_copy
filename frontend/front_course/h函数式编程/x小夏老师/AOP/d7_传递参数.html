@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      Function.prototype.before = function (beforeFn) {
+        // 原函数 test
+        var _this = this
+        return function () {
+          // 中间函数
+          beforeFn.call(this, ...arguments)
+          _this.call(this, ...arguments)
+        }
+      }
+      Function.prototype.after = function (afterFn) {
+        // 保存中间函数
+        var _this = this
+        return function () {
+          // _this.call(this, ...arguments);
+          // afterFn.call(this, ...arguments);
+
+          _this.apply(this, arguments)
+          afterFn.apply(this, arguments)
+        }
+      }
+
+      var obj = {
+        test: test
+      }
+
+      function test() {
+        console.log(this, ...arguments)
+        console.log(2)
+      }
+
+      test = obj.test
+        .before(function () {
+          console.log(this, ...arguments)
+          console.log(1)
+        })
+        .after(function () {
+          console.log(this, ...arguments)
+          console.log(3)
+        })
+
+      test.call(obj, 1, 2, 3)
+    </script>
+  </body>
+</html>

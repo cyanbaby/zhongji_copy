@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.bootcdn.net/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+</head>
+<body>
+  <script>
+    // var startTime = "2022-09-21 20:22:00"
+    // var endTime = "2022-09-21 20:22:30"
+    // var res = moment(endTime).diff(moment(startTime))
+    // console.log(res)
+
+
+    // moment 时间戳 转为 几天几小时几分钟几秒
+    // moment 毫秒数 转为 几天几小时几分钟几秒
+
+  </script>
+
+
+  <script>
+    // let x = 2703750
+    // var d = moment.duration(x, 'seconds')
+    // console.log(
+    //   Math.floor(d.asDays()) + '天'+
+    //   d.hours() + '时' +
+    //   d.minutes() + '分' +
+    //   d.seconds() + '秒'
+    // )
+    // 31天7时2分30秒
+
+    // let x = 2703750000
+    // var d = moment.duration(x, 'milliseconds')
+    // console.log(
+    //   Math.floor(d.asDays()) + '天'+
+    //   d.hours() + '时' +
+    //   d.minutes() + '分' +
+    //   d.seconds() + '秒'
+    // )    
+
+
+    let x = 86400
+
+    console.log(
+      // getUnitTime_0(x)
+    )
+
+    // var d = moment.duration(x, 'seconds')
+    
+    // console.log(
+    //   Math.floor(d.asDays()) + '天'+
+    //   d.hours() + '时' +
+    //   d.minutes() + '分' +
+    //   d.seconds() + '秒'
+    // )    
+
+    function getUnitTime_0 (s) {
+      var d = moment.duration(parseInt(s), 'seconds')
+      var timeStr = ''
+
+      var dd = Math.floor(d.asDays())
+      var hh = d.hours()
+      var mm = d.minutes()
+      var ss = d.seconds()
+
+      // if (dd > 0) {
+      //   return dd + '天'+ hh + '时' + mm + '分' + ss + '秒'
+      // } else {
+      //   if (d.hours() > 0) {
+      //     return hh + '时' + mm + '分' + ss + '秒'
+      //   } else {
+      //     if (d.minutes() > 0) {
+      //       return mm + '分' + ss + '秒'
+      //     } else {
+      //       return  ss + '秒'
+      //     }
+      //   }
+      // }
+
+
+      if (dd > 0) {
+        return dd + '天'+ hh + '时' + mm + '分' + ss + '秒'
+      } else if (d.hours() > 0) {
+        return hh + '时' + mm + '分' + ss + '秒'
+      } else if (d.minutes() > 0) {
+        return mm + '分' + ss + '秒'
+      } else {
+        return  ss + '秒'
+      }
+    }
+    
+
+    // let xx = 86401
+    // let xx = 86400
+    // let xx = 86399
+
+    // let xx = 3601
+    // let xx = 3600
+    // let xx = 3599
+
+    // let xx = 61
+    // let xx = 60
+    // let xx = 59
+    let xx = 0
+
+
+    console.log(
+      getUnitTime(xx)
+    )
+
+    function getUnitTime (s, u = 'seconds') {
+      var d = moment.duration(parseInt(s), u)
+      var dd = Math.floor(d.asDays())
+      var hh = d.hours()
+      var mm = d.minutes()
+      var ss = d.seconds()
+
+      if (dd > 0) {
+        return dd + '天' + hh + '时' + mm + '分' + ss + '秒'
+      } else if (d.hours() > 0) {
+        return hh + '时' + mm + '分' + ss + '秒'
+      } else if (d.minutes() > 0) {
+        return mm + '分' + ss + '秒'
+      } else {
+        return ss + '秒'
+      }
+    }
+
+  </script>
+
+  <script>
+    // // https://zhuanlan.zhihu.com/p/346813448
+    // // https://blog.csdn.net/weixin_45626517/article/details/108987286
+
+    // // var startTime = 1663762952214
+    // // // var res = moment(parseInt(startTime)).format("HH:mm:ss")
+    // // var res = moment(startTime).format('YYYY-MM-DD HH:mm:ss')   //'xxxx-xx-xx xx:xx:xx'
+    
+
+    // // console.log(res)
+
+
+    // var startTime = parseInt("1665658850192")
+    // // var res = moment(parseInt(startTime)).format("HH:mm:ss")
+    // var res = moment(startTime).format('YYYY-MM-DD HH:mm:ss')   //'xxxx-xx-xx xx:xx:xx'
+    
+
+    // console.log(res)
+
+    
+  </script>
+</body>
+</html>

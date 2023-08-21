@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>08.custom_binding | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <div data-bind="randomOrder: true">
+    <div>First</div>
+    <div>Second</div>
+    <div>Third</div>
+  </div>
+  <hr >
+
+  <!-- ko randomOrder: true -->
+    <div>First</div>
+    <div>Second</div>
+    <div>Third</div>
+  <!-- /ko -->
+
+  <script type="text/javascript">
+    ko.bindingHandlers.myWidget = {
+      init: function(element, valueAccessor) {
+        var options = ko.unwrap(valueAccessor()),
+            $el = $(element);
+
+        $el.myWidget(options);
+
+        ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+          // 该还有有两个触发时机
+          // 1. Knockout 删除元素时
+          // 2. 其他的代码调用 ko.removeNode(element) 时
+          $el.myWidget("destroy");
+        });
+      }
+    };
+
+    var vm = {}
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<template>
+  <div>
+    <custom-editor ref="editorRef"></custom-editor>
+    <button @click="setContent">设置内容</button>
+    <button @click="getContent">获取内容</button>
+  </div>
+</template>
+
+<script>
+import customEditor from "@/components/editor";
+
+export default {
+  name: "ClassicEditor",
+
+  components: {
+    customEditor,
+  },
+
+  data() {
+    return {};
+  },
+
+  methods: {
+    setContent() {
+      this.$refs.editorRef.setContent("<h1>这是Editor</h1>");
+    },
+
+    getContent() {
+      console.log(this.$refs.editorRef.getContent());
+    },
+  },
+};
+</script>

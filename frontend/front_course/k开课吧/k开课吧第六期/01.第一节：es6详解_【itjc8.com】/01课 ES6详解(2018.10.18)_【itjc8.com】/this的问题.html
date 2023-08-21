@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+    let json={
+      a: 12, b: 5,
+      show: ()=>{
+        console.log(this);
+        //alert(this.a+this.b);
+      }
+    };
+
+    json.show();
+
+    document.onclick=json.show;
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

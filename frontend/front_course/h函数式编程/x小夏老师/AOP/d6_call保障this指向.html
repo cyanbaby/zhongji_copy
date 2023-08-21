@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // call 保障保障this指向
+      Function.prototype.before = function (beforeFn) {
+        // 原函数 test
+        var _this = this
+        return function () {
+          // 中间函数
+          beforeFn.call(this)
+          _this.call(this)
+        }
+      }
+      Function.prototype.after = function (afterFn) {
+        // 保存中间函数
+        var _this = this
+        return function () {
+          _this.call(this)
+          afterFn.call(this)
+        }
+      }
+
+      var obj = {
+        test: test
+      }
+
+      function test() {
+        console.log(this)
+        console.log(2)
+      }
+
+      test = obj.test
+        .before(function () {
+          console.log(this)
+          console.log(1)
+        })
+        .after(function () {
+          console.log(this)
+          console.log(3)
+        })
+
+      test.call(obj)
+    </script>
+  </body>
+</html>

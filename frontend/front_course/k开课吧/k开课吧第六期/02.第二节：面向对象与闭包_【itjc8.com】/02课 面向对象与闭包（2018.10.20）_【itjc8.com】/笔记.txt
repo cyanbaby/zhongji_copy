@@ -1,0 +1,131 @@
+ES6
+
+兼容性
+
+babel：
+1.在线
+  type="text/babel"
+
+2.编译
+  node.js
+
+  npm i @babel/core @babel/cli @babel/preset-env
+
+  添加脚本
+
+  添加.babelrc——声明preset
+
+ES6(ECMA 2015)
+
+ES7(ECMA 2016)
+  **
+  Array.includes()
+
+ES8(ECMA 2017)
+  await/async
+
+ES9(ECMA 2018)
+  rest/spread
+  异步迭代
+  Promise.finally()
+  正则
+
+--------------------------------------------------------------------------------
+
+面向对象
+机器语言 -> 汇编 -> 低级语言(面向过程) -> 高级语言(面向对象) -> 模块 -> 框架 -> API
+
+面向对象：
+1.封装性
+2.继承性
+3.多态性
+
+--------------------------------------------------------------------------------
+
+class
+constructor
+extends
+super
+
+class xxx extends xx{
+  constructor(){
+    super()
+  }
+
+  show(){
+
+  }
+}
+
+--------------------------------------------------------------------------------
+
+闭包
+GC
+
+1.底层：栈
+2.高层：函数当作对象处理
+
+闭包——留着别删
+
+--------------------------------------------------------------------------------
+
+ES6的模块化
+没有模块 -> CMD -> AMD -> ES6语言提供的模块化支持
+
+--------------------------------------------------------------------------------
+
+ES6的模块化 -> webpack -> 浏览器还不支持
+
+--------------------------------------------------------------------------------
+
+ES6模块化
+
+webpack
+npm i webpack -g
+
+--------------------------------------------------------------------------------
+
+webpack编译：
+1.entry——入口地址
+2.output——输出
+  path：绝对路径
+  filename：文件名
+3.mode——模式
+4.所有当前路径前面加./
+
+--------------------------------------------------------------------------------
+
+export
+  export let a=xx;
+  export const a=xx;
+
+  export function xxx(){
+
+  };
+
+  export class xxx{
+
+  }
+
+  export {xxx, xxx, xxx, ...};
+
+  export default xx;
+
+  //从另一个模块导出
+  export * from './m2';
+  export {x,x,x,x} from './m2';
+  export {default} from './m2';
+
+import
+  import * as mod from "./xxx";
+  import {a, b, c, ...} from "./xxx";
+
+  //引入默认成员
+  import xxx from './mod';
+
+  //模块的代码引入进来，不引入内部成员
+  import "./1.jpg";
+  import "./1.css";
+
+  //异步引入
+  let promise=import("./mod1");

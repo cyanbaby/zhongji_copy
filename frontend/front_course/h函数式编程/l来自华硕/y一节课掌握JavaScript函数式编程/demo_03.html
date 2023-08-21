@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // js 引用传值问题
+      // 不可变数据: “纯数据”
+
+      // const obj = {
+      //   myname: '张三'
+      // }
+      // obj.myname = '李四' // 可变
+      // console.log(obj)
+
+      // Object.freeze(obj)
+      // obj.myname = '李四' // 不可变
+      // console.log(obj)
+      // 涉及到类 get set   #号设置私有属性
+
+      // Object.freeze 是浅冻结，只会冻结第一层
+      // 可以封装成深冻结:
+      function deepFreeze(obj) {
+        Object.freeze(obj)
+        for (let i in obj) {
+          if (typeof obj[i] === 'object') {
+            deepFreeze(obj[i])
+          }
+        }
+      }
+
+      const obj = {
+        myname: '张三',
+        hobby: {
+          one: '篮球'
+        }
+      }
+      deepFreeze(obj)
+
+      obj.myname = '李四'
+      obj.hobby.one = '足球'
+      console.log(obj)
+
+      // 冻结之后数据怎么去用?
+      // 映射 => map
+    </script>
+  </body>
+</html>

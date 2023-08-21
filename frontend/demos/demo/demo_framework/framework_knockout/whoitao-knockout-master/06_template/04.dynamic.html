@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06.template | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <ul data-bind='template: { name: displayMode, foreach: employees }'> </ul>
+
+  <!-- active 模板 -->
+  <script type="text/html" id="active">
+    <li data-bind="style: { color: 'green' } ">
+      <strong data-bind="text: name"></strong>
+    </li>
+  </script>
+
+  <!-- inactive 模板 -->
+  <script type="text/html" id="inactive">
+    <li data-bind="style: { textDecoration: 'line-through', color: 'gray' } ">
+      <span data-bind="text: name"></span>
+    </li>
+  </script>
+
+  <script type="text/javascript">
+    var vm = {
+      employees: ko.observableArray([
+        { name: "张三", active: ko.observable(true) },
+        { name: "李四", active: ko.observable(false) },
+        { name: "王二麻子", active: ko.observable(false) }
+      ]),
+      displayMode: function(employee) {
+        // 动态指定模板
+        return employee.active() ? "active" : "inactive";
+      }
+    };
+
+    // ... then later ...
+    vm.employees()[1].active(true); // 修改 active 的状态之，进而模板也会切换
+
+    ko.applyBindings(vm)
+  </script>
+
+</body>
+</html>

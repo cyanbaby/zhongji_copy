@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- <script>
+    var monthlyCost = 0
+    function cost(money) {
+      monthlyCost += money
+    }
+    cost(100)
+    cost(200)
+    cost(300)
+
+    console.log(monthlyCost)
+  </script> -->
+
+    <!-- <script>
+      var monthlyCost = 0
+      // => 不写自执行函数的话，cost 不会是一个内部return的函数。
+      var cost = (function (money) {
+        var arg = []
+        return function () {
+          if (!arguments.length) {
+            var money = 0
+            for (var i = 0; i < arg.length; i++) {
+              money += arg[i]
+            }
+            return money
+          } else {
+            ;[].push.apply(arg, arguments)
+          }
+        }
+      })()
+      cost(100)
+      cost(200)
+      cost(300)
+      console.log(cost()) // 约定cost不传参，即计算求值
+    </script> -->
+
+    <!-- <script>
+      var monthlyCost = 0
+
+      function cost() {
+        var money = 0
+        for (var i = 0; i < arguments.length; i++) {
+          money += arguments[i]
+        }
+        return money
+      }
+
+      var currying = function (fn) {
+        var arg = []
+        return function () {
+          if (!arguments.length) {
+            return fn.apply(this, arg)
+          } else {
+            ;[].push.apply(arg, arguments)
+          }
+        }
+      }
+
+      // => 让原函数 cost 具备参数手机的能力
+      cost = currying(cost)
+      cost(100)
+      cost(200)
+      cost(300)
+      console.log(cost()) // 约定cost不传参，即计算求值
+    </script> -->
+
+    <!-- <script>
+      var monthlyCost = 0
+
+      function cost() {
+        var money = 0
+        for (var i = 0; i < arguments.length; i++) {
+          money += arguments[i]
+        }
+        return money
+      }
+
+      var currying = function (fn) {
+        var arg = []
+        return function () {
+          // if (!arguments.length) {
+          //   return fn.apply(this, arg)
+          // } else {
+          //   ;[].push.apply(arg, arguments)
+          // }
+
+          // => 部分求值
+          [].push.apply(arg, arguments)
+          return fn.apply(this, arg)
+        }
+      }
+
+      // => 让原函数 cost 具备参数手机的能力
+      cost = currying(cost)
+      console.log(cost(100))
+      console.log(cost(200))
+      console.log(cost(300))
+      console.log(cost()) // 约定cost不传参，即计算求值
+    </script> -->
+
+    <script>
+      // 反柯里化: Array.prototype.push.call()
+      Function.prototype.uncurrying = function () {
+        var fn = this
+        return function () {
+          var _this = Array.prototype.shift.call(arguments)
+          return fn.apply(_this, arguments)
+        }
+      }
+      var push = Array.prototype.push.uncurrying()
+      var obj = {}
+      console.log(push(obj, 'first', 'second'))
+      console.log(obj)
+    </script>
+  </body>
+</html>

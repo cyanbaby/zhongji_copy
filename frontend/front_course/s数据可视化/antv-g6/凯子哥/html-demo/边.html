@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="mountNode"></div>
+
+  <script src="g6.min.js"></script>
+  <script>
+    var data = {
+      nodes: [{
+        id: 'node1',
+        label: 'node1',
+        x: 350,
+        y: 350
+      }, {
+        id: 'node2',
+        label: 'node2',
+        x: 250 + 300,
+        y: 350
+      }],
+      edges: [
+        // 带有箭头的边，内置箭头
+        {
+          source: 'node1',
+          target: 'node2',
+          label: '内置箭头',
+
+          style: {
+            stroke: '#F6BD16',  // 边的颜色
+            startArrow: true,
+            endArrow: true,
+
+            lineDash: [2, 2]    // 虚线边
+          },
+   
+          labelCfg: {
+            autoRotate: true,
+            refY: 10
+          }
+        }
+      ]
+    };
+
+    var graph = new G6.Graph({
+      container: 'mountNode',
+      width: window.innerWidth,
+      height: window.innerHeight,
+      defaultNode: {
+        size: [40, 40]
+      }
+    });
+    graph.data(data);
+    graph.render();
+  </script>
+  </script>
+</body>
+
+</html>

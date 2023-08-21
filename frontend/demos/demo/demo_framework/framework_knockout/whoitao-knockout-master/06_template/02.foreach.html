@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>06.template | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <h2>人员</h2>
+  <div data-bind="template: { name: 'person-template', foreach: people }"></div>
+
+  <script type="text/html" id="person-template">
+    <h3 data-bind="text: name"></h3>
+    <p>年龄: <span data-bind="text: age"></span></p>
+  </script>
+
+  <script type="text/javascript">
+    function MyViewModel() {
+      this.people = [
+        { name: '张三', age: 18 },
+        { name: '李四', age: 36 }
+      ]
+    }
+    ko.applyBindings(new MyViewModel());
+  </script>
+
+</body>
+</html>

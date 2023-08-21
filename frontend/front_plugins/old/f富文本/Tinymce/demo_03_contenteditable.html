@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div实现textarea</title>
+    <style>
+        .area{
+            resize: auto; /*可拖拽*/ 
+            overflow: auto; 
+            /* 要设置 overflow: auto; 样式，因为resize样式不适用于overflow: visible;的块，不然 resize 不起效；*/
+            height: 300px;
+            width: 300px;
+            border: 1px solid gray;
+        }
+        /* .area::after{
+            content: attr(aria-placeholder);
+            color: gray;
+        } */
+    </style>
+</head>
+<body>
+    <div class="area"  contenteditable="true"></div>
+</body>
+</html>

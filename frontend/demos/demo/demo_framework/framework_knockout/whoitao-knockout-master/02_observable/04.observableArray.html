@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_observable | KnockOut.js</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <!-- 声明视图 -->
+  数组长度：<span data-bind="text: myArray.length"></span>
+  数组长度：<span data-bind="text: myArray().length"></span>
+
+  <script>
+    // 声明 ViewModel
+    var vm = {
+      // myArray: ko.observable()
+      myArray: ko.observableArray() // 初始化一个空数组
+    };
+
+    vm.myArray.push(1)
+    vm.myArray.push(1)
+    vm.myArray.push(1)
+    vm.myArray.pop()
+
+    // 激活 KnockOut
+    ko.applyBindings(vm);
+  </script>
+    
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <script>
+      // 高阶函数具体有什么作用
+      // 1. 抽象  2.缓存 3.惰性执行(惰性计算)
+
+      // 抽象
+      // 面向对象其实也是一个抽象的过程
+      //    把对象抽离成类，研究它里面的共性和特性
+
+      // 两种编程方式: 命令式编程  声明式编程
+
+      // 命令式编程: 强调"如何"做， 强调做的过程
+      let arr = [1, 2, 3]
+      for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i])
+      }
+
+      // 声明式编程: 强调做"什么"，注重结果
+      const forEach = function (arr, fn) {
+        for (let i = 0; i < arr.length; i++) {
+          fn(arr[i])
+        }
+      }
+
+      // forEach 复用性更强，forEach是一个纯函数，也是高阶函数
+      forEach(arr, (item) => {
+        console.log(item)
+      })
+
+      // 原生 forEach，借鉴了函数式编程的思想
+      arr.forEach((item) => {
+        console.log(item)
+      })
+      // some, every, filter, reduce, map, find ...
+      // 都把实现的过程，都做了一个封装
+    </script> -->
+
+    <!-- <script>
+      // 抽象特性
+      let arr1 = [true, true, true]
+      let res = arr1.every((item) => item)
+      // console.log(res)
+
+      const every = (arr, fn) => {
+        let result = true
+        for (let i = 0; i < arr.length; i++) {
+          result = result && fn(arr[i])
+        }
+        return result
+      }
+      let arr2 = [true, true, true]
+      let res2 = every(arr2, (item) => item)
+      console.log(res2)
+    </script> -->
+
+    <!-- <script>
+      // 缓存特性
+      // 需求: 让test只执行一次
+
+      function test() {
+        console.log('test 执行了')
+      }
+      // test()
+      // test()
+      // test()
+
+      // 借助高阶函数缓存执行结果，利用闭包
+      const once = (fn) => {
+        let done = false
+        return function () {
+          if (!done) {
+            fn()
+          } else {
+            // todo something
+          }
+          done = true
+        }
+      }
+      const myTest = once(test)
+      myTest()
+      myTest()
+      myTest()
+
+
+      // 总结: 高阶函数 1.抽象 2.缓存 3.惰性执行
+    </script> -->
+  </body>
+</html>

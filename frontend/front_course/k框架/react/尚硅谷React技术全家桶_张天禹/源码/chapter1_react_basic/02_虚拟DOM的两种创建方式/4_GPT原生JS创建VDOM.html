@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>使用纯JavaScript创建虚拟DOM</title>
+</head>
+<body>
+	<!-- 准备好一个“容器” -->
+	<div id="test"></div>
+
+	<!-- 引入react核心库 -->
+	<script type="text/javascript" src="../js/react.development.js"></script>
+	<!-- 引入react-dom，用于支持react操作DOM -->
+	<script type="text/javascript" src="../js/react-dom.development.js"></script>
+
+	<script type="text/javascript">
+		// 1. 手动创建虚拟DOM
+		const VDOM = {
+			type: 'h1',
+			props: {
+				id: 'title',
+				children: {
+					type: 'span',
+					props: {
+						children: 'Hello, React'
+					}
+				}
+			}
+		};
+
+		// 2. 递归函数，将虚拟DOM转换为真实DOM
+		function createDOM(vnode) {
+			if (typeof vnode === 'string') {
+				return document.createTextNode(vnode);
+			}
+
+			const element = document.createElement(vnode.type);
+
+			for (const key in vnode.props) {
+				if (key !== 'children') {
+					element.setAttribute(key, vnode.props[key]);
+				}
+			}
+
+			if (vnode.props.children) {
+				if (Array.isArray(vnode.props.children)) {
+					vnode.props.children.forEach(child => element.appendChild(createDOM(child)));
+				} else {
+					element.appendChild(createDOM(vnode.props.children));
+				}
+			}
+
+			return element;
+		}
+
+		// 3. 渲染虚拟DOM到页面
+		const realDOM = createDOM(VDOM);
+		document.getElementById('test').appendChild(realDOM);
+	</script>
+</body>
+</html>

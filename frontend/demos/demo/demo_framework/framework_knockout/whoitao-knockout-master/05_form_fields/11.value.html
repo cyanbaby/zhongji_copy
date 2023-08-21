@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>05.form_fields | KnockOut</title>
+  <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <!-- 双向绑定。文本框填充；同步两种方式。 -->
+  <p>First value: <input data-bind="value: firstValue" /></p>
+
+  <!-- 单向绑定。文本框填充；仅从文本框来同步模型。 -->
+  <p>Second value: <input data-bind="value: secondValue" /></p>
+
+  <!-- 没有绑定。文本框填充，但不应对任何变化。 -->
+  <p>Third value: <input data-bind="value: secondValue.length > 8" /></p>
+
+  <script type="text/javascript">
+    var vm = {
+      firstValue: ko.observable("hello"), // Observable
+      secondValue: "hello, again" // Not observable
+    };
+
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

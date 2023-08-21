@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- 
+    一般是设备宽度的1/10 
+    但是这个值是动态的
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- TODO 什么意思 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            /* 
+                px to rem & rpx & vw (cssrem)  插件 
+                "rootFontSize": 75  这个75 === 设计稿(750/10)
+            */
+            width: 5rem;
+            height: 2.5rem;
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        需求: 
+            UI设计稿是750px(主流设备*2或者*3)
+            假设一个元素在设计稿上是 375px
+            那么这个元素在任意设备上应该占比50%
+     -->
+
+     <div class="box"></div>
+     <script>
+        function resetHtmlFont () {
+            document.documentElement.style.fontSize = screen.width/10+'px'
+        }
+        resetHtmlFont()
+        window.onresize = resetHtmlFont
+
+
+        // 参考：https://www.bilibili.com/video/BV1LV4y1N7A4/?spm_id_from=333.337.search-card.all.click
+        // TODO https://www.bilibili.com/video/BV1XT411E7jH/?spm_id_from=333.337.search-card.all.click&vd_source=0efa2f40d2b0373aa1de4b8c7c1a372f
+        
+     </script>
+</body>
+</html>

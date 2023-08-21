@@ -1,0 +1,791 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.17.9](https://github.com/greper/d2-crud-plus/compare/v2.17.8...v2.17.9) (2021-10-26)
+
+
+### Performance Improvements
+
+* selectable ([5494fd3](https://github.com/greper/d2-crud-plus/commit/5494fd3eac796ff503e1571e58fddf323fa97115))
+
+
+
+
+
+## [2.17.8](https://github.com/greper/d2-crud-plus/compare/v2.17.7...v2.17.8) (2021-10-08)
+
+
+### Bug Fixes
+
+* 删除查询表单校验提示 ([a89268a](https://github.com/greper/d2-crud-plus/commit/a89268aa98500ddbb51c29ddd8930436b4cf0d07))
+
+
+
+
+
+## [2.17.7](https://github.com/greper/d2-crud-plus/compare/v2.17.6...v2.17.7) (2021-09-13)
+
+
+### Bug Fixes
+
+* 修复只有一个文本输入框时，按回车键刷新页面的bug ([3e06349](https://github.com/greper/d2-crud-plus/commit/3e06349002d3a09037f904337f7bf21b52350983))
+
+
+
+
+
+## [2.17.6](https://github.com/greper/d2-crud-plus/compare/v2.17.5...v2.17.6) (2021-07-23)
+
+
+### Performance Improvements
+
+* 支持自定义行编辑添加行方式,增加行编辑事件 ([a0cfaab](https://github.com/greper/d2-crud-plus/commit/a0cfaabdd58a33eb792cf944500f610f4445213a))
+* 支持自定义行编辑添加行方式,增加行编辑事件 ([e0c6873](https://github.com/greper/d2-crud-plus/commit/e0c6873c3d0eb5bd91a1bbaa8b1fd7e2991d0533))
+
+
+
+
+
+## [2.17.5](https://github.com/greper/d2-crud-plus/compare/v2.17.3...v2.17.5) (2021-07-19)
+
+
+### Bug Fixes
+
+* 重新发布版本，修复example启动报webpack loader的问题 ([c9a3c96](https://github.com/greper/d2-crud-plus/commit/c9a3c96eeed7c2f377066a931d1d772ff9c1c88a))
+
+
+
+
+
+## [2.17.3](https://github.com/greper/d2-crud-plus/compare/v2.17.2...v2.17.3) (2021-07-16)
+
+**Note:** Version bump only for package d2-crud-plus-project
+
+
+
+
+
+## [2.17.2](https://github.com/greper/d2-crud-plus/compare/v2.17.1...v2.17.2) (2021-07-15)
+
+**Note:** Version bump only for package d2-crud-plus-project
+
+
+
+
+
+## [2.17.1](https://github.com/greper/d2-crud-plus/compare/v2.17.0...v2.17.1) (2021-07-13)
+
+**Note:** Version bump only for package d2-crud-plus-project
+
+
+
+
+
+# [2.17.0](https://github.com/greper/d2-crud-plus/compare/v2.16.9...v2.17.0) (2021-07-05)
+
+
+### Features
+
+* 上传增加beforeUpload参数，success事件改成{res,file} ([8039203](https://github.com/greper/d2-crud-plus/commit/803920372ce18bea4516d5f6d1d85ce70feef196))
+
+
+
+
+
+## [2.16.9](https://github.com/greper/d2-crud-plus/compare/v2.16.8...v2.16.9) (2021-06-18)
+
+
+### Bug Fixes
+
+* dict-xxx的el事件绑定 ([aa98cf6](https://github.com/greper/d2-crud-plus/commit/aa98cf690562325f40475e2750d25bf727ee4dce))
+
+
+### Performance Improvements
+
+* loading转移到table上 ([238922a](https://github.com/greper/d2-crud-plus/commit/238922ae48670a5d8b38f3762534603ca46b776e))
+
+
+
+
+
+## [2.16.8](https://github.com/greper/d2-crud-plus/compare/v2.16.7...v2.16.8) (2021-06-16)
+
+
+### Bug Fixes
+
+* 修复在添加状态下，点击刷新会丢失一条数据的bug ([ff7a065](https://github.com/greper/d2-crud-plus/commit/ff7a065c6b5aae07044c04ef894e8bd84e53ed3f))
+* wangeditor 不能多个的问题 ([d1773de](https://github.com/greper/d2-crud-plus/commit/d1773de623eac5397667795270fe9cbbcd2a9c53))
+* wangeditor 不能多个的问题 ([81a5211](https://github.com/greper/d2-crud-plus/commit/81a52114d971843e493a1afc1cb1c9f308614041))
+
+
+### Performance Improvements
+
+* 头像上传动态修改header示例 ([f1be81b](https://github.com/greper/d2-crud-plus/commit/f1be81bfdf47aa186a2ff820c4d7bf95473ddfa3))
+
+
+
+
+
+## [2.16.7](https://github.com/greper/d2-crud-plus/compare/v2.16.6...v2.16.7) (2021-06-11)
+
+
+### Bug Fixes
+
+* updateRequest内抛异常会在上方debug显示错误记录的bug ([4a005da](https://github.com/greper/d2-crud-plus/commit/4a005da68e4f9384cf6637f83cea97f0397d8340))
+
+
+
+
+
+## [2.16.6](https://github.com/greper/d2-crud-plus/compare/v2.16.3...v2.16.6) (2021-06-09)
+
+
+### Bug Fixes
+
+* 可配置不同的key ([dd158f4](https://github.com/greper/d2-crud-plus/commit/dd158f436809d84f0666a4e54420c2761bc3e10e))
+* 图片value为object不执行buildUrl的bug ([0e277c4](https://github.com/greper/d2-crud-plus/commit/0e277c405c35a14bf69b14cf350b3486a318ed3a))
+* 修复隐藏字段列显示时，valuesformat 的label不显示的bug ([ab0a730](https://github.com/greper/d2-crud-plus/commit/ab0a730a1fe1d38d423df9b573c5f9f986f997b0))
+
+
+
+
+
+## [2.16.3](https://github.com/greper/d2-crud-plus/compare/v2.16.2...v2.16.3) (2021-04-28)
+
+
+### Bug Fixes
+
+* 点击放弃保存，不执行dialogClosed的bug ([c28bb91](https://github.com/greper/d2-crud-plus/commit/c28bb91d58570ce08c8ca8d10ed2a12f1b098bf6))
+* 多级列，动态更新，丢失部分列显示的bug ([bfdfb26](https://github.com/greper/d2-crud-plus/commit/bfdfb26b4336053a6f069e8c351080f774fac613))
+* dispatch为空错误 ([19e322e](https://github.com/greper/d2-crud-plus/commit/19e322ed7c3b8f02c8cef6cea5d810c12e5e4a7f))
+* ie兼容性 ([29b2b6b](https://github.com/greper/d2-crud-plus/commit/29b2b6b4471a1c5ef570a203b913372f3f1dd421))
+
+
+
+
+
+## [2.16.2](https://github.com/greper/d2-crud-plus/compare/v2.16.1...v2.16.2) (2021-03-11)
+
+
+### Bug Fixes
+
+* 修复懒加载的bug ([13f5e86](https://github.com/greper/d2-crud-plus/commit/13f5e863cebf24f9212d5800b08d3809456a83ab))
+* 修复图片上传设置null值不会覆盖旧值的bug ([b411b9e](https://github.com/greper/d2-crud-plus/commit/b411b9e5c22257a08af83375bd9416bfe7811525))
+* text-area过长时，view模式超出显示的问题 ([ad8499b](https://github.com/greper/d2-crud-plus/commit/ad8499baa408234f63ef8d24a7f3e1f0fc5abb4e))
+
+
+
+
+
+## [2.16.1](https://github.com/greper/d2-crud-plus/compare/v2.16.0...v2.16.1) (2021-02-22)
+
+
+### Performance Improvements
+
+* 支持重新加载crudOptions ([6d0ebdc](https://github.com/greper/d2-crud-plus/commit/6d0ebdc3856bab4b80bec38772ebebb8d9f99c97))
+
+
+
+
+
+# [2.16.0](https://github.com/greper/d2-crud-plus/compare/v2.15.1...v2.16.0) (2021-02-11)
+
+
+### Bug Fixes
+
+* [#140](https://github.com/greper/d2-crud-plus/issues/140) 修复图片裁剪组件的默认类型 ([8effde3](https://github.com/greper/d2-crud-plus/commit/8effde3dd036e6bc22a2a6146e3f852488544cf7))
+* 加速登录 ([756457e](https://github.com/greper/d2-crud-plus/commit/756457e52d7d753625b7f2ecc41d37b124ed05ee))
+* 删除debugger ([0d33498](https://github.com/greper/d2-crud-plus/commit/0d33498ac5aa087e7e8bf901b0d7f3d62711ec15))
+* 树形展开执行valueBuilder ([e024c28](https://github.com/greper/d2-crud-plus/commit/e024c281ec93298f9c72ac98efe9a73029107c62))
+* 树形组件onchange触发两次的bug ([87426b2](https://github.com/greper/d2-crud-plus/commit/87426b2dc1e975a3ec77ff07678e523075fab9b3))
+* 修复max-height下无法全屏的bug ([5d8d529](https://github.com/greper/d2-crud-plus/commit/5d8d5299b319f037f9a6a136e9082799ffa023a1))
+* tree dict ([8dfdf93](https://github.com/greper/d2-crud-plus/commit/8dfdf9332ee25a85425d4049c89b77d210027319))
+* tree-selector disabled hide close btn ([ec443b5](https://github.com/greper/d2-crud-plus/commit/ec443b5db940f6a7d5a0cd02814d4f6f617e07a1))
+
+
+### Features
+
+* 图片裁剪支持校验未上传完成的图片 ([34097a5](https://github.com/greper/d2-crud-plus/commit/34097a58e32618756b65065ae6a86326af81a41d))
+* wangEditor ([18a7017](https://github.com/greper/d2-crud-plus/commit/18a70171b9f44ce2c491cf87b5e35c6ed92fe83a))
+
+
+### Performance Improvements
+
+* handle custom 按钮支持本身参数 ([7639baa](https://github.com/greper/d2-crud-plus/commit/7639baa8436f8b048f892a2450673978b50de7cb))
+
+
+
+
+
+## [2.15.3](https://github.com/greper/d2-crud-plus/compare/v2.15.2...v2.15.3) (2021-01-13)
+
+
+### Bug Fixes
+
+* 删除debugger ([0d33498](https://github.com/greper/d2-crud-plus/commit/0d33498ac5aa087e7e8bf901b0d7f3d62711ec15))
+
+
+
+
+
+## [2.15.2](https://github.com/greper/d2-crud-plus/compare/v2.15.1...v2.15.2) (2021-01-13)
+
+
+### Bug Fixes
+
+* 树形组件onchange触发两次的bug ([87426b2](https://github.com/greper/d2-crud-plus/commit/87426b2dc1e975a3ec77ff07678e523075fab9b3))
+
+
+
+
+
+## [2.15.1](https://github.com/greper/d2-crud-plus/compare/v2.15.0...v2.15.1) (2021-01-12)
+
+
+### Bug Fixes
+
+* [#136](https://github.com/greper/d2-crud-plus/issues/136) 修复树形懒加载时不反显的bug ([ec08af0](https://github.com/greper/d2-crud-plus/commit/ec08af0d1ddd024004bd1cd5e075baa243ae9be5))
+
+
+
+
+
+# [2.15.0](https://github.com/greper/d2-crud-plus/compare/v2.14.0...v2.15.0) (2021-01-11)
+
+
+### Bug Fixes
+
+* [#124](https://github.com/greper/d2-crud-plus/issues/124) fetchDetail会经过valueBuilder处理 ([f995c10](https://github.com/greper/d2-crud-plus/commit/f995c10e432d28f36d928513a47a1a2878dc5d4a))
+* [#128](https://github.com/greper/d2-crud-plus/issues/128) 树形组件支持清除 ([63c3caa](https://github.com/greper/d2-crud-plus/commit/63c3caa8b309e7055094c3d538485e9bbbc795ec))
+* [#129](https://github.com/greper/d2-crud-plus/issues/129) [#128](https://github.com/greper/d2-crud-plus/issues/128) 优化树形组件，支持ref字典操作 ([85f7627](https://github.com/greper/d2-crud-plus/commit/85f7627096f7aa0a0f4116e079068566907ca938))
+* [#132](https://github.com/greper/d2-crud-plus/issues/132) 支持关闭tag动画 ([eda454d](https://github.com/greper/d2-crud-plus/commit/eda454d54c2293716fcbe5313df648230cb9ec31))
+* [#133](https://github.com/greper/d2-crud-plus/issues/133) fit属性无效的bug ([a5c286c](https://github.com/greper/d2-crud-plus/commit/a5c286c7c1a8884ec72424dad994f26bb46859c6))
+* [#135](https://github.com/greper/d2-crud-plus/issues/135) 关闭查看模式下的修改检测提示 ([304311d](https://github.com/greper/d2-crud-plus/commit/304311d904fd3351e31e658ba4b237aad4a25861))
+* 修复必须为整数校验的bug ([5da498f](https://github.com/greper/d2-crud-plus/commit/5da498f2f20ffc088ce86c86dcbf1f242a454475))
+* 最后一页，切换每页条数时，current为小数的bug ([6f37a03](https://github.com/greper/d2-crud-plus/commit/6f37a031f6bca062864f02d4d873c346a0914610))
+
+
+### Features
+
+* 自定义表单对话框 ([09cb596](https://github.com/greper/d2-crud-plus/commit/09cb59675aa2b034b09f367498226fbf1d6c9451))
+* showDialog 支持自定义mode，同时增加modeContext参数，支持mode=edit的同时可以有不同的处理 ([168face](https://github.com/greper/d2-crud-plus/commit/168facecae56b4c943777010763ce6c93480e69a))
+
+
+
+
+
+# [2.14.0](https://github.com/greper/d2-crud-plus/compare/v2.13.6...v2.14.0) (2020-12-22)
+
+
+### Features
+
+* 操作列按钮折叠 ([661c55d](https://github.com/greper/d2-crud-plus/commit/661c55d82989fbe37dc9683864e174bcde0e53d3))
+* crud配置异步从后台获取演示案例 ([c76922b](https://github.com/greper/d2-crud-plus/commit/c76922bf612cf02408f7be2b9bbcfbe0c873f1b6))
+* getCrudOptions 支持异步 ([3d6536f](https://github.com/greper/d2-crud-plus/commit/3d6536ff783abe4f682029a67b75cd14fd499cf7))
+
+
+### Performance Improvements
+
+* 对话框内部展示滚动条 ([6aae5f7](https://github.com/greper/d2-crud-plus/commit/6aae5f73ba0ec31843976a3055243d79a156c060))
+* 翻页按钮点击后，滚动条恢复到顶部 ([ab40ad5](https://github.com/greper/d2-crud-plus/commit/ab40ad573680955658416e8c9c58b804629e88c3))
+* 树形组件优化，增加过滤，对话框内部滚动条，增加对话框关闭事件 ([87eda0f](https://github.com/greper/d2-crud-plus/commit/87eda0fe0ece60876920f2b436cbe74cab58b022))
+* 优化操作列按钮折叠 ([5f8fb03](https://github.com/greper/d2-crud-plus/commit/5f8fb03e67a7c64801411607a44299115747c45e))
+* 正则表达式用例 ([21f5181](https://github.com/greper/d2-crud-plus/commit/21f5181d5b973bd5c355f5f3bf231ca5d88d7545))
+
+
+
+
+
+## [2.13.6](https://github.com/greper/d2-crud-plus/compare/v2.13.5...v2.13.6) (2020-12-14)
+
+
+### Bug Fixes
+
+* 抽屉模式禁用拖拽和全屏，取消抽屉模式下的focus效果 ([bd3db8f](https://github.com/greper/d2-crud-plus/commit/bd3db8fc320c8b3150543632ae51162a47f30a21))
+* 修复树形table，修改无法更新值的问题 ([a18f26e](https://github.com/greper/d2-crud-plus/commit/a18f26e9b3cfb8fee8f959e65a0c5d8c8f04550c))
+* 修复行slot获取不到index的bug ([880c0aa](https://github.com/greper/d2-crud-plus/commit/880c0aaa035b5a87ac4ef44f248cc37786272fce))
+
+
+### Performance Improvements
+
+* 对话框表单支持最大高度，滚动条在对话框内部 ([0b2e2dd](https://github.com/greper/d2-crud-plus/commit/0b2e2dd500d2292945411a8029d27355999ffe0c))
+* form上传支持returnType: key ([e120327](https://github.com/greper/d2-crud-plus/commit/e1203275b41e781b98545a0748687030c317cefc))
+* form上传支持returnType: key ([168f5ed](https://github.com/greper/d2-crud-plus/commit/168f5edf7fe2ea0540032259e024d1002c46f3f7))
+
+
+
+
+
+## [2.13.5](https://github.com/greper/d2-crud-plus/compare/v2.13.4...v2.13.5) (2020-12-01)
+
+
+### Bug Fixes
+
+* 修复上传失败时，删除后文件value为null的bug ([91fc69a](https://github.com/greper/d2-crud-plus/commit/91fc69a9c74096a6ef3f851ad512e17504b9551d))
+
+
+
+
+
+## [2.13.4](https://github.com/greper/d2-crud-plus/compare/v2.13.3...v2.13.4) (2020-11-30)
+
+
+### Bug Fixes
+
+* dialog-opened 支持返回row全量数据 ([fcfb4ea](https://github.com/greper/d2-crud-plus/commit/fcfb4ea577642572063395dbeb9ba8254cab280d))
+* fetchDetail 增加formMode ([1996a1b](https://github.com/greper/d2-crud-plus/commit/1996a1b6ed0ad54a18d0134d725c08b18a644453))
+* fetchDetail文档完善 ([046ecf0](https://github.com/greper/d2-crud-plus/commit/046ecf04ce5fae77dfe65c328be70ea75776d080))
+* search form 支持itemProps配置 ([110a38c](https://github.com/greper/d2-crud-plus/commit/110a38c695597c2ddcca45adbe2988c9e681c217))
+* 修复关闭自动查询后，重置也不自动查询的问题 ([5defb7f](https://github.com/greper/d2-crud-plus/commit/5defb7f460ae16de4588b25ce9d89c52fb27ae24))
+* 修复列设置无法感知变化的bug ([4062984](https://github.com/greper/d2-crud-plus/commit/4062984ed576065e8a75235f4577bedaf534c588))
+* 修复合计行错位的bug ([61fa8f8](https://github.com/greper/d2-crud-plus/commit/61fa8f88ef34fb915675f6c327467800634c39b9))
+* 修复抽屉表单没有滚动条的bug ([7a6a951](https://github.com/greper/d2-crud-plus/commit/7a6a95144a701aada67c5fc0948591d32d3dd9aa))
+* 修复某些组件修改值后无法触发校验的bug ([8dfc13f](https://github.com/greper/d2-crud-plus/commit/8dfc13f8fe99206faddd74f41be33f13ce74acc8))
+* 修复行操作按钮的事件冒泡问题，https://github.com/greper/d2-crud-plus/issues/93 ([fa76408](https://github.com/greper/d2-crud-plus/commit/fa7640873b1a0670d7d851d66c0b0b37ff195f36))
+* 取消抽屉模式焦点关闭按钮边框 ([b8c8b3e](https://github.com/greper/d2-crud-plus/commit/b8c8b3e637f3be3097ec3c328c1753cce3b07bcf))
+* 文件未全部上传完成时阻止表单提交 ([24c831a](https://github.com/greper/d2-crud-plus/commit/24c831adbaf44080b12ba9534313dc3e63f511f4))
+
+
+### Performance Improvements
+
+* 支持设置tag 主题 ([b57b2bd](https://github.com/greper/d2-crud-plus/commit/b57b2bdafa7ec6219c654e861590d14b80aa7418))
+* 文件上传增加successHandle方法处理上传结果 ([2314000](https://github.com/greper/d2-crud-plus/commit/23140001926df3a56edd0b2730e1b2392fc1a319))
+* 获取表单组件ref ([3ce3615](https://github.com/greper/d2-crud-plus/commit/3ce36151a4409bc72d4f8652f1fea41858171a02))
+* 获取表单组件ref ([afd0040](https://github.com/greper/d2-crud-plus/commit/afd0040cdeb45dae03d723d448b17874f2ae03e9))
+
+
+
+
+
+## [2.13.3](https://github.com/greper/d2-crud-plus/compare/v2.13.2...v2.13.3) (2020-11-15)
+
+
+### Bug Fixes
+
+* 修复抽屉表单全屏按钮问题，设置fullscreen=null即可 ([6cef8fd](https://github.com/greper/d2-crud-plus/commit/6cef8fd1a426cba7e5293ff1d74dbb84db81cc64))
+* 支持关闭debug info 日志 ([e9f5bf9](https://github.com/greper/d2-crud-plus/commit/e9f5bf97150d6ed574a1b767ed9870b1f7fbdb63))
+* slot增加index ([9a15d04](https://github.com/greper/d2-crud-plus/commit/9a15d048d7e7be3e743bcbcf417be9c599b4bd2c))
+
+
+### Performance Improvements
+
+* 去除多余的log ([8f789c1](https://github.com/greper/d2-crud-plus/commit/8f789c15f680e994d0397b2eb387e23eded510de))
+* 优化crud-x的包大小 ([aa41b3b](https://github.com/greper/d2-crud-plus/commit/aa41b3bd10e0547c943eaad26c915d0c58ee9854))
+* addRequest editRequest 可以返回null ([86d6381](https://github.com/greper/d2-crud-plus/commit/86d63812cf0747c95d379b7bc4d3dad572a4ddee))
+
+
+
+
+
+## [2.13.2](https://github.com/greper/d2-crud-plus/compare/v2.13.1...v2.13.2) (2020-11-04)
+
+
+### Bug Fixes
+
+* 打开第二次对话框触发formDataChange的bug ([d08f824](https://github.com/greper/d2-crud-plus/commit/d08f8249d6a4bfaba7b1b4855262c75c3bb9d848))
+* 前端分页没有更新的问题 ([bdced0c](https://github.com/greper/d2-crud-plus/commit/bdced0c8c47e270bc3733af5b61da20c422141dd))
+* 头像增加loading ([8e04742](https://github.com/greper/d2-crud-plus/commit/8e04742f5e8637818e6333588e78da032d26c1de))
+* 图片上传隐藏加号 ([1ea2f33](https://github.com/greper/d2-crud-plus/commit/1ea2f33a3c7dcf72f0c4ef9dcdcb9c330c943084))
+* 图片行展示组件增加loading ([0e9e62e](https://github.com/greper/d2-crud-plus/commit/0e9e62e3a87c2645f62f71883bbf2891b551ba65))
+* 修复独立使用ueditor时zindex在对话框之上的bug ([4827c11](https://github.com/greper/d2-crud-plus/commit/4827c11649ce77d9686055d153150e74aa36f87e))
+* 修复树形组件重置不清空的bug ([6ebdbe3](https://github.com/greper/d2-crud-plus/commit/6ebdbe3aa2979842e60e73fb50f0d41f8c79260f))
+* 修复pagination.pageSizes无法覆盖的bug ([88b65c4](https://github.com/greper/d2-crud-plus/commit/88b65c41e758aadffeb0dfc5c44c5cab5bd96e42))
+* 修复tree-selector 打开对话框就触发change的bug ([f0ab6e7](https://github.com/greper/d2-crud-plus/commit/f0ab6e7308126522f14077b0256c14cf32d305a4))
+* defaultSort无效的问题 ([b3c5677](https://github.com/greper/d2-crud-plus/commit/b3c56770ffaf3f2b5fa395c6b45e8c0d74da0afb))
+* dict.url()返回空则不请求数据字典 ([4183cd5](https://github.com/greper/d2-crud-plus/commit/4183cd514057d337381d9112c8a0e7823bf01e6f))
+
+
+### Performance Improvements
+
+* 优化前端分页 ([fc26345](https://github.com/greper/d2-crud-plus/commit/fc2634512fa33964ca683a304c830de0aecabf9d))
+* 优化依赖引入 ([9e80b0c](https://github.com/greper/d2-crud-plus/commit/9e80b0cd3e647bab610ad7721297772e52ce64f6))
+* render增加scope ([a2674b1](https://github.com/greper/d2-crud-plus/commit/a2674b1c53c86af96444273366d17428b734ddfc))
+* render增加scope ([c9664b0](https://github.com/greper/d2-crud-plus/commit/c9664b040c54f42b02fe8021611f0749966d6618))
+
+
+
+
+
+## [2.13.1](https://github.com/greper/d2-crud-plus/compare/v2.13.0...v2.13.1) (2020-11-02)
+
+
+### Bug Fixes
+
+* formOptions.type增加默认值 ([8156d49](https://github.com/greper/d2-crud-plus/commit/8156d49a7ed221d15bd8a4349f24fea1f12c0a23))
+* 恢复误删的provider ([3ce7ce9](https://github.com/greper/d2-crud-plus/commit/3ce7ce99e61867e37b4b4377df2071e81f288847))
+
+
+
+
+
+# [2.13.0](https://github.com/greper/d2-crud-plus/compare/v2.12.3...v2.13.0) (2020-11-01)
+
+
+### Features
+
+* 表单增加抽屉模式，优化表单打开动画，检测修改提醒保存 ([dde6933](https://github.com/greper/d2-crud-plus/commit/dde6933d603ee1c376f96a82a1a4d552d5bddb66))
+* 行编辑增加表单校验 ([8d22629](https://github.com/greper/d2-crud-plus/commit/8d226294b31506aae39f4d85483946b4e9043c01))
+* 行编辑支持 ([2ecefb9](https://github.com/greper/d2-crud-plus/commit/2ecefb9e27320babb2bd34bf6bf0b832ba5ebc43))
+
+
+### Performance Improvements
+
+* 优化排除lodash ([71d88c7](https://github.com/greper/d2-crud-plus/commit/71d88c7f8cfc2db7b23b3df584230ff6d2b01d81))
+
+
+
+
+
+## [2.12.3](https://github.com/greper/d2-crud-plus/compare/v2.12.2...v2.12.3) (2020-10-31)
+
+
+### Bug Fixes
+
+* 修复头像上传loading ([37c4a8b](https://github.com/greper/d2-crud-plus/commit/37c4a8bfc0eab9735dbcee96662b157859980e3c))
+
+
+
+
+
+## [2.12.2](https://github.com/greper/d2-crud-plus/compare/v2.12.1...v2.12.2) (2020-10-31)
+
+**Note:** Version bump only for package d2-crud-plus-project
+
+
+
+
+
+## [2.12.1](https://github.com/greper/d2-crud-plus/compare/v2.12.0...v2.12.1) (2020-10-31)
+
+
+### Bug Fixes
+
+* 修复ie 11打不开的问题 ([44a48b7](https://github.com/greper/d2-crud-plus/commit/44a48b78cdfbe05a185360ca9ed8603742da7c78))
+* 修复phoneinput组件无法disabled的问题 ([93e22e6](https://github.com/greper/d2-crud-plus/commit/93e22e6ba4aad6f49f1b12deb7cf785f41bb5be5))
+* 修复phoneinput组件无法disabled的问题 ([de6974d](https://github.com/greper/d2-crud-plus/commit/de6974d13314317579931e69fe34a30c06e82b48))
+* 修复列太多，列设置的确定按钮点不到的bug ([b12cefe](https://github.com/greper/d2-crud-plus/commit/b12cefea502f22eeb750870d6a7be84a253df265))
+* 修复推迟加载后search报错的bug ([148d9fd](https://github.com/greper/d2-crud-plus/commit/148d9fd2207ef850f3ad5cfb26a24fab355dede7))
+* 修复权限链接报404的问题 ([7c77efa](https://github.com/greper/d2-crud-plus/commit/7c77efae6616cfbedb853a581c0a46f2c616bd33))
+* 修复非配置字段赋值的bug ([ddbd2e0](https://github.com/greper/d2-crud-plus/commit/ddbd2e0f0a773abaa2108562e8174b7da57dbfbb))
+* 修复非配置字段赋值的bug ([9a3daaa](https://github.com/greper/d2-crud-plus/commit/9a3daaa2ba8bee34b4d82587a18127cd874591b3))
+
+
+### Performance Improvements
+
+* dict 增加transfer配置 ([d6337d2](https://github.com/greper/d2-crud-plus/commit/d6337d252934b214fe054197e1b490af85cc05be))
+* dict 增加transfer配置 ([2ceb3fb](https://github.com/greper/d2-crud-plus/commit/2ceb3fb7e854435c4cf6adb5760f5d4eeb2d201f))
+* rowhandle修改为minWidth ([9985c9a](https://github.com/greper/d2-crud-plus/commit/9985c9acb3230f473208f9eb42f97eace00dae9c))
+* rowHandle默认改为minWidth ([d9edc6a](https://github.com/greper/d2-crud-plus/commit/d9edc6a162a736e5c1d0a9c3fcf642352965ea48))
+* toolbar refresh配置false可以隐藏按钮 ([ae6a067](https://github.com/greper/d2-crud-plus/commit/ae6a06745f9cc3bff34b67285a0be6b36632f95e))
+* view模式的slot禁用示例 ([cf1da74](https://github.com/greper/d2-crud-plus/commit/cf1da74844595dfade6790860d06e9303666107c))
+* 优化上传lib，增加上传时获取文件的参数 ([27b010a](https://github.com/greper/d2-crud-plus/commit/27b010ab59917e206fa67e897cdcb5170993eefc))
+* 增加el-table的 events配置 ([88fb917](https://github.com/greper/d2-crud-plus/commit/88fb917863a5c9b4c029580438daec194c558cdc))
+* 增加el-table的 events配置 ([d5dce3b](https://github.com/greper/d2-crud-plus/commit/d5dce3bd0d65225041acb2560422a2b6b615c0a8))
+* 增加initColumnBefore方法 ([5860e7a](https://github.com/greper/d2-crud-plus/commit/5860e7a5651f8c1d0b376d2333c0e2b4f136f8a5))
+* 增加无依赖示例 ([a3a0d77](https://github.com/greper/d2-crud-plus/commit/a3a0d7713fa14c9819f7426839b219c2c2a5a98b))
+* 头像上传增加loading ([4ba9766](https://github.com/greper/d2-crud-plus/commit/4ba9766dd1bdee5b4f8635fba4c07edf4ea15610))
+* 头像上传预览阻止点击事件穿透 ([170b905](https://github.com/greper/d2-crud-plus/commit/170b905b947358cabdd5f97f223110160f73c6ff))
+* 服务端排序实现 ([08f7ba5](https://github.com/greper/d2-crud-plus/commit/08f7ba55e8b412c3388fd95b2e59b912b140b61d))
+
+
+
+
+
+# [2.12.0](https://github.com/greper/d2-crud-plus/compare/v1.1.0...v2.12.0) (2020-10-21)
+
+
+### Bug Fixes
+
+* break change dict-xxx的onReady方法参数的component改为{component:xx,data,setDictData} ([6489e34](https://github.com/greper/d2-crud-plus/commit/6489e3478304cf715c9c4dc5c216fbf7e5863e9d))
+* column.dict不再覆盖用户已经自定义的component.props.dict ([531de7e](https://github.com/greper/d2-crud-plus/commit/531de7e926b2428141f9b0cb89c400258945c60d))
+* d2-crud的一些兼容性工作 ([5583eed](https://github.com/greper/d2-crud-plus/commit/5583eed908acb715406b9b4b9a40b8fa7619fc9e))
+* exapndRow=true 报错的bug ([7d1740a](https://github.com/greper/d2-crud-plus/commit/7d1740a301ef4187eba31e446640fcd25a5307f6))
+* format的提示优化 ([01f4a72](https://github.com/greper/d2-crud-plus/commit/01f4a722a3ab6213446aa3e406fc10758f2bfb29))
+* format的提示优化 ([eaa41fd](https://github.com/greper/d2-crud-plus/commit/eaa41fd3847b3eddb0108f825d4170431e0838b7))
+* meneTree判空 ([8c4c939](https://github.com/greper/d2-crud-plus/commit/8c4c939d750939d4ec7e4da6a6d4abd855c7ba29))
+* paginationPrefix还是不能改成flex ([9379761](https://github.com/greper/d2-crud-plus/commit/9379761bfb27ae3f213a310be25f04becf1b347b))
+* quill字体大小和字体类型 ([1c6e74d](https://github.com/greper/d2-crud-plus/commit/1c6e74db741b2cffadf84e06da40e39233c93b63))
+* release文字修改 ([e31d42d](https://github.com/greper/d2-crud-plus/commit/e31d42d65f6dd7dca6913786953d8c12324818fc))
+* release文字修改 ([37ef4b3](https://github.com/greper/d2-crud-plus/commit/37ef4b3edbdd1152c782943164075b562d8d8d86))
+* tree-selector 支持单选 ([a521ad7](https://github.com/greper/d2-crud-plus/commit/a521ad7882c0c019a51be97236de1c28e65b7114))
+* tree-selector 的value支持基本数据类型 ([2969a0f](https://github.com/greper/d2-crud-plus/commit/2969a0f42cdaf191b045d0b4bc4b3ce14ad84835))
+* 七牛token不再支持复用 ([69c35be](https://github.com/greper/d2-crud-plus/commit/69c35be9cff2f3234e0f12e74b0621bee28c0461))
+* 优化图片上传时的闪烁 ([640907b](https://github.com/greper/d2-crud-plus/commit/640907b65719a338323968c94399c0f9a1e3c6fd))
+* 优化表格有滚动条时高度计算导致双滚动条的bug ([4460d6c](https://github.com/greper/d2-crud-plus/commit/4460d6c5179d08bfe595b559cf844eadcf9f2fa8))
+* 修复 dict-switch 修改value为非boolean值时表单无法显示正确值的bug ([f378624](https://github.com/greper/d2-crud-plus/commit/f378624d48f35202a9507f5255822ab762b1a3a3))
+* 修复cascade不显示label的bug ([d36495e](https://github.com/greper/d2-crud-plus/commit/d36495e7254c28a60158b0e992fd21318f3588f1))
+* 修复cell-data-change事件 ([304a242](https://github.com/greper/d2-crud-plus/commit/304a24271e6c8085c77655c4aea7e5ed66040051))
+* 修复d2Crud与d2CrudX样式冲突的问题 ([b6593ac](https://github.com/greper/d2-crud-plus/commit/b6593ac6f88d65e706f90530438fbe6abe536ec8))
+* 修复d2Crud与d2CrudX样式冲突的问题 ([2fbcd29](https://github.com/greper/d2-crud-plus/commit/2fbcd29290845928480a9de8fff78bad1e816c71))
+* 修复d2Crud与d2CrudX样式冲突的问题 ([781649e](https://github.com/greper/d2-crud-plus/commit/781649e818607033b61e2fcf522b2311ad6737db))
+* 修复d2Crud与d2CrudX样式冲突的问题 ([435c17c](https://github.com/greper/d2-crud-plus/commit/435c17c12b1c343f0ec92e05263e5d2d1531ea3e))
+* 修复d2p-file-uploader会覆盖上传参数的问题 ([d09a934](https://github.com/greper/d2-crud-plus/commit/d09a93406f5900c9649bd79c626abe6f5af4eb52))
+* 修复d2p-quill打开对话框就获得focus导致对话框滚动条下拉的问题 ([00c9476](https://github.com/greper/d2-crud-plus/commit/00c94766eb17689e0bd674a6092872711f385ae5))
+* 修复dictRadio valuechange触发两次的问题 ([36d5325](https://github.com/greper/d2-crud-plus/commit/36d53251f73a7be1d06a84785d25f6903aff6bb7))
+* 修复dictSelect配置options无效的bug ([a39cde6](https://github.com/greper/d2-crud-plus/commit/a39cde632585232b675df65e45dfd4791f8602a8))
+* 修复dict有时候获取不到data list的bug ([2a68822](https://github.com/greper/d2-crud-plus/commit/2a68822d74e6b805808fd652dfe58840caa43f5c))
+* 修复expand不显示的bug ([072928e](https://github.com/greper/d2-crud-plus/commit/072928e06154c35c6860969dddf0391c8bd50fcd))
+* 修复expand不显示的bug ([ba26c48](https://github.com/greper/d2-crud-plus/commit/ba26c483ea5290ddeb31b27b235693b853cd9fd9))
+* 修复fetchDetail在添加时异常问题 ([18899a4](https://github.com/greper/d2-crud-plus/commit/18899a4760420e0d254f261938cda9c21adc6d99))
+* 修复input查询框点击查询 执行两次查询的bug ([110e8b9](https://github.com/greper/d2-crud-plus/commit/110e8b9ff2200d894ef03c74ba781d41afc511d7))
+* 修复quill 默认字体太小的问题 ([50f2235](https://github.com/greper/d2-crud-plus/commit/50f223531747a0f7844f53b19e38ece3ac178d34))
+* 修复rowHandle:false 报错的问题 ([59fe2da](https://github.com/greper/d2-crud-plus/commit/59fe2da12493044bb9c0fb45076cbde596681e28))
+* 修复rowHandle=false时报警告的问题 ([31730c2](https://github.com/greper/d2-crud-plus/commit/31730c2bb4f163b0d7702b7c695e97a480b8ae0e))
+* 修复slot方式修改数组数据会把行数据也改掉的bug ([bd8f14f](https://github.com/greper/d2-crud-plus/commit/bd8f14f8d069d1335629cc3a044379102ad69bb8))
+* 修复tree-selector 设置默认值时报错的bug ([f79594c](https://github.com/greper/d2-crud-plus/commit/f79594c7d4c6859f869ca19248492ba9d8cd1e9b))
+* 修复ueditor在表单分组下宽度异常问题 ([dd2c3f9](https://github.com/greper/d2-crud-plus/commit/dd2c3f93c84b029a5e036fdfa2e08c37632c4811))
+* 修复view.disabled取反的bug ([21dcbde](https://github.com/greper/d2-crud-plus/commit/21dcbde09381180bb0c83885cd5941ab705d3421))
+* 修复view模式下0 值不展示的bug ([6b06680](https://github.com/greper/d2-crud-plus/commit/6b06680fd34b834334c40a675f1b8d78c98c402b))
+* 修复vxe-table的一些bug ([0a8a52f](https://github.com/greper/d2-crud-plus/commit/0a8a52fd6d40e47f41502fbe050f8348e30e3377))
+* 修复vxe-table获取不到row index的bug ([08650a8](https://github.com/greper/d2-crud-plus/commit/08650a89e5020fb6f2aed7efe04bb7a0cf3bb902))
+* 修复一个奇怪的问题 ([709ff8f](https://github.com/greper/d2-crud-plus/commit/709ff8f275e92cc55540478ffc5e968d935059b3))
+* 修复一个数据扁平化的bug ([6a53f14](https://github.com/greper/d2-crud-plus/commit/6a53f1484a906833bcff2d84542ab04ed05abd48))
+* 修复一个无限翻页的bug ([8533007](https://github.com/greper/d2-crud-plus/commit/8533007eb370bd3c8123f626ed2b91472e9a579a))
+* 修复一个空指针异常 ([0df235e](https://github.com/greper/d2-crud-plus/commit/0df235e837cc7fd3f9e7603c6d735c1aa6336890))
+* 修复一处文档错误 ([5f98320](https://github.com/greper/d2-crud-plus/commit/5f9832017e27e0f35a6e03ddf3af6c7c5ced29ef))
+* 修复七牛不显示上传进度的bug ([d64dff1](https://github.com/greper/d2-crud-plus/commit/d64dff16e61cf2a03d23d773dacbf4e67be9c8f8))
+* 修复分组下，查看span配置无效的bug ([765fc76](https://github.com/greper/d2-crud-plus/commit/765fc76b3b98c1f1b09ce660c8e23ec4589c783f))
+* 修复删除最后一页的最后一条数据后列表不刷新的bug ([a77e673](https://github.com/greper/d2-crud-plus/commit/a77e6731afc94ebe0914b8cbfbc4f51ec67f537c))
+* 修复图片上传某些情况下闪烁的问题 ([e8781c8](https://github.com/greper/d2-crud-plus/commit/e8781c84e13407f04e00c9dada8715ddcabdcbf6))
+* 修复多个文件同时上传时，后面完成的文件上传失败的bug ([7fc905b](https://github.com/greper/d2-crud-plus/commit/7fc905b5258e014beb917eb561c7fe939a27ec99))
+* 修复多次登录后顶部菜单重复出现的bug ([fba5843](https://github.com/greper/d2-crud-plus/commit/fba58434d5e0abec8d903f36909a349d71b4afb3))
+* 修复多次触发formdatechange的bug ([0dadab9](https://github.com/greper/d2-crud-plus/commit/0dadab9973aeffc378f9b9cd762f78ae1ab4fd38))
+* 修复头像上传后获取不到md5值的问题 ([36266ad](https://github.com/greper/d2-crud-plus/commit/36266adc2b5c51d26081ef689ee1a063cd4ec047))
+* 修复头像上传后获取不到md5值的问题 ([704d74b](https://github.com/greper/d2-crud-plus/commit/704d74b80d03f8d606f979913015750eeb7ae9b9))
+* 修复头像上传后获取不到md5值的问题 ([27ff933](https://github.com/greper/d2-crud-plus/commit/27ff933c698dd64ff5cbbce8fbd7c6df1dc8dbc0))
+* 修复富文本编辑器在初始化之后没有disabled的bug ([1075e83](https://github.com/greper/d2-crud-plus/commit/1075e83ec6ecb8265f084b145fc7c97989837f33))
+* 修复富文本触发两次data-change事件的bug ([9d24a9a](https://github.com/greper/d2-crud-plus/commit/9d24a9aee5a6d895b1c02e2d5fd633c10d5960ea))
+* 修复嵌套表格点击删除按钮刷新页面的bug ([4db54b1](https://github.com/greper/d2-crud-plus/commit/4db54b1eba5dd703545147d1d0affacfebd8b7bf))
+* 修复平台下无角色无法给用户授权的bug ([e90d3a9](https://github.com/greper/d2-crud-plus/commit/e90d3a9de834e4fb6d99bab3da1b60296f9f6a5f))
+* 修复懒加载之后上传组件没有动态切换的bug ([7fee033](https://github.com/greper/d2-crud-plus/commit/7fee03366753abbabee41fec40c38a840b00678f))
+* 修复手机号输入组件没有加载的bug ([d43313a](https://github.com/greper/d2-crud-plus/commit/d43313ac20d1b8fd65eeafa2714202494dad9fae))
+* 修复手机号输入组件没有加载的bug ([5ee4ea2](https://github.com/greper/d2-crud-plus/commit/5ee4ea2b280f4963ee18585850fb39b4af595669))
+* 修复文件上传onPreview可自定义 ([be37294](https://github.com/greper/d2-crud-plus/commit/be372947d5a4281b661f01ca1f84a202691023e0))
+* 修复文件上传onPreview可自定义 ([dd2971d](https://github.com/greper/d2-crud-plus/commit/dd2971d65425a30138dcaaea2665ea297a9ba2bc))
+* 修复文件上传失败的bug ([b61238b](https://github.com/greper/d2-crud-plus/commit/b61238b537c284ef0c28a9626becfa34cf008f27))
+* 修复文件上传进度条显示的bug，优化一些其他显示上的问题 ([53d54ba](https://github.com/greper/d2-crud-plus/commit/53d54bad45782ddc7a6970ad25c2811e137ff41b))
+* 修复文件上传错误处理的bug ([6ce8370](https://github.com/greper/d2-crud-plus/commit/6ce83706df19050d3ec6006d69ea00e3e729ef26))
+* 修复文本域无法输入的问题 ([bddee2d](https://github.com/greper/d2-crud-plus/commit/bddee2d2283014a94d136ad7659dbebf2a17e24b))
+* 修复新的mock加载出错的问题 ([f16b557](https://github.com/greper/d2-crud-plus/commit/f16b557323d6ccf688890ae68571c8f936834e56))
+* 修复新的mock无法删除记录的bug ([cbb6594](https://github.com/greper/d2-crud-plus/commit/cbb65944e75136054d29dd70b9b37d5e43fc938b))
+* 修复查询工具条，重置按钮丢失的问题 ([6ab9c45](https://github.com/greper/d2-crud-plus/commit/6ab9c4579545733d4c38f735c87a0744af996b44))
+* 修复查询工具条动态变更字段不生效的bug ([d5a51ad](https://github.com/greper/d2-crud-plus/commit/d5a51ad0e2a387e45aed6b99e1134601ba1619f7))
+* 修复树形组件无法默认选中的bug ([2b45b91](https://github.com/greper/d2-crud-plus/commit/2b45b91f43595e0ae9b0b83b1625959cd6d98621))
+* 修复树形选择器，单选返回值为数组的bug ([1b79cf7](https://github.com/greper/d2-crud-plus/commit/1b79cf7a71cb1ce9b1e2351abd7535adfc5fecab))
+* 修复树形选择器触发多次change事件的问题 ([2f38688](https://github.com/greper/d2-crud-plus/commit/2f38688e91757390d45ed7298664461559c4f8f8))
+* 修复树形选择组件添加是报错的bug ([17d22b1](https://github.com/greper/d2-crud-plus/commit/17d22b18f29d3ea45b920a9eba1e3f3b4fb30ff4))
+* 修复点号配置多级数据时查询的问题 ([d936775](https://github.com/greper/d2-crud-plus/commit/d9367758f90434a452d425012d6e9b244e8046f4))
+* 修复点号配置多级数据时查询的问题 ([95f6bdc](https://github.com/greper/d2-crud-plus/commit/95f6bdc74b1809a2fc2be6801e4f87989c5b2d70))
+* 修复用户无法授予角色的bug ([367192b](https://github.com/greper/d2-crud-plus/commit/367192ba2ec0be35250470c4ac599aab0aeb6593))
+* 修复用户没有添加按钮的bug ([41bf1bc](https://github.com/greper/d2-crud-plus/commit/41bf1bc8294aaafd54bc8867db66a16ce0620bae))
+* 修复用户没有添加按钮的bug ([6572492](https://github.com/greper/d2-crud-plus/commit/6572492fdd6c0b3f8b8ffdfea65c2109b1fa3f1f))
+* 修复空指针异常 ([35e1b7b](https://github.com/greper/d2-crud-plus/commit/35e1b7b71c32fe6c8e5cf3447d366ad7b4a9306b))
+* 修复级联懒加载时无法反显的bug ([ed840d3](https://github.com/greper/d2-crud-plus/commit/ed840d3af55fb9e6a54152b67c9eab23720c61ab))
+* 修复编辑和添加rule有差异时的问题 ([cf1ec26](https://github.com/greper/d2-crud-plus/commit/cf1ec26d4dee2e3d3fd54d226350c074c8713273))
+* 修复编辑时，文件上传无法更新value的bug ([be5df12](https://github.com/greper/d2-crud-plus/commit/be5df1250c664e2e5685ae440a3340074be5c522))
+* 修复翻到最后一页，切换每页条数时，查询空白的问题 ([6e5300a](https://github.com/greper/d2-crud-plus/commit/6e5300a081b45053e53f945246014b599aea784d))
+* 修复自动化测试出来的bug， 级联value format 显示的bug ([2658d2f](https://github.com/greper/d2-crud-plus/commit/2658d2fbc0e7c06ef760d2e8c12dd81e66fcd7f8))
+* 修复自定义按钮获取不到行数据的bug ([ca5a82e](https://github.com/greper/d2-crud-plus/commit/ca5a82e2e79d14e13e45e8adafbdeed80a6533c5))
+* 修复获取不到分组中的字段配置的问题 ([2a29a25](https://github.com/greper/d2-crud-plus/commit/2a29a25111252e2a406da6ae97220cb65bea66f5))
+* 修复表单上传url错误的问题 ([2d49985](https://github.com/greper/d2-crud-plus/commit/2d4998574436d0f6c90da942653debc42f73bc41))
+* 修复请求地址出错的问题 ([bc9a6c0](https://github.com/greper/d2-crud-plus/commit/bc9a6c0bfad92675e03a3c036d8e387bb6ee30bf))
+* 修复酒店示例多个翻页组件的问题 ([732e75e](https://github.com/greper/d2-crud-plus/commit/732e75e9ba1d40fabbceb2ace6421c2535c97d24))
+* 修复隐藏操作列报错的bug ([0ab2d27](https://github.com/greper/d2-crud-plus/commit/0ab2d27cd970c4d804640682fef547181d8905a8))
+* 修复隐藏操作列报错的bug ([1d353ad](https://github.com/greper/d2-crud-plus/commit/1d353ad9f41be5b82840b8c18f8aece3122bdc17))
+* 修复静态菜单不显示的问题 ([09bd7bb](https://github.com/greper/d2-crud-plus/commit/09bd7bb5991403d60c8703c37cb4876415c6b54c))
+* 修复首次加载表尾合计行无法显示的bug ([d4e1d4e](https://github.com/greper/d2-crud-plus/commit/d4e1d4e49ccbc92f5a00f8802c8075fb27b38431))
+* 修复默认上传type不生效的bug ([4ef61f2](https://github.com/greper/d2-crud-plus/commit/4ef61f2d92ebec56d07ae2a3a6c04ba11c281dbc))
+* 兼容finally ([ce959f7](https://github.com/greper/d2-crud-plus/commit/ce959f7f1a17dc00bbb667f3c36d46e8d9c76daa))
+* 兼容ie11 ([bca62ee](https://github.com/greper/d2-crud-plus/commit/bca62eeb48ef53bd075028340f4634a341a88987))
+* 减少vxetable的警告 ([6f2a0cb](https://github.com/greper/d2-crud-plus/commit/6f2a0cb842a3c65e9b4ba1e0198cec9489fe595f))
+* 减少vxetable的警告 ([8e30fb7](https://github.com/greper/d2-crud-plus/commit/8e30fb78d2596f402fbdea6e35a4956a58e82b76))
+* 切换用户不更新权限的bug ([5b73a90](https://github.com/greper/d2-crud-plus/commit/5b73a90b418927f5f9f4dca48094ab93457a3cbe))
+* 列设置本地缓存可以设置key键值名称 ([c8665fa](https://github.com/greper/d2-crud-plus/commit/c8665fa76b62b1571645e1259b8a06183b9b28c1))
+* 删除quill 上传参数的默认cos配置 ([1790a2a](https://github.com/greper/d2-crud-plus/commit/1790a2a528bec9b3f92b77e9621e5102fc289913))
+* 删除多余的路由 ([f859e2a](https://github.com/greper/d2-crud-plus/commit/f859e2a88a95a8edf803335e89d372f17a13ec62))
+* 删除无用的$d2CrudSize配置 ([8de9ef8](https://github.com/greper/d2-crud-plus/commit/8de9ef83c3997442faacf0dcf9327be10357454e))
+* 删除旧版本兼容性提示 ([5a7aac1](https://github.com/greper/d2-crud-plus/commit/5a7aac14515b0a6a2d3e6f2f86770ae4a917396c))
+* 前端分页搜索示例 ([669d6bb](https://github.com/greper/d2-crud-plus/commit/669d6bbcb4635d79c3493b0e3724d469f211f00c))
+* 升级cos-js-sdk-v5版本，解决windows杀软报毒的问题 ([b2a0139](https://github.com/greper/d2-crud-plus/commit/b2a01397fc504c4f1a95c9958d507d4ada8c73c9))
+* 取消横向拉伸功能，解决对话框文本无法选择的bug ([44ec7d7](https://github.com/greper/d2-crud-plus/commit/44ec7d71400bd405b6111390a82025d9d7f850fc))
+* 图片上传增加预览显示 ([ff2a021](https://github.com/greper/d2-crud-plus/commit/ff2a02105d7aa7da86fbe68c15528fca7eee1057))
+* 图片上传非方形图片垂直居中显示 ([bad13a1](https://github.com/greper/d2-crud-plus/commit/bad13a17a135853f7c30992bfd83ce43e375400e))
+* 图片裁剪增加放大缩小 ([be96a7b](https://github.com/greper/d2-crud-plus/commit/be96a7b445a902066f45bdb9afd9c2124f0cceac))
+* 图片裁剪增加放大缩小 ([75eb8e5](https://github.com/greper/d2-crud-plus/commit/75eb8e5b51c9e492c11e956bf2ea79d807280ef8))
+* 增加response处理配置 ([6890208](https://github.com/greper/d2-crud-plus/commit/68902085d0aa5d4ec419f517a1ee890f7d77a43d))
+* 增加自定义扩展组件demo ([33c02f0](https://github.com/greper/d2-crud-plus/commit/33c02f0baddbe5d93c41439387362972de46cac9))
+* 增加选项的禁用配置，增加dictSwitch,部分ie兼容性问题修复 ([c91a04b](https://github.com/greper/d2-crud-plus/commit/c91a04bbdd201d117953048c56cca53ae66dad0d))
+* 增加配置项updateTableDataAfterEdit，保存对话框后不插入数据到table中，通过刷新列表更新数据 ([6ee6f07](https://github.com/greper/d2-crud-plus/commit/6ee6f079f202a0ff053d318c251139d2aa1f0312))
+* 懒加载优化，减小首次访问体积 ([d210a54](https://github.com/greper/d2-crud-plus/commit/d210a544c890c35d3f41af5067f24f9a3d8d4587))
+* 懒加载示例 ([a2641d4](https://github.com/greper/d2-crud-plus/commit/a2641d471bc5b1acf4bac326c1045c00ed3ffdbd))
+* 指定corejs版本 ([619da4d](https://github.com/greper/d2-crud-plus/commit/619da4d6c2c7482d68989e6c378ebd29fc335d05))
+* 支持自定义d2-crud的标签名称 ([2e61b53](https://github.com/greper/d2-crud-plus/commit/2e61b53d746cda80fc7ed1d63db5c1921b599bb2))
+* 整理了expose方法，其中updateAfter方法名修改成editAfter ([eb9631f](https://github.com/greper/d2-crud-plus/commit/eb9631f65cd5dd5517a90071ca4159af69978786))
+* 文件上传支持文件大小限制配置 ([af22fe1](https://github.com/greper/d2-crud-plus/commit/af22fe1fb36cc4d2406c1c4ecc310f5e829fb239))
+* 文件上传组件，删除时没有改变value值的bug ([af264c7](https://github.com/greper/d2-crud-plus/commit/af264c74759cdd9d1955eb868041dbc13a83d4c6))
+* 文件上传组件，删除时没有改变value值的bug ([fb7d941](https://github.com/greper/d2-crud-plus/commit/fb7d9411957323c3c406b3ad69248ec90d9b4f7e))
+* 文件上传组件，删除时没有改变value值的bug ([c01203e](https://github.com/greper/d2-crud-plus/commit/c01203e4a806756fc346d7ef5138e473e05a4f32))
+* 文档调整 ([423b3b4](https://github.com/greper/d2-crud-plus/commit/423b3b4655861d3d1e6fe5bdac79b9deaeb20cb9))
+* 查询表单宽度可以不写px后缀 ([4be5c88](https://github.com/greper/d2-crud-plus/commit/4be5c8878483bbffc8da4b21bc5691d6a9d90671))
+* 消除edge下权限清空的报错 ([65127d6](https://github.com/greper/d2-crud-plus/commit/65127d6864aa7dae4b0ddfd7975eb7815d3a4fa2))
+* 解决tree-selector单独使用时无法触发值更新的问题 ([02a37da](https://github.com/greper/d2-crud-plus/commit/02a37daacc23b7088eff1d6ece5d3057f297f502))
+
+
+### Features
+
+* checkbox联动radio修改radio的选项功能示例，d2-crud的表单组件增加ref ([66d26bb](https://github.com/greper/d2-crud-plus/commit/66d26bb039cb0848936e41019883ec9a1ec1ce7d))
+* d2-admin 1.17版本同步 ([7037e4a](https://github.com/greper/d2-crud-plus/commit/7037e4ada20dd5b62c248349bd51f7014962877f))
+* d2-admin升级到1.17.0 ([ce5dfa0](https://github.com/greper/d2-crud-plus/commit/ce5dfa035f9f547854ae63ebee793722580e09c7))
+* d2-crud多级表头重构,抽取d2-cell组件 ([0a11bf5](https://github.com/greper/d2-crud-plus/commit/0a11bf5d5116bdb74cf33129e04efac0d53bb154))
+* dict配置增加覆盖全局getRemoteDataFunc的方法，全局方法增加dict参数 ([22db385](https://github.com/greper/d2-crud-plus/commit/22db38591d7c285b0e50ce8b9cd6aedd0c5032f9))
+* quill富文本编辑器 ([238760b](https://github.com/greper/d2-crud-plus/commit/238760b1c63385850721f3eb018c9f2ebe0595ec))
+* quill富文本编辑器 ([54c39cc](https://github.com/greper/d2-crud-plus/commit/54c39cc911f5a481894850ea227cdc627c5b0716))
+* search.show支持传入方法 ([3aa0353](https://github.com/greper/d2-crud-plus/commit/3aa0353162577374922beca1e8ce1faa5f7c0bef))
+* textArea支持 ([12f2c91](https://github.com/greper/d2-crud-plus/commit/12f2c91ea492b4b5f4b781c7826b0c6939e0db93))
+* 优化字典获取自定义，修复bug，增加示例的行数 ([e94749d](https://github.com/greper/d2-crud-plus/commit/e94749de0ad885ee5feea6b1b6a2a2096f057a2c))
+* 列表数据结构支持自定义 ([30fd7a3](https://github.com/greper/d2-crud-plus/commit/30fd7a3576cc7345ecd1433b1ca7f5013e4957cf))
+* 动态显示隐藏整个表单字段 ([3153602](https://github.com/greper/d2-crud-plus/commit/31536028be6ac052d4c5c9d5432807be4f46d1de))
+* 发布 ([37af76c](https://github.com/greper/d2-crud-plus/commit/37af76c91d205e772118aee50f87766b25804274))
+* 取消单独的el-input，合并到renderCustomComponent ([a7b30cb](https://github.com/greper/d2-crud-plus/commit/a7b30cbc3dde40de04715a51914e92ad769569cc))
+* 图片裁剪 ([13ace31](https://github.com/greper/d2-crud-plus/commit/13ace3104ef7ff4cba66867e4f4a78bf858d81e8))
+* 多文件上传显示优化，批量删除，上传文件参数优化 ([8946934](https://github.com/greper/d2-crud-plus/commit/89469349cdd6495ddd503f206ab110bf75dce60c))
+* 多文件上传显示优化，批量删除，上传文件参数优化 ([91e2437](https://github.com/greper/d2-crud-plus/commit/91e243796221b706b0bb906aca5c00e59ed597fe))
+* 头像裁剪组件，图片行显示支持预览大图 ([40d8a5d](https://github.com/greper/d2-crud-plus/commit/40d8a5d2f6276c1479360cab1896b9cacc6095ae))
+* 头像裁剪组件，图片行显示支持预览大图 ([348ec15](https://github.com/greper/d2-crud-plus/commit/348ec15b0eca5c55512b56134fb1086a36ba4d06))
+* 实验性支持vxe-table ([9b518c4](https://github.com/greper/d2-crud-plus/commit/9b518c46091a76a3bfc96d9c79ee763a26be9fa2))
+* 富文本增加ueditor ([ee6e6f6](https://github.com/greper/d2-crud-plus/commit/ee6e6f6430e5aa2ebf3bcfe2987af56d512b5e96))
+* 对话框全屏，标题slot ([2bd3dec](https://github.com/greper/d2-crud-plus/commit/2bd3decf4816502c7413afa6106e3cb746846eb4))
+* 对话框增加自定义header slot ([0c25a93](https://github.com/greper/d2-crud-plus/commit/0c25a93e85f91b34c2cc2e6f5883e1ab284cbb0c))
+* 操作列按钮排序 ([ee5c3b4](https://github.com/greper/d2-crud-plus/commit/ee5c3b459b72304bde40b6c80ee4d346eae90be6))
+* 支持d2-column递归组件 ([b536e21](https://github.com/greper/d2-crud-plus/commit/b536e21a94e399ac403a24e8d5910000510c42a5))
+* 支持本地服务器上传文件 ([1f319f2](https://github.com/greper/d2-crud-plus/commit/1f319f20afcee32c4527bfd0e10f263234723b3a))
+* 支持点号key的方式配置多级数据 ([927600d](https://github.com/greper/d2-crud-plus/commit/927600d0fefb4c281c2b797f29158ac792cca99c))
+* 支持配置默认表单span ([9268d4a](https://github.com/greper/d2-crud-plus/commit/9268d4a1c19dcdf549deab965a07fa9904c4a010))
+* 新增展开行功能，新增特殊列、固定列示例 ([0a2b60a](https://github.com/greper/d2-crud-plus/commit/0a2b60a6a0c9ece1e7391ce3b72eff0d5d0e8e7a))
+* 新增展开行功能，新增特殊列、固定列示例 ([69bacf0](https://github.com/greper/d2-crud-plus/commit/69bacf00edf016968be723c7457d8002e30fc285))
+* 新增工具条功能：刷新，查询展开，页面紧凑切换，列设置。内置分页组件可以启用 ([980ff30](https://github.com/greper/d2-crud-plus/commit/980ff30154453c8b1cd77f19f9efe6f7a20f9bef))
+* 更简单方便易用的组件禁用方式（disabled） ([b194ac1](https://github.com/greper/d2-crud-plus/commit/b194ac1f62d88ffd7d887cb8a56e55a4b5cf2511))
+* 查看功能 ([7d03e94](https://github.com/greper/d2-crud-plus/commit/7d03e94dc2ea6b67211ac554fe2f0ef3d8912a49))
+* 查询框组件支持style 和 class配置 ([df1115b](https://github.com/greper/d2-crud-plus/commit/df1115bc6d850f453d401d1696cb1b264d0f8ad7))
+* 组件ready事件 ([bfefdf3](https://github.com/greper/d2-crud-plus/commit/bfefdf31d03247a87d718114e30363801a98d96a))
+* 自定义事件监听支持 ([1f9fd39](https://github.com/greper/d2-crud-plus/commit/1f9fd39316375c6102279e1a7a65b33ae16a4733))
+* 表单支持分组 ([96f1b54](https://github.com/greper/d2-crud-plus/commit/96f1b54ff480b95461ac37556eeef66fd925a158))
+* 重大优化 ([9b1009a](https://github.com/greper/d2-crud-plus/commit/9b1009a62383db653ac25f7f83b048dad0a40448))
+
+
+### Performance Improvements
+
+* alisdk增加sdkOpts参数 ([7c14b44](https://github.com/greper/d2-crud-plus/commit/7c14b440ffcf7316155dad932f6f5ccda66372a8))
+* checkbox radio增加按钮样式配置 ([602265b](https://github.com/greper/d2-crud-plus/commit/602265bdab4780f881298ac01e4215da9b15b860))
+* column.show支持传入一个无参方法，form表单支持自定义排序 ([0500c40](https://github.com/greper/d2-crud-plus/commit/0500c40f6bc717d6ad3a0e680fe7e670b47494ea))
+* crud-search增加slot ([f6b6b1d](https://github.com/greper/d2-crud-plus/commit/f6b6b1dcce1cdab47f20298b02070c991b58c9d0))
+* crud-x 打开编辑对话框后发送 dialog-opened事件 ([2d6a4c2](https://github.com/greper/d2-crud-plus/commit/2d6a4c2d1956305b10fe6eac16f9644c4fe31549))
+* crud-x 打开编辑对话框后发送 dialog-opened事件 ([eeb12df](https://github.com/greper/d2-crud-plus/commit/eeb12df19a3aa1c031c6196fb4c41cdc65d2ac16))
+* d2-form-item抽取重构 ([aaf3564](https://github.com/greper/d2-crud-plus/commit/aaf35642dcb5ce568a8b8e6fc2bac378bda112de))
+* dict onready事件支持修改过滤data ([bd5907d](https://github.com/greper/d2-crud-plus/commit/bd5907de509b84c6423673d42dc20cc24116de7d))
+* dict onready事件支持修改过滤data ([661131b](https://github.com/greper/d2-crud-plus/commit/661131b5ccc9e32339a799665519d94c790a3b5b))
+* e2e测试优化 ([a3f4962](https://github.com/greper/d2-crud-plus/commit/a3f49624c2921b058b37ad9f9c49a894f1b44c2b))
+* e2e测试优化，去掉wait ([728825a](https://github.com/greper/d2-crud-plus/commit/728825a9759543e079e47ad3760ca9f96295766c))
+* el-form-item增加配置，form.itemProps ([a602cce](https://github.com/greper/d2-crud-plus/commit/a602cce96df65fc7decdbd98e2782e65cd66a9b0))
+* extends升级一个小版本 ([161d0ec](https://github.com/greper/d2-crud-plus/commit/161d0ec8b4a2f437a5d474f18bf8c6bd8cb8a2df))
+* extends解除d2crudplus依赖 ([66c5c70](https://github.com/greper/d2-crud-plus/commit/66c5c70bbf505e76296257c56debef0d5855b843))
+* format.page.request支持方法自定义 ([95dc6f2](https://github.com/greper/d2-crud-plus/commit/95dc6f2f2883113b6f2dbc74a7df5cfa43bb9ce5))
+* form传递方式改为provide/inject方式 ([158a225](https://github.com/greper/d2-crud-plus/commit/158a225be45aabd5a29de812ea1f00320212a26f))
+* helper增加render方式 ([56a2c14](https://github.com/greper/d2-crud-plus/commit/56a2c14f69ab600f8c1ad310e7e6dc4d96ea2618))
+* jsx示例 ([a4995c6](https://github.com/greper/d2-crud-plus/commit/a4995c6b366f105d8b93daac37f71186ebf0b011))
+* jsx示例 ([ed497e0](https://github.com/greper/d2-crud-plus/commit/ed497e0bde749661515de9824849f9516c06a184))
+* jsx示例 ([137f745](https://github.com/greper/d2-crud-plus/commit/137f7458bdc37b36b18b9f60df67011fb4c9ab60))
+* onready增加form参数 ([f31c788](https://github.com/greper/d2-crud-plus/commit/f31c788a17a77257241a5db829380cc32abe69b8))
+* radio增加border配置 ([640ca4c](https://github.com/greper/d2-crud-plus/commit/640ca4cf877ade9bb97c7dff593b6cc9ae396da9))
+* rowhandle btn 图标支持传入一个方法 ([90bca1c](https://github.com/greper/d2-crud-plus/commit/90bca1c64f8f9c3f6128f5adcf4ed21e0edf4beb))
+* rowHandle增加rowHandle插槽 ([8ad84e9](https://github.com/greper/d2-crud-plus/commit/8ad84e9fc9991a5baa446848d7d8d90e1f3534b6))
+* search 增加事件监听 ([28450de](https://github.com/greper/d2-crud-plus/commit/28450def69ffae2695c02acacb2ece804dd1e44d))
+* search增加前置与后置slot ([bd0a032](https://github.com/greper/d2-crud-plus/commit/bd0a032f7292bb9d3bb023af21f3a101696e7a29))
+* show disabled readonly 支持context参数 ([44e4502](https://github.com/greper/d2-crud-plus/commit/44e4502b76011227a0c511f99d8cb1ca479cc803))
+* showDialog支持view模式 ([5d79f76](https://github.com/greper/d2-crud-plus/commit/5d79f765357ba77d341d64ccba8e80ea0dbbc0f6))
+* slot增加scope.mode ([fdc088f](https://github.com/greper/d2-crud-plus/commit/fdc088fcd44f3a8e3e596aec9471feff7da25a3f))
+* slot增加scope.mode ([cb83bae](https://github.com/greper/d2-crud-plus/commit/cb83baee9b6621951fb607dae0186a86836ec2da))
+* toobar 和 search 增加文本配置，可以自定义展示文本 ([13e0183](https://github.com/greper/d2-crud-plus/commit/13e0183e4dd435f7647bb43a0b182d794fe98ab6))
+* ueditor支持全局配置 ([3880215](https://github.com/greper/d2-crud-plus/commit/3880215328957763f90df3d139d602c875ebce2f))
+* values-format优化为，加载的时候不显示value值 ([21f1380](https://github.com/greper/d2-crud-plus/commit/21f13808a4baa5bc3e033a97a25ec2f2ba7f9cf7))
+* valuesformat增加点击事件 ([d3d6cb7](https://github.com/greper/d2-crud-plus/commit/d3d6cb7c363fd54e839f6e4fe001c906ee3b17df))
+* 云文件上传增加私有bucket上传支持 ([be33142](https://github.com/greper/d2-crud-plus/commit/be33142c77faaec2a188af41d5ca5150a7e58a29))
+* 优化一个错误提示 ([91c236a](https://github.com/greper/d2-crud-plus/commit/91c236a460cc08db03878a2eadbddeff801c7e78))
+* 优化列表展示性能 ([96dd2bf](https://github.com/greper/d2-crud-plus/commit/96dd2bff511a704fc29f12d4ed342566396014bf))
+* 优化列过滤器 ([3775371](https://github.com/greper/d2-crud-plus/commit/37753713a135d4f019717f14f016c1a12c5990a0))
+* 优化列过滤的emit两次的问题 ([dd4506f](https://github.com/greper/d2-crud-plus/commit/dd4506fdbd3d0a488c776c8c57fc5afad08e26d6))
+* 优化字典获取错误提示 ([c881aed](https://github.com/greper/d2-crud-plus/commit/c881aed6f34e1925b8c501adcb98f0f3a020e284))
+* 优化对话框拖拽体验 ([fc8132b](https://github.com/greper/d2-crud-plus/commit/fc8132bee2bb43e700d16a69a0074802884dad04))
+* 优化导出，支持设置列宽 ([5ce5650](https://github.com/greper/d2-crud-plus/commit/5ce5650a7fcf8b699c493d8d787d99e840be60e4))
+* 优化提交form ([90dab6b](https://github.com/greper/d2-crud-plus/commit/90dab6bf6725ceb4dd22f8a0a664b000c4e9ef66))
+* 优化方法名 ([84766ac](https://github.com/greper/d2-crud-plus/commit/84766acd8799f1238689ab707955eafa3b397ab8))
+* 优化日历显示 ([6274715](https://github.com/greper/d2-crud-plus/commit/62747159a3f7173ffdf4794261f39b4499b5b1aa))
+* 优化示例 ([17cf04a](https://github.com/greper/d2-crud-plus/commit/17cf04ae6ac283fea7603c3ce695797712a4149a))
+* 优化示例展示效果，增加模拟请求延时 ([5eac157](https://github.com/greper/d2-crud-plus/commit/5eac1572836601b2ed6e4f2f4b5fdb3f3c884845))
+* 使用crud-container替换掉d2-container ([facb28e](https://github.com/greper/d2-crud-plus/commit/facb28e801f1fa9eebc4d7a293ad32845f7d4aeb))
+* 修复图片format 配置elProps的问题 ([39aba20](https://github.com/greper/d2-crud-plus/commit/39aba2065216e02254fadb92400e781abbd5fbb1))
+* 修复图片format 配置elProps的问题 ([8391ae0](https://github.com/greper/d2-crud-plus/commit/8391ae0dcc79768757087edefc989bf72f27d833))
+* 修复文档错误，新增initBefore，做一些清理工作 ([90567fa](https://github.com/greper/d2-crud-plus/commit/90567fa4ce7a8893c6c65c7c24c40259c4f1abc2))
+* 修改lib/index 为install.js ([117c028](https://github.com/greper/d2-crud-plus/commit/117c0284a55ee32121656aafeb6a22391c56a995))
+* 关闭cdn，打开速度好像快了很多 ([4fabcea](https://github.com/greper/d2-crud-plus/commit/4fabcea985eb6e9c21adebad8751ef8c96bbe149))
+* 列设置保存到本地 ([b482052](https://github.com/greper/d2-crud-plus/commit/b482052c9665987dca3f699c2b317e7707a24b1d))
+* 动态添加分组示例 ([3bc9ccc](https://github.com/greper/d2-crud-plus/commit/3bc9ccc03d2a75eeec9f9fb0e3623a7a4000025a))
+* 升级依赖 ([a4b5635](https://github.com/greper/d2-crud-plus/commit/a4b5635b2ec88b940ac2c1a3eebf2187f875765e))
+* 图片上传组件优化 ([c2d1cd0](https://github.com/greper/d2-crud-plus/commit/c2d1cd09438873cfdb60d8ff5fd49e8ef6506367))
+* 增加d2-crud示例 ([509cac1](https://github.com/greper/d2-crud-plus/commit/509cac1ee86405f1626f754e1014b5aa456f5046))
+* 增加footer插槽 ([04db82c](https://github.com/greper/d2-crud-plus/commit/04db82c4e6a9a400e54014e4175fc09b3256d272))
+* 增加pageRequest返回参数的配置 ([033f127](https://github.com/greper/d2-crud-plus/commit/033f12746f26059f403f4d0ddaecf39adf3a57a6))
+* 增加valueProp参数，可以指定目标组件的某个props接收row[vlaue]的值 ([6409ce2](https://github.com/greper/d2-crud-plus/commit/6409ce2a0ff31f3b5568db9f065a44a2766acac7))
+* 增加valueProp配置，可以将row[key]的值复制给valueProp命名的组件属性 ([d30cfbf](https://github.com/greper/d2-crud-plus/commit/d30cfbfeb4e53ea9bfa485fb0fefc2509594a417))
+* 增加动态添加表单字段示例 ([d931710](https://github.com/greper/d2-crud-plus/commit/d9317107e916f1014b8e0f21ad7648786d7f782f))
+* 增加字典获取错误提示 ([067a3d2](https://github.com/greper/d2-crud-plus/commit/067a3d20fe7345ddad74801de3675de41b372224))
+* 增加对话框拖拽功能 ([e928f5b](https://github.com/greper/d2-crud-plus/commit/e928f5b06784cf1cd5411c9a253f52f10b0bcfc9))
+* 增加嵌套表格示例 ([5b9b3e0](https://github.com/greper/d2-crud-plus/commit/5b9b3e08ad17956742c5175fb1c5f59df185aa1b))
+* 增加嵌套表格示例 ([aea1cff](https://github.com/greper/d2-crud-plus/commit/aea1cffcfd73ba1d7a8729a3b2a9bf095d389543))
+* 增加手动选择示例 ([be9b649](https://github.com/greper/d2-crud-plus/commit/be9b649c50ed091314e4a442be718ca2ec0008dc))
+* 增加批量删除示例 ([2907848](https://github.com/greper/d2-crud-plus/commit/290784891a55b898c5c90fe36eb5e44d31e1c138))
+* 增加旧版示例 ([8bbe208](https://github.com/greper/d2-crud-plus/commit/8bbe2084b5ce7247ae6dc745b5e29042a792cec1))
+* 增加非vModel组件展示的示例 ([2985545](https://github.com/greper/d2-crud-plus/commit/2985545b979798bbc2e629fcb48387246f24ab3d))
+* 外部获取数据字典示例 ([53b29ae](https://github.com/greper/d2-crud-plus/commit/53b29ae981c2a12536fb09fd5fd598821882577e))
+* 头像上传增加预览 ([57bf8e5](https://github.com/greper/d2-crud-plus/commit/57bf8e5c4848ada4a52ce6e6ad1ffb77cc0d1869))
+* 头像裁剪上传增加查看禁用 ([20e0cf0](https://github.com/greper/d2-crud-plus/commit/20e0cf0b57e00a4a282754f46291a3e2f9039ba2))
+* 字典增加禁止缓存功能，url()方式取消字典缓存 ([ae5dce1](https://github.com/greper/d2-crud-plus/commit/ae5dce1a19e607ef0c294414518293a1685e6983))
+* 对话框支持横向拉伸 ([45c4cda](https://github.com/greper/d2-crud-plus/commit/45c4cda9b73626f2f0109fee53308614a9ba3804))
+* 对话框确定按钮增加禁用和显示配置 ([eff0736](https://github.com/greper/d2-crud-plus/commit/eff0736a491e6d6bbf4e2ef32e343db82c630674))
+* 手动调用addRow方法可以传入默认值 ([59b7a6f](https://github.com/greper/d2-crud-plus/commit/59b7a6f0f33d6cab9fafb3ab7bf02a47007d172c))
+* 支持form-item的配置 ([f0fb8dc](https://github.com/greper/d2-crud-plus/commit/f0fb8dcbf82a6c2c91c90ca7b6c7f4972806249f))
+* 数据支持嵌套对象 ([0bbe21f](https://github.com/greper/d2-crud-plus/commit/0bbe21fbc6c3ca4b88c8dc0e0a3e8b0258bb4b91))
+* 数据支持嵌套对象 ([aaec065](https://github.com/greper/d2-crud-plus/commit/aaec0653bafb10d9845616763f7940c07050610f))
+* 文档优化 ([5629114](https://github.com/greper/d2-crud-plus/commit/562911449d0399d989c7dddfd76f90ad4bc45322))
+* 文档优化 ([1459201](https://github.com/greper/d2-crud-plus/commit/145920140d3396f995a2d8dc5d33796ac6c08dfc))
+* 新增d2crud共存 ([cb5cb5b](https://github.com/greper/d2-crud-plus/commit/cb5cb5b110e8e764ecad585a43706ebcf0189496))
+* 新增d2crud共存 ([e2d1d8c](https://github.com/greper/d2-crud-plus/commit/e2d1d8c60ef235719233ad16520f581ac6e44041))
+* 日期format示例 ([03955b5](https://github.com/greper/d2-crud-plus/commit/03955b51113cf9f287e8d0ae8a5d165bee9da53b))
+* 权限菜单管理改造成el-table的树形管理 ([b4120af](https://github.com/greper/d2-crud-plus/commit/b4120afd1af8db669524d7e8d2dde0a63accb994))
+* 查看按钮优化为默认显示 ([07b1112](https://github.com/greper/d2-crud-plus/commit/07b11123f98a86a0441a2642538bc14429ba96bc))
+* 查询增加reset事件 ([5703af7](https://github.com/greper/d2-crud-plus/commit/5703af7d030aa49e79d6d103871d10bcdb8a2813))
+* 查询增加防抖自动查询功能 ([e8430d3](https://github.com/greper/d2-crud-plus/commit/e8430d38ae74440229d31ba9ad5e6c7cbaae3e99))
+* 查询框按钮样式可配置 ([ccde74f](https://github.com/greper/d2-crud-plus/commit/ccde74f6871795a40e10e6ec5481d534b4dd8f47))
+* 查询框支持修改尺寸 ([dfa2852](https://github.com/greper/d2-crud-plus/commit/dfa28526a1a826281fd74a7a2033d137e71c427a))
+* 查询的title可配置 ([4c3739a](https://github.com/greper/d2-crud-plus/commit/4c3739aefa18037332b5bc86c3743f4b63d76758))
+* 查询的title可配置，升级phonenumberinput ([eacb97c](https://github.com/greper/d2-crud-plus/commit/eacb97c7f17a2fef13de3c5dddf0923448a4408e))
+* 查询示例优化 ([e39c043](https://github.com/greper/d2-crud-plus/commit/e39c0430062a7e3f65b4666b9d39961875e0c299))
+* 查询表单重置按钮增加防抖自动查询 ([d03fd7b](https://github.com/greper/d2-crud-plus/commit/d03fd7be722c4c9927a25a86f5c42aaa13541cac))
+* 树形组件单独示例 ([8a16ef9](https://github.com/greper/d2-crud-plus/commit/8a16ef97ecd0de4640d420412307c51606ea04ac))
+* 每页条数设置增加本地保存 ([f687297](https://github.com/greper/d2-crud-plus/commit/f687297ace1d70b9d406cb59f06fa78be2aa8263))
+* 示例全部改成新版带toolbar界面 ([6770fc9](https://github.com/greper/d2-crud-plus/commit/6770fc9980ba17083ffb414309ad8f6e15d6dbe1))
+* 移除d2-icon依赖 ([2d8fdb4](https://github.com/greper/d2-crud-plus/commit/2d8fdb4292f7b26c7f9f8a7dbe9fbab9aca26119))
+* 精简renderCustomComponent代码 ([bd544ce](https://github.com/greper/d2-crud-plus/commit/bd544ce9f120712d35ef056e27f1ead6f4a30238))
+* 组件独立使用示例 ([5de8d79](https://github.com/greper/d2-crud-plus/commit/5de8d79041046925ebad0f7029f615f68a59deb0))
+* 继续完善e2e测试，修复一堆测出来的bug ([5351022](https://github.com/greper/d2-crud-plus/commit/5351022fbfd52400239700ff8123e94b5f14cd7c))
+* 继续完善e2e测试，修复一堆测出来的bug ([fe7446e](https://github.com/greper/d2-crud-plus/commit/fe7446e94468d7a5561213e7bed01bec065210e7))
+* 翻页前后增加插槽 ([c132789](https://github.com/greper/d2-crud-plus/commit/c132789bada13e1d47e0423571fbb58d83c9a9bb))
+* 自动染色功能 ([c955c92](https://github.com/greper/d2-crud-plus/commit/c955c92948c92f30a94f24b4128a8af0527264f4))
+* 自定义操作按钮还是放到后面来 ([ac6847e](https://github.com/greper/d2-crud-plus/commit/ac6847e4065b9af1d7e01f11aa62e8c545ad95ff))
+* 行内禁用示例完善 ([dee1777](https://github.com/greper/d2-crud-plus/commit/dee177711fd20a027ec183aee5d7d2ac4329f5e9))
+* 行组件disabled方法支持传参 ([1de28b0](https://github.com/greper/d2-crud-plus/commit/1de28b0d9fc426a2483b890ed922890bfcc6179a))
+* 行编辑演示 ([aec224f](https://github.com/greper/d2-crud-plus/commit/aec224f87f1a41811d48205280c84c48cb7044a2))
+* 表单增加默认值功能 ([41132df](https://github.com/greper/d2-crud-plus/commit/41132dfac320d7ecfed50b00eb8e37b7c6aa3c77))
+* 表格滚动条美化 ([0979576](https://github.com/greper/d2-crud-plus/commit/09795765a09e7acf365bdfe23dd5e158267722f7))

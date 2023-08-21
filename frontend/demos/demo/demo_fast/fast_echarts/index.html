@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bezier Curve with Gradient Color</title>
+    <style>
+      #main {
+        width: 100%;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main"></div>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <script>
+      window.onload = function () {
+        // 初始化图表
+        var myChart = echarts.init(document.getElementById("main"));
+
+        var option = {
+    
+          xAxis: {
+            // show: false,
+            type: "value",
+            max: 1000
+          },
+          yAxis: {
+            // show: false,
+            type: "value",
+            max: 1000
+          },
+          series: [
+ 
+            {
+              type: "graph",
+              layout: "none",
+              coordinateSystem: "cartesian2d",
+              // symbolSize: 60,
+              z: 3,
+
+              // 曲线上的文字
+              edgeLabel: {
+                normal: {
+                  show: true,
+                  textStyle: {
+                    fontSize: 14,
+                  },
+                },
+              },
+              
+              // 节点文字
+              // label: {
+              //   normal: {
+              //     show: true,
+              //     position: "bottom",
+              //     color: "#5e5e5e",
+              //   },
+              // },
+
+    
+  
+              // 箭头相关
+              edgeSymbol: ["none", "arrow"],
+              edgeSymbolSize: 8,
+            
+              data: [
+                {
+                  name: "子平台3",
+                  // category: 1,
+                  value: [20, 200],
+                },
+                {
+                  name: "子平台4",
+                  // category: 1,
+                  value: [20, 300],
+                },
+              ],
+              links: [
+                {
+                  source: "子平台4",
+                  target: "子平台3",
+                  lineStyle: {
+                    normal: {
+                      color: "#ff0000",
+                      curveness: 8,
+                    },
+                  },
+                },
+              ],
+           
+            },
+
+          ],
+        };
+        // 使用刚指定的配置项和数据显示图表
+        myChart.setOption(option);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/echarts/dist/echarts.min.js"></script>
+</head>
+
+<body>
+  <div id="main" style="width: 600px;height:400px;"></div>
+  <script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    // 绘制图表
+    myChart.setOption({
+      // color: ['#c23531','#2f4554', '#61a0a8'],
+      title: {
+        text: 'ECharts 入门示例'
+      },
+      tooltip: {},
+      legend: {},
+      xAxis: {
+        data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+      },
+      yAxis: {},
+      series: [
+        {
+          name: '一月销量',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20],
+          itemStyle: {
+            normal: {
+              //这里是重点
+              color: function (params) {
+                //注意，如果颜色太少的话，后面颜色不会自动循环，最好多定义几个颜色
+                var colorList = ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622'];
+                return colorList[params.dataIndex]
+              }
+            }
+          }
+        },
+        {
+          name: '二月销量',
+          type: 'bar',
+          data: [15, 30, 46, 20, 20, 30],
+          // itemStyle: {
+          //   normal: {
+          //     //这里是重点
+          //     color: function (params) {
+          //       //注意，如果颜色太少的话，后面颜色不会自动循环，最好多定义几个颜色
+          //       var colorList = ['#c23531', '#2f4554', '#61a0a8', '#d48265', '#91c7ae', '#749f83', '#ca8622'];
+          //       return colorList[params.dataIndex]
+          //     }
+          //   }
+          // }
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>

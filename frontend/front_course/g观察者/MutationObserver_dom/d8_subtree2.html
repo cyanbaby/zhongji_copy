@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .parent {
+      background-color: #AED8E6;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      border: 1px dashed #333;
+    }
+
+    .child {
+      background-color: #EF8080;
+      display: inline-block;
+      text-align: center;
+      line-height: 100px;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent" id="parent">
+    <div class="child" contenteditable>Child 1</div>
+    <div class="child" contenteditable>Child 2</div>
+    <div class="child" contenteditable>Child 3</div>
+  </div>
+
+  <script>
+    const mutationObserver = new MutationObserver(enters => {
+      console.log(enters)
+    })
+
+    const parent = document.querySelector('.parent')
+
+    mutationObserver.observe(parent, {
+      subtree: true,    // => 这个父元素中每个元素进行相同的精确观察
+      attributes: true
+    })
+
+    parent.id = 'Test'
+    parent.children[0].id = "Test2"
+
+  </script>
+</body>
+
+</html>

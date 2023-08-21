@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="./x6.js"></script>
+    <script>
+    const { Graph } = X6
+    const graph = new Graph({
+        container: document.getElementById('container'),
+        width: 800,
+        height: 600,
+        grid: {
+            size: 10, // 网格大小 10px
+            visible: true // 渲染网格背景
+        }
+    });
+
+const data = {
+  nodes: [
+    {
+      id: 'node1',
+      shape: 'rect',
+      x: 100,
+      y: 100,
+      width: 80,
+      height: 40,
+      label: 'hello',
+    },
+    {
+      id: 'node2',
+      shape: 'ellipse',
+      x: 240,
+      y: 300,
+      width: 80,
+      height: 40,
+      label: 'world',
+    },
+  ],
+  edges: [
+    {
+      source: 'node1',
+      target: 'node2',
+      attrs: {
+        line: {
+          stroke: 'orange',
+        },
+      },
+    },
+  ],
+}
+    graph.fromJSON(data);
+    </script>
+</body>
+
+</html>

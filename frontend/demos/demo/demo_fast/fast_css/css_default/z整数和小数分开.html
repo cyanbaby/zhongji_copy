@@ -1,0 +1,34 @@
+<template>
+    <view>
+      <text class="intPrice">{{ intPrice }}</text>
+      <text class="floatPrice">{{ floatPrice }}</text>
+    </view>
+  </template>
+  <script>
+      data(){
+        return{
+         floatPrice:''
+        }
+      },
+      computed:{
+        intPrice() {
+         const str = this.renderDetail.pay_price + ''  //转成字符串
+         const arr = str.split('.') //使用分隔符分割字符串成数组
+         console.log(arr, 'arr')  // ["166", "88"]
+         let tempStr = arr[1] ? arr[1] : '00' //如果小数点后有值就用该值，没有默认'00'
+         this.floatPrice = tempStr.length == 1 ? tempStr + '0' : tempStr //小数点后只有一位的话，补0
+         return arr[0] + '.'
+       }
+    }
+  </script>
+  <style lang="scss" scoped>
+    .intPrice {
+      font-size: 30rpx;
+      font-weight: bold;
+    }
+    .floatPrice {
+      font-size: 24rpx;
+      font-weight: bold;
+    }
+  </style>
+  

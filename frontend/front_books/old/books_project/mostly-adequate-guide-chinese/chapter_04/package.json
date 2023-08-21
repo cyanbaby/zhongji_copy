@@ -1,0 +1,15 @@
+{
+  "name": "chapter_03",
+  "version": "1.0.0",
+  "description": "> 可预测性，无副作用",
+  "main": "demo_01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_bindings | KnockOut.js</title>
+    <script src="../assets/knockout-3.5.1.js"></script>
+</head>
+<body>
+
+  <!-- 基本用法 -->
+  <a data-bind="attr: { href: url, title: details, target: ways }">
+    百度
+  </a>
+      
+  <script type="text/javascript">
+    var vm = {
+      url: ko.observable("https:www.baidu.com"),
+      details: ko.observable("百度一下，你就知道了"),
+      ways: ko.observable('_blank')
+    };
+        
+    ko.applyBindings(vm);
+  </script>
+
+</body>
+</html>

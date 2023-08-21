@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./node_modules/echarts/dist/echarts.min.js"></script>
+</head>
+
+<body>
+  <div id="main" style="width: 600px;height:400px;"></div>
+  <script>
+    // dataset lesson 01
+    (() => {
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      const option = {
+        legend: {},
+        tooltip: {},
+        dataset: {
+          // 提供一份数据。
+          source: [
+            ['product', '2015', '2016', '2017'],
+            ['Matcha Latte', 43.3, 85.8, 93.7],
+            ['Milk Tea', 83.1, 73.4, 55.1],
+            ['Cheese Cocoa', 86.4, 65.2, 82.5],
+            ['Walnut Brownie', 72.4, 53.9, 39.1]
+          ]
+        },
+        // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+        xAxis: { type: 'category' },
+        // 声明一个 Y 轴，数值轴。
+        yAxis: {},
+        // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+        series: [{ type: 'bar' }, { type: 'bar' }, { type: 'bar' }]
+      };
+
+      // 绘制图表
+      myChart.setOption(option);
+    });
+
+
+
+    // dataset lesson 02
+    (() => {
+      // 基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById('main'));
+
+      const option = {
+        legend: {},
+        tooltip: {},
+        dataset: {
+          // 用 dimensions 指定了维度的顺序。直角坐标系中，如果 X 轴 type 为 category，
+          // 默认把第一个维度映射到 X 轴上，后面维度映射到 Y 轴上。
+          // 如果不指定 dimensions，也可以通过指定 series.encode
+          // 完成映射，参见后文。
+          dimensions: ['product', '2015', '2016', '2017'],
+          // 提供一份数据。
+          source: [
+            { product: 'Matcha Latte', '2015': 43.3, '2016': 85.8, '2017': 93.7 },
+            { product: 'Milk Tea', '2015': 83.1, '2016': 73.4, '2017': 55.1 },
+            { product: 'Cheese Cocoa', '2015': 86.4, '2016': 65.2, '2017': 82.5 },
+            { product: 'Walnut Brownie', '2015': 72.4, '2016': 53.9, '2017': 39.1 }
+          ]
+        },
+        // 声明一个 X 轴，类目轴（category）。默认情况下，类目轴对应到 dataset 第一列。
+        xAxis: { type: 'category' },
+        // 声明一个 Y 轴，数值轴。
+        yAxis: {},
+        // 声明多个 bar 系列，默认情况下，每个系列会自动对应到 dataset 的每一列。
+        series: [{ type: 'bar' }, { type: 'bar' }, { type: 'bar' }]
+      };
+
+      // 绘制图表
+      myChart.setOption(option);
+    })();
+  </script>
+</body>
+
+</html>

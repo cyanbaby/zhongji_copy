@@ -1,0 +1,13 @@
+# 忽略所有层级的 node_modules 文件夹
+node_modules/
+
+# 忽略所有以 .mp4 结尾的文件
+*.mp4
+
+# 忽略所有以 .mp4 结尾的文件
+*.zip
+
+# 大文件
+frontend/front_books/old/book_001/JavaScript DOM编程艺术（中文第二版）.pdf
+frontend/front_course/m慕课网/imooc_2019/前端攻城狮笔记源码/第一阶段-前端基础入门/6-项目/源码/慕课手机.rar
+frontend/front_course/m慕课网/imooc_2019/1.前端零基础入门 2019版.rar
