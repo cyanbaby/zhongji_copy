@@ -3,29 +3,30 @@
 
 import Layout from '@/layout'
 
-const tableRouter = {
-  path: '/table',
+const vueapiRouter = {
+  path: '/vueapi',
   component: Layout,
-  redirect: '/table/demo_01',
-  name: 'table',
+  redirect: '/vueapi/demo_01',
+  name: 'VueApi',
   meta: {
-    title: '表格',
+    title: 'Vue API',
     // icon: 'el-icon-document'
     icon: 'el-icon-document-copy'
+
   },
   children: [
     {
       path: 'demo_01',
-      component: () => import('@/views/table/demo_01'),
+      component: () => import('@/views/vue-api/demo_01'),
       name: 'demo_01',
       meta: { title: 'demo_01' }
     },
     {
       path: 'demo_02',
-      component: () => import('@/views/table/demo_02'),
+      component: () => import('@/views/vue-api/demo_02'),
       name: 'demo_02',
       meta: { title: 'demo_02' }
     }
   ]
 }
-export default tableRouter
+export default vueapiRouter

@@ -3,29 +3,30 @@
 
 import Layout from '@/layout'
 
-const tableRouter = {
-  path: '/table',
+const jsapiRouter = {
+  path: '/jsapi',
   component: Layout,
-  redirect: '/table/demo_01',
-  name: 'table',
+  redirect: '/jsapi/demo_01',
+  name: 'jsapi',
   meta: {
-    title: '表格',
+    title: 'JS API',
     // icon: 'el-icon-document'
     icon: 'el-icon-document-copy'
+
   },
   children: [
     {
       path: 'demo_01',
-      component: () => import('@/views/table/demo_01'),
+      component: () => import('@/views/js-api/demo_01'),
       name: 'demo_01',
       meta: { title: 'demo_01' }
     },
     {
       path: 'demo_02',
-      component: () => import('@/views/table/demo_02'),
+      component: () => import('@/views/js-api/demo_02'),
       name: 'demo_02',
       meta: { title: 'demo_02' }
     }
   ]
 }
-export default tableRouter
+export default jsapiRouter

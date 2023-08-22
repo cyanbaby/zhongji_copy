@@ -3,29 +3,28 @@
 
 import Layout from '@/layout'
 
-const tableRouter = {
-  path: '/table',
+const cmpmsgRouter = {
+  path: '/cmpmsg',
   component: Layout,
-  redirect: '/table/demo_01',
-  name: 'table',
+  redirect: '/cmpmsg/demo_01',
+  name: 'CmpMsg',
   meta: {
-    title: '表格',
-    // icon: 'el-icon-document'
+    title: '组件通信',
     icon: 'el-icon-document-copy'
   },
   children: [
     {
       path: 'demo_01',
-      component: () => import('@/views/table/demo_01'),
+      component: () => import('@/views/cmp-msg/demo_01'),
       name: 'demo_01',
       meta: { title: 'demo_01' }
     },
     {
       path: 'demo_02',
-      component: () => import('@/views/table/demo_02'),
+      component: () => import('@/views/cmp-msg/demo_02'),
       name: 'demo_02',
       meta: { title: 'demo_02' }
     }
   ]
 }
-export default tableRouter
+export default cmpmsgRouter

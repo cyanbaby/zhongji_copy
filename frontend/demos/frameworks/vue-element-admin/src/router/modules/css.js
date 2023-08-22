@@ -3,29 +3,30 @@
 
 import Layout from '@/layout'
 
-const tableRouter = {
-  path: '/table',
+const cssRouter = {
+  path: '/css',
   component: Layout,
-  redirect: '/table/demo_01',
-  name: 'table',
+  redirect: '/css/demo_01',
+  name: 'css',
   meta: {
-    title: '表格',
+    title: 'CSS',
     // icon: 'el-icon-document'
     icon: 'el-icon-document-copy'
+
   },
   children: [
     {
       path: 'demo_01',
-      component: () => import('@/views/table/demo_01'),
+      component: () => import('@/views/css/demo_01'),
       name: 'demo_01',
       meta: { title: 'demo_01' }
     },
     {
       path: 'demo_02',
-      component: () => import('@/views/table/demo_02'),
+      component: () => import('@/views/css/demo_02'),
       name: 'demo_02',
       meta: { title: 'demo_02' }
     }
   ]
 }
-export default tableRouter
+export default cssRouter

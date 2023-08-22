@@ -9,7 +9,20 @@ import Layout from '@/layout'
 /* Router Modules */
 import componentsRouter from './modules/components'
 // import chartsRouter from './modules/charts'
+import tableoldRouter from './modules/table-old'
+
+import baseRouter from './modules/base'
+import cssRouter from './modules/css'
+import jsapiRouter from './modules/jsapi'
+import vueapiRouter from './modules/vueapi'
+import cmpmsgRouter from './modules/cmpmsg'
+import unidataflowRouter from './modules/unidataflow'
+import formRouter from './modules/form'
 import tableRouter from './modules/table'
+import funcRouter from './modules/func'
+import otherRouter from './modules/other'
+import pendingRouter from './modules/pending'
+
 import nestedRouter from './modules/nested'
 
 import sampleRouter from './modules/sample'
@@ -83,7 +96,7 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'dashboard', icon: 'dashboard', affix: true }
+        meta: { title: 'dashboard', icon: 'el-icon-tickets', affix: true }
       }
     ]
   },
@@ -139,9 +152,9 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
-  sampleRouter,
-  testdemoRouter,
-  functionsRouter,
+  // sampleRouter,
+  // testdemoRouter,
+  // functionsRouter,
 
   /*
 
@@ -206,10 +219,21 @@ export const asyncRoutes = [
   //*/
 
   /** when your routing map is too long, you can split it into small modules **/
-  componentsRouter,
+  // componentsRouter,
   // chartsRouter,
-  nestedRouter,
+  // nestedRouter,
+  // tableoldRouter,
+  baseRouter,
+  cssRouter,
+  jsapiRouter,
+  vueapiRouter,
+  cmpmsgRouter,
+  unidataflowRouter,
+  formRouter,
   tableRouter,
+  funcRouter,
+  otherRouter,
+  pendingRouter,
 
   /*
 
@@ -393,18 +417,18 @@ export const asyncRoutes = [
 
   //*/
 
-  {
-    path: '/theme',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/theme/index'),
-        name: 'Theme',
-        meta: { title: 'theme', icon: 'theme' }
-      }
-    ]
-  },
+  // {
+  //   path: '/theme',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/theme/index'),
+  //       name: 'Theme',
+  //       meta: { title: 'theme', icon: 'theme' }
+  //     }
+  //   ]
+  // },
 
   /*
 
@@ -423,18 +447,18 @@ export const asyncRoutes = [
 
   //*/
 
-  {
-    path: '/i18n',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/i18n-demo/index'),
-        name: 'I18n',
-        meta: { title: 'i18n', icon: 'international' }
-      }
-    ]
-  },
+  // {
+  //   path: '/i18n',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/i18n-demo/index'),
+  //       name: 'I18n',
+  //       meta: { title: 'i18n', icon: 'international' }
+  //     }
+  //   ]
+  // },
 
   /*
 
