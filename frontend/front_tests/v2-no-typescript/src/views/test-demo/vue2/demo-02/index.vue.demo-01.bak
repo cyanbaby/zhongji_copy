@@ -1,0 +1,133 @@
+<template>
+  <div>
+    <el-table :data="tableData" border style="width: 100%">
+      <el-table-column label="Actions">
+        <template slot-scope="{ row }">
+          <el-button
+            v-if="row.edit"
+            type="success"
+            size="small"
+            icon="el-icon-check"
+            @click="confirmEdit(row)"
+          >
+            保存
+          </el-button>
+          <el-button
+            v-else
+            type="primary"
+            size="small"
+            icon="el-icon-edit"
+            @click="row.edit = !row.edit"
+          >
+            编辑
+          </el-button>
+        </template>
+      </el-table-column>
+      <el-table-column prop="name" label="姓名">
+        <template slot-scope="{row}">
+          <template v-if="row.edit">
+            <div style="display: flex;">
+              <el-input v-model="row.name" class="edit-input" size="small" />
+              <el-button
+                style="margin-left: 15px;"
+                size="small"
+                icon="el-icon-refresh"
+                type="warning"
+                @click="cancelEdit(row)"
+              >
+                取消
+              </el-button>
+            </div>
+          </template>
+          <span v-else>{{ row.name }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="age" label="年龄"></el-table-column>
+      <el-table-column prop="income" label="收入"></el-table-column>
+      <el-table-column prop="expend" label="支出"></el-table-column>
+      <el-table-column fixed="right" label="操作">
+        <template slot-scope="scope">
+          <el-button @click="review(scope.row)" type="text" size="small"
+            >查看</el-button
+          >
+          <el-button type="text" size="small">编辑</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+  </div>
+</template>
+
+<script>
+import { cloneDeep } from 'lodash'
+
+const tableData = [
+  {
+    name: '小明',
+    age: 18,
+    income: 1800,
+    expend: 2000
+  },
+  {
+    name: '小红',
+    age: 28,
+    income: 2800,
+    expend: 3000
+  },
+  {
+    name: '小雷',
+    age: 18,
+    income: 5800,
+    expend: 10000
+  }
+]
+
+export default {
+  name: 'TestVue2Demo02View',
+  data() {
+    return {
+      tableData: tableData
+    }
+  },
+  created() {
+    this.initTableData()
+  },
+  methods: {
+    initTableData() {
+      this.tableData = cloneDeep(tableData).map((row) => {
+        row.name_copy = row.name
+        row.age_copy = row.age
+        row.income_copy = row.income
+        row.expend_copy = row.expend
+        row.edit = false
+        return row
+      })
+    },
+    review(row) {},
+
+    cancelEdit(row) {
+      // todo
+      // row.title = row.originalTitle
+      row.name = row.name_copy
+      row.edit = false
+      this.$message({
+        message: '行已恢复',
+        type: 'warning'
+      })
+    },
+
+    confirmEdit(row) {
+      row.edit = false
+      // todo
+      // row.originalTitle = row.title
+      row.name_copy = row.name
+
+      this.$message({
+        message: '行已经更新',
+        type: 'success'
+      })
+    }
+  }
+}
+</script>
+
+<style></style>

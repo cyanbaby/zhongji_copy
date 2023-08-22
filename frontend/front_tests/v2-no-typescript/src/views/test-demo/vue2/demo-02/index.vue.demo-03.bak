@@ -1,0 +1,282 @@
+<template>
+  <div>
+    <h2>表格计算</h2>
+    <el-table :data="tableData" border style="width: 100%">
+      <el-table-column label="Actions">
+        <template slot-scope="{ $index, row }">
+          <template v-if="row.edit">
+            <el-button
+              type="success"
+              size="small"
+              icon="el-icon-check"
+              @click="confirmEdit()"
+            >
+              保存
+            </el-button>
+            <el-button
+              style="margin-left: 15px"
+              size="small"
+              icon="el-icon-refresh"
+              type="warning"
+              @click="cancelEdit(row)"
+            >
+              取消
+            </el-button>
+          </template>
+          <template v-else>
+            <el-button
+              type="primary"
+              size="small"
+              icon="el-icon-edit"
+              @click="handleClickLeftEdit($index, row)"
+            >
+              编辑
+            </el-button>
+          </template>
+        </template>
+      </el-table-column>
+      <el-table-column prop="name" label="姓名">
+        <template slot-scope="{ row }">
+          <template v-if="row.edit">
+            <div style="display: flex">
+              <el-input
+                v-model="row_copy.name"
+                class="edit-input"
+                size="small"
+              />
+            </div>
+          </template>
+          <span v-else>{{ row.name }}</span>
+          {{ row.edit }}
+        </template>
+      </el-table-column>
+      <el-table-column prop="age" label="年龄">
+        <template slot-scope="{ row }">
+          <template v-if="row.edit">
+            <div style="display: flex">
+              <el-input
+                v-model="row_copy.age"
+                class="edit-input"
+                size="small"
+              />
+            </div>
+          </template>
+          <span v-else>{{ row.age }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="income" label="收入">
+        <template slot-scope="{ row }">
+          <template v-if="row.edit">
+            <div style="display: flex">
+              <el-input
+                v-model="row_copy.income"
+                class="edit-input"
+                size="small"
+              />
+            </div>
+          </template>
+          <span v-else>{{ row.income }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column prop="expend" label="支出">
+        <template slot-scope="{ row }">
+          <template v-if="row.edit">
+            <div style="display: flex">
+              <el-input
+                v-model="row_copy.expend"
+                class="edit-input"
+                size="small"
+              />
+            </div>
+          </template>
+          <span v-else>{{ row.expend }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column fixed="right" label="操作">
+        <template slot-scope="scope">
+          <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"
+            >编辑</el-button
+          >
+          <el-button
+            size="mini"
+            type="danger"
+            @click="handleDelete(scope.$index, scope.row)"
+            >删除</el-button
+          >
+        </template>
+      </el-table-column>
+    </el-table>
+
+    <el-dialog :title="dialogName" :visible.sync="dialogFormVisible">
+      <el-form :model="row_copy" label-width="120px">
+        <el-form-item label="姓名">
+          <el-input v-model="row_copy.name"></el-input>
+        </el-form-item>
+        <el-form-item label="年龄">
+          <el-input v-model="row_copy.age"></el-input>
+        </el-form-item>
+        <el-form-item label="收入">
+          <el-input v-model="row_copy.income"></el-input>
+        </el-form-item>
+        <el-form-item label="支出">
+          <el-input v-model="row_copy.expend"></el-input>
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="cancel">取 消</el-button>
+        <el-button type="primary" @click="save">确 定</el-button>
+      </div>
+    </el-dialog>
+  </div>
+</template>
+
+<script>
+import { cloneDeep } from 'lodash'
+
+const tableData = [
+  {
+    name: '小明',
+    age: 18,
+    income: 1800,
+    expend: 2000
+  },
+  {
+    name: '小红',
+    age: 28,
+    income: 2800,
+    expend: 3000
+  },
+  {
+    name: '小雷',
+    age: 18,
+    income: 5800,
+    expend: 10000
+  }
+]
+
+export default {
+  name: 'TestVue2Demo02View',
+  data() {
+    return {
+      // 弹窗控制器
+      dialogFormVisible: false,
+
+      // 弹窗名
+      dialogName: '编辑行',
+
+      // 表格数据
+      tableData: tableData,
+
+      // 当前正在编辑的行索引
+      currentEditIndex: -1,
+
+      // 正在编辑的行 备份
+      row_copy: {}
+    }
+  },
+  created() {
+    // 给所有行初始化一个响应式数据 edit 标识 √
+    this.tableData = cloneDeep(tableData).map((row) => {
+      row.edit = false
+      return row
+    })
+  },
+  methods: {
+    /**
+     * @description 左侧操作，点击编辑 √
+     * @return void
+     */
+    handleClickLeftEdit(index, row) {
+      this.row_copy = cloneDeep(row)
+      row.edit = true
+      this.currentEditIndex = index
+    },
+
+    /**
+     * @description 左侧操作，点击取消 √
+     * @return void
+     */
+    cancelEdit(row) {
+      row.edit = false
+
+      this.row_copy = {}
+      this.currentEditIndex = -1
+
+      this.$message({
+        message: '行已恢复',
+        type: 'warning'
+      })
+    },
+
+    /**
+     * @description 左侧操作，点击保存 √
+     * @return void
+     */
+    confirmEdit() {
+      this.tableData.splice(this.currentEditIndex, 1, this.row_copy)
+      this.$message({
+        message: '行已经更新',
+        type: 'success'
+      })
+    },
+
+    /**
+     * @description 右侧操作，点击编辑 √
+     * todo: if edit & add  如果新增和编辑共用弹窗的话，注意区分。
+     * @return void
+     */
+    handleEdit(index, row) {
+      // this.dialogName = '编辑行'
+      this.currentEditIndex = index
+
+      if (row.edit) {
+        row.edit = false
+      }
+
+      this.row_copy = cloneDeep(row)
+
+      this.dialogFormVisible = true
+    },
+
+    /**
+     * @description 右侧操作，点击删除 √
+     * @return void
+     */
+    handleDelete(index, row) {
+      this.tableData.splice(index, 1)
+      this.$message({
+        message: '行已删除',
+        type: 'warning'
+      })
+    },
+
+    /**
+     * @description 弹窗操作，点击确定保存 √
+     * todo: if edit & add  如果新增和编辑共用弹窗的话，注意区分。
+     * @return void
+     */
+    save() {
+      this.tableData.splice(this.currentEditIndex, 1, this.row_copy)
+
+      this.$message({
+        message: '行已更新',
+        type: 'warning'
+      })
+
+      this.dialogFormVisible = false
+    },
+
+    /**
+     * @description 弹窗操作，点击取消 √
+     * @return void
+     */
+    cancel() {
+      this.row_copy = {}
+      this.currentEditIndex = -1
+      this.dialogFormVisible = false
+    }
+  }
+}
+</script>
+
+<style></style>
