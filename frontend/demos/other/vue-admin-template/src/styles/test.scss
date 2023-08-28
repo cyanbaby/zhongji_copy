@@ -1,9 +1,0 @@
-:root {
-    --test-color: 'red';
-}
-
-
-$test: red;
-// $nav-color: #F90;
-$nav-color: $test;
-
