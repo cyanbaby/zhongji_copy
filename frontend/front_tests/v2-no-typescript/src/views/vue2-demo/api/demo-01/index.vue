@@ -1,6 +1,7 @@
 <template>
   <div>
     <div>
+      该用例已迁移：v2-study
       {{ msg }}
     </div>
   </div>

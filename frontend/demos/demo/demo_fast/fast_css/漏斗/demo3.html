@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .state {
+        height: 48px;
+        display: inline-flex;
+        position: relative;
+      }
+      .state__text {
+        background-color: #64cfb8;
+        padding-left: 20px;
+        /* padding-right: 8px; */
+        padding-right: 30px;
+        display: flex;
+        align-items: center;
+        color: white;
+      }
+      .state__hourglass {
+        width: 16px;
+        height: 48px;
+        background-color: #91ddcd; /* 设置形状颜色 */
+        clip-path: polygon(
+          0% 0%,
+          /* 左上角 */ 100% 0%,
+          /* 右上角 */ 50% 50%,
+          /* 中心点，上半部分 */ 100% 100%,
+          /* 右下角 */ 0% 100%,
+          /* 左下角 */ 50% 50% /* 中心点，下半部分 */
+        );
+        position: absolute;
+        right: -8px;
+      }
+     
+    </style>
+  </head>
+  <body>
+    <div class="state">
+      <div class="state__text">已完成</div>
+      <div class="state__hourglass"></div>
+    </div>
+
+    
+  </body>
+</html>

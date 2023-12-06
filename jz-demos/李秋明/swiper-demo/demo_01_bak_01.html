@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css" />
+  <style>
+    .swiper-container {
+      width: 100vw; /* 设置滑动容器宽度为视窗宽度 */
+      height: 100vh; /* 设置滑动容器高度为视窗高度 */
+      overflow: hidden; /* 隐藏滚动条 */
+    }
+
+    .swiper-wrapper {
+      width: 15242px; /* 设置滑动内容宽度为图片实际宽度 */
+      height: 100%; /* 设置滑动内容高度为100% */
+      display: flex;
+    }
+
+    .swiper-slide img {
+      width: 100%; /* 图片宽度100% */
+      height: 100%; /* 图片高度100% */
+      object-fit: cover; /* 保持图片比例并填充满容器 */
+    }
+  </style>
+</head>
+<body>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="/long-image.jpg" alt="Long Image" />
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const swiper = new Swiper(".swiper-container", {
+        direction: "horizontal",
+        loop: true, /* 循环滚动 */
+        speed: 30000, /* 设置滚动速度为30秒 */
+        slidesPerView: "auto", /* 根据容器宽度自动调整滑块数量 */
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+        },
+        scrollbar: {
+          el: ".swiper-scrollbar", /* 显示滚动条 */
+          draggable: true, /* 用户可以拖拽滚动条 */
+        }
+      });
+    });
+  </script>
+</body>
+</html>

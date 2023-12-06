@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="node_modules/echarts/dist/echarts.min.js"></script>
+  </head>
+  <body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 800px; height: 500px"></div>
+  </body>
+
+  <script>
+    var myChart = echarts.init(document.getElementById("main"));
+
+    var chinaMapOutline = {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          geometry: {
+            type: "Polygon",
+            coordinates: [[]],
+          },
+          properties: {
+            name: "中华人民共和国",
+            adcode: "100000",
+            telecode: "86",
+            level: "country",
+            parent: null,
+            center: {
+              lng: 116.3683244,
+              lat: 39.915085,
+            },
+          },
+        },
+      ],
+    };
+
+    echarts.registerMap("chinaMapOutline", chinaMapOutline);
+    option = {
+      backgroundColor: "#090F27",
+      tooltip: {
+        triggerOn: "onmousemove",
+      },
+      legend: {
+        orient: "vertical",
+        top: "top",
+        left: "left",
+        data: ["生猪", "白条"],
+        textStyle: {
+          color: "#fff",
+        },
+        selectedMode: "multiple",
+        textStyle: {
+          fontStyle: "lighter",
+          // color: '#fff'
+        },
+      },
+
+      geo: {
+        map: "china",
+        //调整以下3个配置项与页面地图重合
+        // aspectScale: 1,			//echarts地图的长宽比（就是胖瘦）
+        // center: [104.29, 35.8], //设置可见中心坐标，以此坐标来放大和缩小
+        // zoom: 1.00, //放大级别
+        label: {
+          show: false,
+        },
+        itemStyle: {
+          normal: {
+            areaColor: "rgba(23,30,59,0.8)",
+            borderWidth: 0.8, //设置外层边框
+            borderColor: "#223055",
+          },
+          emphasis: {
+            areaColor: "rgba(23,30,59,0.8)",
+            borderWidth: 0.8, //设置外层边框
+            borderColor: "#223055",
+          },
+        },
+        emphasis: {
+          label: {
+            show: false,
+          },
+        },
+      },
+      series: [
+        {
+          name: "outsideborder",
+          map: "chinaMapOutline",
+          type: "map",
+          geoIndex: 1,
+          show: true,
+          //调整以下3个配置项与页面地图重合
+          // aspectScale: 1,			//echarts地图的长宽比（就是胖瘦）
+          center: [104.29, 35.8], //设置可见中心坐标，以此坐标来放大和缩小
+          // zoom: 0.975, //放大级别
+          tooltip: {
+            show: false,
+          },
+          label: {
+            show: false,
+          },
+          roam: false,
+          itemStyle: {
+            normal: {
+              areaColor: "rgba(20,30,64,0)",
+
+              borderWidth: 1.6, //设置外层边框
+              borderColor: "rgba(28,199,242,0.9)",
+              shadowBlur: 5,
+              shadowColor: "#4682B4",
+              shadowOffsetY: 6,
+            },
+            emphasis: {
+              areaColor: "rgba(20,30,64,0)",
+
+              borderWidth: 1.6, //设置外层边框
+              borderColor: "rgba(28,199,242,0.9)",
+              shadowBlur: 5,
+              shadowColor: "#4682B4",
+              shadowOffsetY: 6,
+            },
+          },
+          emphasis: {
+            label: {
+              show: false,
+            },
+          },
+        },
+        {
+          name: "白条",
+          type: "lines",
+          zlevel: 2,
+          tooltip: {
+            formatter: function (param) {
+              return (
+                param.data.fromName +
+                "->" +
+                param.data.toName +
+                "<br>订单数：" +
+                param.data.count +
+                " 条<br>订单总金额：" +
+                parseFloat(param.data.amount).toFixed(2) +
+                " 元"
+              );
+            },
+          },
+          effect: {
+            show: true,
+            period: 3, //箭头指向速度，值越小速度越快
+            trailLength: 0.4, //特效尾迹长度[0,1]值越大，尾迹越长重
+            symbol: "arrow", //箭头图标
+            symbolSize: 5, //图标大小
+          },
+          lineStyle: {
+            normal: {
+              color: {
+                type: "linear",
+                x: 1,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "rgba(255,67,67,0.1)", // 0% 处的颜色
+                  },
+                  {
+                    offset: 1,
+                    color: "rgba(255,67,67,1)", // 100% 处的颜色
+                  },
+                ],
+                global: false, // 缺省为 false
+              },
+
+              width: 0, //线条宽度
+              opacity: 0.1, //尾迹线条透明度
+              curveness: 0.3, //尾迹线条曲直度
+            },
+            emphasis: {
+              width: 3,
+              opacity: 0.5,
+            },
+          },
+          data: [],
+        },
+        {
+          name: "生猪",
+          type: "lines",
+          zlevel: 2,
+          tooltip: {
+            formatter: function (param) {
+              return (
+                param.data.fromName +
+                "->" +
+                param.data.toName +
+                "<br>订单数：" +
+                param.data.count +
+                " 条<br>订单总金额：" +
+                parseFloat(param.data.amount).toFixed(2) +
+                " 元"
+              );
+            },
+          },
+          effect: {
+            show: true,
+            period: 3, //箭头指向速度，值越小速度越快
+            trailLength: 0.4, //特效尾迹长度[0,1]值越大，尾迹越长重
+            symbol: "circle", //箭头图标
+            symbolSize: 4, //图标大小
+          },
+          lineStyle: {
+            normal: {
+              color: {
+                type: "linear",
+                x: 0,
+                y: 0,
+                x2: 1,
+                y2: 1,
+
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "rgba(33,168,230,0.1)", // 0% 处的颜色
+                  },
+                  {
+                    offset: 1,
+                    color: "rgba(33,168,230,1)", // 100% 处的颜色
+                  },
+                ],
+                global: false, // 缺省为 false
+              },
+              width: 1.5, //线条宽度
+              opacity: 0.2, //尾迹线条透明度
+              curveness: 0.3, //尾迹线条曲直度
+            },
+            emphasis: {
+              width: 2,
+              opacity: 0.5,
+            },
+          },
+          data: [],
+        },
+      ],
+    };
+    
+    myChart.setOption(option);
+  </script>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.bootcdn.net/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css"
+    />
+    <style>
+      html,body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      .zg-container {
+        display: flex;
+        height: 100%;
+      }
+      .swiper-container {
+        /* width: 100vw; */
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+      }
+      .swiper-wrapper {
+        /* 两个滑块的总宽度 */
+        width: 30484px; 
+        height: 100%;
+        display: flex;
+      }
+
+      .swiper-slide {
+        /* 设置为原始图片的宽度 */
+        width: 15242px; 
+        height: 100%;
+      }
+
+      .custom-content {
+        /* 你可以为这个自定义内容的div添加任何你想要的样式 */
+        background-color: red; /* 仅为示例 */
+      }
+
+
+
+      /* bem */
+      .swiper-wrapper__step-1 {
+        position: relative;
+      }
+
+      .swiper-wrapper__step-1__text1 {
+        position: absolute;
+        width: 236px;
+        height: 40px;
+        overflow: hidden;
+      }
+      
+      .swiper-wrapper__step-1__text1——top {
+        left: calc(6px + 218px);
+        top: 2px;
+      }
+
+      .swiper-wrapper__step-1__text1——bottom {
+        left: calc(6px + 218px);
+        top: 300px;
+      }
+
+      .swiper-wrapper__step-1__text1__inner {
+          background-image: url('home-step1-text1.png');
+          background-repeat: no-repeat;
+          background-size: cover;
+          width: 236px;
+          height: 80px;
+      }
+      .swiper-wrapper__step-1__text1__inner--top {
+          position: absolute;
+          left: 0px;
+          top: 0px;
+      }
+      .swiper-wrapper__step-1__text1__inner--bottom {
+          position: absolute;
+          left: 0px;
+          bottom: 0px;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <div class="zg-container">
+      <div style="width: 150px;">
+
+      </div>
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide custom-content">
+            <div style="display: flex; height: 100%;">
+              <div class="swiper-wrapper__step-1">
+                <img src="home-bg-01.png" alt="" style="height: 100%">
+  
+                <!-- <img src="home-step1-text1.png" class="swiper-wrapper__step-1__text1"> -->
+  
+                <div class="swiper-wrapper__step-1__text1 swiper-wrapper__step-1__text1——top">
+                  <div class="swiper-wrapper__step-1__text1__inner swiper-wrapper__step-1__text1__inner——top"></div>
+                </div>
+  
+                <div class="swiper-wrapper__step-1__text1 swiper-wrapper__step-1__text1——bottom">
+                  <div class="swiper-wrapper__step-1__text1__inner swiper-wrapper__step-1__text1__inner--bottom"></div>
+                </div>
+  
+                
+                
+              </div>
+  
+              <div style="background-color: rosybrown; width: 1668px; height: 100%;"></div>
+              <div style="background-color: white; width: 1668px; height: 100%;"></div>
+              <div style="background-color: royalblue; width: 1668px; height: 100%;"></div>
+              <div style="background-color: #ccc; flex: 1; height: 100%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const imageWidth = 15242; // 图片的宽度
+        // const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+        const viewportWidth = (window.innerWidth || document.documentElement.clientWidth) - 150;
+
+          
+        const speed = (imageWidth / viewportWidth) * 30000; // 根据图片宽度和容器宽度计算速度
+
+        const swiper = new Swiper(".swiper-container", {
+          direction: "horizontal",
+          loop: true,
+          speed: speed,
+          slidesPerView: "auto",
+          // autoplay: {
+          //   delay: 0,
+          //   disableOnInteraction: false,
+          // },
+          freeMode: true,
+          freeModeSticky: true,
+        });
+      });
+    </script>
+  </body>
+</html>

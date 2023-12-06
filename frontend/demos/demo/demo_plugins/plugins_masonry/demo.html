@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-item {
+          max-width: calc(50% - 10px);
+          padding: 5px;
+        }
+        .grid-item img {
+          width: 100%;
+        }
+      </style>
+</head>
+<body>
+    <div class="grid">
+        <div class="grid-item"><img src="./images/home_artWork_topLeft.png" /></div>
+        <div class="grid-item"><img src="./images/home_artWork_topRight.png" /></div>
+        <div class="grid-item"><img src="./images/home_artWork_centerLeft.png" /></div>
+        <div class="grid-item"><img src="./images/home_artWork_centerCenter.png" /></div>
+        <div class="grid-item"><img src="./images/home_artWork_centerRight.png" /></div>
+        <div class="grid-item"><img src="./images/home_artWork_bottomRight.png" /></div>
+        <div class="grid-item"><img src="./images/home_artWork_bottomLeft.png" /></div>
+        <!-- <div class="grid-item"><img src="./images/home_artWork_bottomLeft.png" /></div> -->
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="imagesLoaded.js"></script>
+    <script src="masonry.pkgd.min.js"></script>
+    <script>
+        const preloadImages = new Promise((resolve, reject) => {
+          imagesLoaded(
+            document.querySelectorAll(".grid img"),
+            { background: true },
+            resolve
+          );
+        });
+  
+        preloadImages.then((images) => {
+          console.log('加载完成')
+          $(".grid").masonry({
+            itemSelector: ".grid-item",
+            // columnWidth: 20,
+            // gutter: 200,
+          });
+        });
+      </script>
+</body>
+</html>

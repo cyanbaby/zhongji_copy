@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css" />
+  <style>
+    .swiper-container {
+      width: 100vw;
+      height: 1080px; /* 设置为图片的高度 */
+      overflow: hidden;
+    }
+
+    .swiper-wrapper {
+      width: 30484px; /* 设置为图片宽度的两倍 */
+      height: 100%;
+      display: flex;
+    }
+
+    .swiper-slide {
+      width: 15242px; /* 设置为图片的宽度 */
+      height: 100%;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="/long-image.jpg" alt="Long Image" />
+      </div>
+      <div class="swiper-slide">
+        <img src="/long-image.jpg" alt="Long Image" />
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const imageWidth = 15242; // 图片的宽度
+      const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+      const speed = (imageWidth / viewportWidth) * 30000; // 根据图片宽度和容器宽度计算速度
+
+      const swiper = new Swiper(".swiper-container", {
+        direction: "horizontal",
+        loop: true,
+        speed: speed,
+        slidesPerView: "auto",
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+        },
+        freeMode: true,
+        freeModeSticky: true,
+      });
+    });
+  </script>
+</body>
+</html>

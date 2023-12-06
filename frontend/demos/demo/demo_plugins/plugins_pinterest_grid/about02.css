@@ -1,0 +1,32 @@
+/* body {
+  overflow-x: hidden;
+} */
+
+.about02-two #gallery-wrapper {
+  position: relative;
+  width: calc(100% + 30px);
+}
+.about02-two img.thumb {
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.about02-two .white-panel {
+  position: absolute;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.about02-two .white-panel:hover .thumb {
+  transform: scale(1.1);
+}
+
+.about02-two #gallery-wrapper {
+  width: calc(100% + 20px);
+}

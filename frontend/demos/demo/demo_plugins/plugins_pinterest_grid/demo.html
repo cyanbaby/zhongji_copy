@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="about02.css" /> -->
+
+    <style>
+
+      .about02-two img.thumb {
+        cursor: pointer;
+        width: 100%;
+        height: auto;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+      .about02-two .white-panel {
+        position: absolute;
+        overflow: hidden;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+      }
+      .about02-two .white-panel:hover .thumb {
+        transform: scale(1.1);
+      }
+
+      .about02-two #gallery-wrapper {
+        position: relative;
+        width: calc(100% + 20px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 第二屏start -->
+    <div style="width: 100%; overflow-x: hidden;">
+      <div class="about02-two main">
+        <section id="gallery-wrapper">
+          <!-- <article class="white-panel">
+            <img
+              src="http://monsa.lxx.design/upload/artgallery/20221214/bbf850b82ed276.jpg"
+              class="thumb"
+            />
+          </article> -->
+  
+          <article class="white-panel">
+            <img src="./images/home_artWork_topLeft.png" />
+          </article>
+          <article class="white-panel">
+            <img src="./images/home_artWork_topRight.png" />
+          </article>
+          <article class="white-panel">
+            <img src="./images/home_artWork_centerLeft.png" />
+          </article>
+          <article class="white-panel">
+            <img src="./images/home_artWork_centerCenter.png" />
+          </article>
+          <article class="white-panel">
+            <img src="./images/home_artWork_centerRight.png" />
+          </article>
+          <article class="white-panel">
+            <img src="./images/home_artWork_bottomLeft.png" alt="" />
+          </article>
+          <article class="white-panel">
+            <img src="./images/home_artWork_bottomRight.png" alt="" />
+          </article>
+        </section>
+      </div>
+    </div>
+    <!-- 第二屏end -->
+    <script src="jquery-1.11.3.min.js"></script>
+    <script src="pinterest_grid.js"></script>
+    <!-- <script src="EasyLazyload.min.js"></script> -->
+    <script src="imagesLoaded.js"></script>
+    <script>
+      // $(function () {
+      //   if ($(window).width() > 1024) {
+      //     $("#gallery-wrapper").pinterest_grid({
+      //       no_columns: 3,
+      //       padding_x: 30,
+      //       padding_y: 30,
+      //       margin_bottom: 300,
+      //       single_column_breakpoint: 1024,
+      //     });
+      //   } else if ($(window).width() <= 1024) {
+      //     $("#gallery-wrapper").pinterest_grid({
+      //       no_columns: 2,
+      //       padding_x: 20,
+      //       padding_y: 20,
+      //       margin_bottom: 200,
+      //       single_column_breakpoint: 0,
+      //     });
+      //   }
+      // });
+
+      const preloadImages = new Promise((resolve, reject) => {
+        imagesLoaded(
+          document.querySelectorAll(".about02-two img"),
+          { background: true },
+          resolve
+        );
+      });
+
+      preloadImages.then((images) => {
+        console.log('加载完成')
+        $("#gallery-wrapper").pinterest_grid({
+            no_columns: 2,
+            padding_x: 20,
+            padding_y: 20,
+            margin_bottom: 200,
+            single_column_breakpoint: 0,
+          });
+      });
+    </script>
+  </body>
+</html>

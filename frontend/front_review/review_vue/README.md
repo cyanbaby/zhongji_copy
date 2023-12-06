@@ -40,6 +40,7 @@ Proxy：Vue 3 使用 Proxy 对象来劫持响应式数据。Proxy 可以劫持�
 - [vue-analysis - Vue.js 技术揭秘](https://github.com/ustbhuangyi/vue-analysis)
 - [考拉勾教育「大前端高薪训练营」3天体验课](考拉勾教育「大前端高薪训练营」3天体验课)
 - [一比一手写迷你版vue，彻底搞懂vue运行机制](https://segmentfault.com/a/1190000042546674#item-2-5)
+- [learnVue](https://github.com/answershuto/learnVue/tree/master)
 
 ## TODO 
 - Vue2 && Vue3 中是怎么监测数组的变化的？   

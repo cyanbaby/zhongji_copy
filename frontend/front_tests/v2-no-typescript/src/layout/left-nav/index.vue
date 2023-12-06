@@ -73,6 +73,7 @@
         <el-menu-item index="/test-demo/element-ui/demo-13"><ic />demo-13</el-menu-item>
         <el-menu-item index="/test-demo/element-ui/demo-14"><ic />展示流程图</el-menu-item>
         <el-menu-item index="/test-demo/element-ui/demo-15"><ic />select事件版回显</el-menu-item>
+        <el-menu-item index="/test-demo/element-ui/demo-16"><ic />el-table 展开拖拽</el-menu-item>
       </el-submenu>
 
       <el-submenu index="/test-demo/vue-echarts">

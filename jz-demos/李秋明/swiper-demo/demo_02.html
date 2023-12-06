@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @keyframes moveToRight20px {
+        0% {
+          left: 100px;
+        }
+        100% {
+          left: 120px;
+        }
+      }
+      .moving-box {
+        position: absolute; /* 或 relative，确保元素使用定位 */
+        left: 100px; /* 设置初始位置 */
+        animation: moveToRight20px 2s forwards; /* 使用动画，持续时间为2秒 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="moving-box">I will move to the right by 20px</div>
+  </body>
+</html>
